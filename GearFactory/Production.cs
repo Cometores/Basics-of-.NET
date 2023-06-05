@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Production
+namespace GearFactory
 {
     public class Production
     {
@@ -21,7 +21,7 @@ namespace Production
         {
             return _gears.Select(item => item.Weight).ToArray();
         }
-        
+
 
         public double GetAverageWeight()
         {
@@ -32,6 +32,7 @@ namespace Production
     public class Gear
     {
         public int Weight { get; set; }
+
         public Gear(int weight)
         {
             this.Weight = weight;

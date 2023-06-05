@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Production
+namespace GearFactory
 {
     internal class Program
     {
-        private static Production production = new Production();
+        private static GearFactory.Production production = new GearFactory.Production();
         private static int gearsAmount;
 
         public static void Main(string[] args)
