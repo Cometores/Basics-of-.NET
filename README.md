@@ -19,4 +19,14 @@ each as a method.
 ### Gear Factory
 
 #### Technologies:
-- rekursive
+- Console application
+- Classes
+
+#### Task
+Create a gear inventory application.
+
+The program will greet the user with 4 functions.
+1) Fill in gear weight information
+2) Output the completed information
+3) Output the average weight of all gears
+4) Exit program
