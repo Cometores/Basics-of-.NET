@@ -2,31 +2,22 @@
 
 namespace Vehicles
 {
-    public enum BicycleType
+    public class Bicycle : Vehicle
     {
-        Cargo,
-        Bmx,
-        Racing, 
-        Recumbent, 
-        Folding
-    }
-    public class Bicycle: IMovable
-    {
-        public string Name { get; set; }
-        public BicycleType Type { get; set; }
-        public bool IsLit { get; set; }
+        private BicycleTypes _Types { get; set; }
+        private bool _IsLit { get; set; }
 
-        public Bicycle(string name, BicycleType type, bool isLit)
+        public Bicycle(string name, BicycleTypes types, bool isLit)
         {
             Name = name;
-            Type = type;
-            IsLit = isLit;
+            _Types = types;
+            _IsLit = isLit;
         }
 
-        public void MovesBy()
+        public override void MovesBy()
         {
-            string output = $"Bicycle {Name} is a {Type}" +
-                            $" and is " + (IsLit ? "" : "un") + "lit\n";
+            string output = $"Bicycle {Name} is a {_Types}" +
+                            $" and is " + (_IsLit ? "" : "un") + "lit\n";
             Console.WriteLine(output);
         }
     }

@@ -2,36 +2,29 @@
 
 namespace Vehicles
 {
-    public enum CarManufacturer
-    {
-        Volvo,
-        Volkswagen,
-        Toyota
-    }
-    
     public class Car : Vehicle
     {
-        public CarManufacturer Manufacturer { get; set; }
-        public int Doors { get; set; }
-        private bool IsAutomatic { get; set; }
+        private CarManufacturerTypes _ManufacturerTypes { get; set; }
+        private int _Doors { get; set; }
+        private bool _IsAutomatic { get; set; }
 
         public Car(string name, int passengers, int doors,
-            CarManufacturer manufacturer, bool isAutomatic, int wheels = 4)
+            CarManufacturerTypes manufacturerTypes, bool isAutomatic, int wheels = 4)
         {
-            this.Name = name;
-            this.Wheels = wheels;
-            this.Passengers = passengers;
-            this.Doors = doors;
-            this.Manufacturer = manufacturer;
-            this.IsAutomatic = isAutomatic;
+            Name = name;
+            _Wheels = wheels;
+            _Passengers = passengers;
+            _Doors = doors;
+            _ManufacturerTypes = manufacturerTypes;
+            _IsAutomatic = isAutomatic;
         }
 
         public override void MovesBy()
         {
-            string output = $"Car {Name} from {Manufacturer} has:" +
-                            $"\n\t{Wheels} wheels and {Doors} doors" +
-                            $"\n\t{Passengers} passengers at max" +
-                            $"\n\tand has " + (IsAutomatic ? "automatic" : "manual") +" transmission\n";
+            string output = $"Car {Name} from {_ManufacturerTypes} has:" +
+                            $"\n\t{_Wheels} wheels and {_Doors} doors" +
+                            $"\n\t{_Passengers} passengers at max" +
+                            $"\n\tand has " + (_IsAutomatic ? "automatic" : "manual") + " transmission\n";
             Console.WriteLine(output);
         }
     }
