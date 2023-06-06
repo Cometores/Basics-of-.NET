@@ -54,16 +54,16 @@ particular traffic participant possesses.
 Map the following entities into classes and create a meaningful inheritance 
 hierarchy:
 1) **Vehicle**
-2) **Truck**
    - number of wheels
+   - number of passengers it can carry
+2) **Truck**
    - max weight it can carry
 3) **Car**
-   - manufacturer (create a listing for this, allowing you to select different manufacturers)
-   - number of passengers it can carry
+   - manufacturer (create a Enum for this, allowing you to select different manufacturers)
    - number of doors
    - manual or automatic transmission
 4) **Bicycle**
-   - type - cargo, racing, recumbent, folding... (create another enumeration for this)
+   - type - cargo, racing, recumbent, folding... (create another Enum for this)
    - Indicates whether the bike is lit or not.
 5) **Pedestrian**
    - has an age and sex.
