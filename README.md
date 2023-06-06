@@ -134,4 +134,37 @@ last name.
 
 
 
-### 1.7 Anagram generator && Lesen und Bearbeiten von MP3- Dateien?
+### 1.7 Anagram generator
+
+## Windows forms
+
+### 2.1 Picture Viewer
+[Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
+
+### 2.2 Timed math quiz
+[Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
+
+
+### 1.8 Read and edit information from MP3 files
+
+### Technologies:
+- Windows Forms
+- BinaryReader & Writer
+
+An application where you can select an mp3 file, process its information, and save it.
+
+This information ("ID3 tags") are located as strings in the **last 125 bytes** of the file.
+- Piece title (30)
+- Artist (30)
+- Album / CD title (30)
+- Year of release (4)
+- Commentary (30)
+- Genre (1)
+
+But first you have to check if the file is really a valid MP3 file.
+This information starts in the 128th byte and is 3 bytes long.
+(I.e. that the complete ID3 tag is 128 bytes long).
+In these 3 bytes must be "TAG" (= TAG-Identification), if not an exception or similar is thrown - is your beer.
+(Of course it can happen that another file has "TAG" in exactly this position, but for simplicity we leave it here).
+
+If the file is read in and e.g. in text boxes the information was output, these can be edited and saved / written with another button.
