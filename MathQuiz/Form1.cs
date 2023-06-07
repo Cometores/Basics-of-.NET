@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace MathQuiz
 {
+    // TODO: sound on ValueChange
     public partial class Form1 : Form
     {
         // Create a Random object called randomizer 
@@ -77,6 +78,8 @@ namespace MathQuiz
             dividedLeftLabel.Text = dividend.ToString();
             dividedRightLabel.Text = divisor.ToString();
             quotient.Value = 0;
+
+            timeLabel.BackColor = SystemColors.Control;
             
             // Start the timer.
             timeLeft = 30;
@@ -146,6 +149,9 @@ namespace MathQuiz
                 // Time Left label.
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
+
+                if (timeLeft == 5)
+                    timeLabel.BackColor = Color.Red;
             }
             else
             {
@@ -180,6 +186,18 @@ namespace MathQuiz
 
         private void sum_KeyDown(object sender, KeyEventArgs e)
         {
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            // Select the whole answer in the NumericUpDown control.
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
         }
     }
 }
