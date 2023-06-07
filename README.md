@@ -161,7 +161,7 @@ Matching game, where the player matches pairs of hidden icons.
 
 
 
-### 1.8 Read and edit information from MP3 files
+### 2.4 Read and edit information from MP3 files
 
 ### Technologies:
 - Windows Forms
