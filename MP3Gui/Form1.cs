@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MP3
+namespace MP3Gui
 {
     public partial class Form1 : Form
     {

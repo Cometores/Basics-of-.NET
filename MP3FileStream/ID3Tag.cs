@@ -44,7 +44,7 @@ namespace MP3FileStream
 
         public override string ToString()
         {
-            string s = "Not valid MP3 file";
+            string s = "Not valid MP3Gui file";
             if (IsValid)
             {
                 s = $"Title: {Encoding.Default.GetString(Title)}\n" +

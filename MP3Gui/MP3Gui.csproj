@@ -6,8 +6,8 @@
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <ProjectGuid>{E094B9AB-B025-4BAF-AA8D-3EB42143F385}</ProjectGuid>
         <OutputType>WinExe</OutputType>
-        <RootNamespace>MP3</RootNamespace>
-        <AssemblyName>MP3</AssemblyName>
+        <RootNamespace>MP3Gui</RootNamespace>
+        <AssemblyName>MP3Gui</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

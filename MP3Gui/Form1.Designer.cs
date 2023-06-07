@@ -1,4 +1,4 @@
-﻿namespace MP3
+﻿namespace MP3Gui
 {
     partial class Form1
     {
@@ -203,7 +203,7 @@
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(123, 37);
             this.openButton.TabIndex = 6;
-            this.openButton.Text = "Open MP3 File";
+            this.openButton.Text = "Open MP3Gui File";
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
@@ -261,7 +261,7 @@
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
-            this.Text = "MP3 editor";
+            this.Text = "MP3Gui editor";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MP3.Properties
+namespace MP3Gui.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace MP3.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("MP3.Properties.Resources",
+                        new global::System.Resources.ResourceManager("MP3Gui.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
