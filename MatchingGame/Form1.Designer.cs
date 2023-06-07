@@ -183,6 +183,7 @@
             this.label9.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Webdings", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label9.Location = new System.Drawing.Point(5, 256);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(125, 125);
