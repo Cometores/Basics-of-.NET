@@ -2,8 +2,8 @@
 {
     public enum GenreTypes
     {
-//     00 - Blues
-// 01 - Classic Rock
+        Blues,
+        ClassicRock
 // 02 - Country
 // 03 - Dance
 // 04 - Disco
