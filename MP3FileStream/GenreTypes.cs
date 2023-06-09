@@ -2,151 +2,152 @@
 {
     public enum GenreTypes
     {
-        Blues,
-        ClassicRock
-// 02 - Country
-// 03 - Dance
-// 04 - Disco
-// 05 - Funk
-// 06 - Grunge
-// 07 - Hip-Hop
-// 08 - Jazz
-// 09 - Metal
-// 10 - New Age
-// 11 - Oldies
-// 12 - Other
-// 13 - Pop
-// 14 - R&B
-// 15 - Rap
-// 16 - Reggae
-// 17 - Rock
-// 18 - Techno
-// 19 - Industrial
-// 20 - Alternative
-// 21 - Ska
-// 22 - Death Metal
-// 23 - Pranks
-// 24 - Soundtrack
-// 25 - Euro-Techno
-// 26 - Ambient
-// 27 - Trip-Hop
-// 28 - Vocal
-// 29 - Jazz+Funk
-// 30 - Fusion
-// 31 - Trance
-// 32 - Classical
-// 33 - Instrumental
-// 34 - Acid
-// 35 - House
-// 36 - Game
-// 37 - Sound Clip
-// 38 - Gospel
-// 39 - Noise
-// 40 - Alternative Rock
-// 41 - Bass
-// 43 - Punk
-// 44 - Space
-// 45 - Meditative
-// 46 - Instrumental Pop
-// 47 - Instrumental Rock
-// 48 - Ethnic
-// 49 - Gothic
-// 50 - Darkwave
-// 51 - Techno-Industrial
-// 52 - Electronic
-// 53 - Pop-Folk
-// 54 - Eurodance
-// 55 - Dream
-// 56 - Southern Rock
-// 57 - Comedy
-// 58 - Cult
-// 59 - Gangsta
-// 60 - Top 40
-// 61 - Christian Rap
-// 62 - Pop/Funk
-// 63 - Jungle
-// 64 - Native US
-// 65 - Cabaret
-// 66 - New Wave
-// 67 - Psychadelic
-// 68 - Rave
-// 69 - Showtunes
-// 70 - Trailer
-// 71 - Lo-Fi
-// 72 - Tribal
-// 73 - Acid Punk
-// 74 - Acid Jazz
-// 75 - Polka
-// 76 - Retro
-// 77 - Musical
-// 78 - Rock & Roll
-// 79 - Hard Rock
-// 80 - Folk
-// 81 - Folk-Rock
-// 82 - National Folk
-// 83 - Swing
-// 84 - Fast Fusion
-// 85 - Bebob
-// 86 - Latin
-// 87 - Revival
-// 88 - Celtic
-// 89 - Bluegrass
-// 90 - Avantgarde
-// 91 - Gothic Rock
-// 92 - Progressive Rock
-// 93 - Psychedelic Rock
-// 94 - Symphonic Rock
-// 95 - Slow Rock
-// 96 - Big Band
-// 97 - Chorus
-// 98 - Easy Listening
-// 99 - Acoustic	100 - Humour
-// 101 - Speech
-// 102 - Chanson
-// 103 - Opera
-// 104 - Chamber Music
-// 105 - Sonata
-// 106 - Symphony
-// 107 - Booty Bass
-// 108 - Primus
-// 109 - Porn Groove
-// 110 - Satire
-// 111 - Slow Jam
-// 112 - Club
-// 113 - Tango
-// 114 - Samba
-// 115 - Folklore
-// 116 - Ballad
-// 117 - Power Ballad
-// 118 - Rhytmic Soul
-// 119 - Freestyle
-// 120 - Duet
-// 121 - Punk Rock
-// 122 - Drum Solo
-// 123 - Acapella
-// 124 - Euro-House
-// 125 - Dance Hall
-// 126 - Goa
-// 127 - Drum & Bass
-// 128 - Club-House
-// 129 - Hardcore
-// 130 - Terror
-// 131 - Indie
-// 132 - BritPop
-// 133 - Negerpunk
-// 134 - Polsk Punk
-// 135 - Beat
-// 136 - Christian Gangsta
-// 137 - Heavy Metal
-// 138 - Black Metal
-// 139 - Crossover
-// 140 - Contemporary C
-// 141 - Christian Rock
-// 142 - Merengue
-// 143 - Salsa
-// 144 - Thrash Metal
-// 145 - Anime
-// 146 - JPop
-// 147 - SynthPop
+        Blues,              // 00
+        ClassicRock,        // 01
+        Country,            // 02 
+        Dance,              // 03 
+        Disco,              // 04
+        Funk,               // 05
+        Grunge,             // 06 
+        HipHop,             // 07
+        Jazz,               // 08 
+        Metal,              // 09 
+        NewAge,             // 10
+        Oldies,             // 11
+        Other,              // 12 
+        Pop,                // 13 
+        RandB,              // 14
+        Rap,                // 15 
+        Reggae,             // 16
+        Rock,               // 17
+        Techno,             // 18 
+        Industrial,         // 19 
+        Alternative,        // 20 
+        Ska,                // 21 
+        DeathMetal,         // 22 
+        Pranks,             // 23
+        Soundtrack,         // 24 
+        EuroTechno,         // 25 
+        Ambient,            // 26 
+        TripHop,            // 27 
+        Vocal,              // 28 
+        JazzFunk,           // 29 
+        Fusion,             // 30 
+        Trance,             // 31 
+        Classical,          // 32 
+        Instrumental,       // 33 
+        Acid,               // 34 
+        House,              // 35 
+        Game,               // 36 
+        SoundClip,          // 37
+        Gospel,             // 38
+        Noise,              // 39 
+        AlternativeRock,    // 40 
+        Bass,               // 41 
+        Punk,               // 43 
+        Space,              // 44 
+        Meditative,         // 45 
+        InstrumentalPop,    // 46 
+        InstrumentalRock,   // 47
+        Ethnic,             // 48 
+        Gothic,             // 49 
+        Darkwave,           // 50 
+        TechnoIndustrial,   // 51 
+        Electronic,         // 52 
+        PopFolk,            // 53 
+        Eurodance,          // 54 
+        Dream,              // 55 
+        SouthernRock,       // 56 
+        Comedy,             // 57 
+        Cult,               // 58 
+        Gangsta,            // 59 
+        Top40,              // 60 
+        ChristianRap,       // 61 
+        PopFunk,            // 62 
+        Jungle,             // 63
+        NativeUS,           // 64 
+        Cabaret,            // 65 
+        NewWave,            // 66
+        Psychadelic,        // 67 
+        Rave,               // 68 
+        Showtunes,          // 69 
+        Trailer,            // 70 
+        LoFi,               // 71 
+        Tribal,             // 72 
+        AcidPunk,           // 73 
+        AcidJazz,           // 74 
+        Polka,              // 75
+        Retro,              // 76
+        Musical,            // 77 
+        RockAndRoll,        // 78 
+        HardRock,           // 79 
+        Folk,               // 80 
+        FolkRock,           // 81 
+        NationalFolk,       // 82 
+        Swing,              // 83 
+        FastFusion,         // 84 
+        Bebob,              // 85  
+        Latin,              // 86  
+        Revival,            // 87 
+        Celtic,             // 88  
+        Bluegrass,          // 89 
+        Avantgarde,         // 90 
+        GothicRock,         // 91 
+        ProgressiveRock,    // 92 
+        PsychedelicRock,    // 93 
+        SymphonicRock,      // 94 
+        SlowRock,           // 95 
+        BigBand,            // 96 
+        Chorus,             // 97 
+        EasyListening,      // 98
+        Acoustic,           // 99
+        Humour,             // 100
+        Speech,             // 101
+        Chanson,            // 102 
+        Opera,              // 103
+        ChamberMusic,       // 104 
+        Sonata,             // 105 
+        Symphony,           // 106 
+        BootyBass,          // 107
+        Primus,             // 108
+        PornGroove,         // 109
+        Satire,             // 110 
+        SlowJam,            // 111
+        Club,               // 112 
+        Tango,              // 113
+        Samba,              // 114 
+        Folklore,           // 115
+        Ballad,             // 116
+        PowerBallad,        // 117 
+        RhytmicSoul,        // 118
+        Freestyle,          // 119 
+        Duet,               // 120 
+        PunkRock,           // 121
+        DrumSolo,           // 122 
+        Acapella,           // 123 
+        EuroHouse,          // 124 
+        DanceHall,          // 125 
+        Goa,                // 126
+        DrumAndBass,        // 127
+        ClubHouse,          // 128 
+        Hardcore,           // 129 
+        Terror,             // 130 
+        Indie,              // 131 
+        BritPop,            // 132
+        Negerpunk,          // 133 
+        PolskPunk,          // 134 
+        Beat,               // 135
+        ChristianGangsta,   // 136 
+        HeavyMetal,         // 137 
+        BlackMetal,         // 138
+        Crossover,          // 139
+        ContemporaryC,      // 140 
+        ChristianRock,      // 141 
+        Merengue,           // 142 
+        Salsa,              // 143 
+        ThrashMetal,        // 144 
+        Anime,              // 145
+        JPop,               // 146
+        SynthPop,           // 147
     }
 }

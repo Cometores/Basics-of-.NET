@@ -7,6 +7,7 @@ using System.Text;
  * Notes for Chris
  * 1) IsValid is redundant, because we already throw Exceptions. Or?
  * 2) Did I defined Exceptions right?
+ * 3) Length check in setters seems to be redundant, because we already define length in ID3Tag creation methonds
  */
 namespace MP3FileStream
 {
@@ -81,6 +82,8 @@ namespace MP3FileStream
             {
                 if (value.Length > 4)
                     throw new NotValidID3TagException("Year is too long");
+                if (Convert.ToInt32(value) > DateTime.Now.Year)
+                    throw new NotValidID3TagException($"The year {value} hasn't come yet");
                 _Year = value;
             }
         }
@@ -103,7 +106,7 @@ namespace MP3FileStream
             {
                 if (value.Length != 1)
                     throw new NotValidID3TagException("Genre need to be 1 byte");
-                // if (Convert.ToInt32(value) < 0 || Convert.ToInt32(value) > 147)
+                // if (Convert.ToInt32(value) < 0 || Convert.ToInt32(value) > 147) #TODO: Genre improvement needed
                 //     throw new NotValidID3TagException("Genre can only take values from 0 to 147");
                 _Genre = value;
             }
@@ -156,7 +159,7 @@ namespace MP3FileStream
         public static ID3Tag FromBytes(byte[] bytes)
         {
             if (bytes.Length != 128)
-                throw new NotValidMP3FileException();
+                throw new NotValidMP3FileException("ID3 should be 128 bytes");
 
             byte[] tagIdBytes = bytes.Take(3).ToArray();;
             byte[] titleBytes = bytes.Skip(3).Take(30).ToArray();
@@ -177,9 +180,9 @@ namespace MP3FileStream
                 s = $"Title: {Title}\n" +
                     $"Artist: {Artist}\n" +
                     $"Album: {Album}\n" +
-                    $"Title: {Year}\n" +
-                    $"Title: {Comment}\n" +
-                    $"Title: {Genre}";
+                    $"Year: {Year}\n" +
+                    $"Comment: {Comment}\n" +
+                    $"Genre: {Genre}";
             }
 
             return s;
