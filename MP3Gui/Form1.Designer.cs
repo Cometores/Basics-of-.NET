@@ -237,12 +237,12 @@
             // fileNameLabel
             // 
             this.fileNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.fileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileNameLabel.Location = new System.Drawing.Point(3, 1);
             this.fileNameLabel.Name = "fileNameLabel";
             this.fileNameLabel.Size = new System.Drawing.Size(212, 40);
             this.fileNameLabel.TabIndex = 0;
-            this.fileNameLabel.Text = "FileName";
+            this.fileNameLabel.Text = "*FileName*";
             this.fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // saveButton
