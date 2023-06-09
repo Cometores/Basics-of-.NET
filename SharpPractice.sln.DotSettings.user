@@ -1,12 +1,28 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cacac6ac_002D5ff2_002D4cf8_002Dae85_002Dc994004802b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=415ca89e_002D0453_002D4eb5_002D870b_002D6f0b4e7445ed/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ValidByteID3Test #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromBytesTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4fbee029_002D4a69_002D4fc2_002Da9f8_002D9f12caea2494/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ValidByteID3Test #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromBytesTests.ValidByteID3Test&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cacac6ac_002D5ff2_002D4cf8_002Dae85_002Dc994004802b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
     &lt;Project Location="C:\andrey\Rider\SharpPractice\MathematicsClassTests" Presentation="&amp;lt;Basics&amp;gt;\&amp;lt;MathematicsClassTests&amp;gt;" /&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromStreamTests.ValidMp3Test&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromStreamTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromBytesTests.ValidByteID3Test&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ea11f415_002Da84c_002D4552_002D86dc_002Da774ae0b3d6e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ValidByteID3Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromBytesTests.ValidByteID3Test&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FForm1/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>
