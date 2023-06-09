@@ -55,8 +55,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.8843F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.1157F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.40909F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.59091F));
             this.tableLayoutPanel1.Controls.Add(this.genreLabel, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.commentaryLabel, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.yearLabel, 0, 4);
@@ -75,14 +75,14 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.8755F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.25301F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.4498F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.85141F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.25301F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.06426F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.26104F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 249);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.82759F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.22414F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.36207F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.36207F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.36207F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.22414F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.63793F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(491, 246);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // genreLabel
@@ -90,7 +90,7 @@
             this.genreLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreLabel.Location = new System.Drawing.Point(97, 220);
+            this.genreLabel.Location = new System.Drawing.Point(87, 220);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(49, 18);
             this.genreLabel.TabIndex = 13;
@@ -101,7 +101,7 @@
             this.commentaryLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.commentaryLabel.AutoSize = true;
             this.commentaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentaryLabel.Location = new System.Drawing.Point(52, 181);
+            this.commentaryLabel.Location = new System.Drawing.Point(42, 186);
             this.commentaryLabel.Name = "commentaryLabel";
             this.commentaryLabel.Size = new System.Drawing.Size(94, 18);
             this.commentaryLabel.TabIndex = 12;
@@ -112,7 +112,7 @@
             this.yearLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearLabel.Location = new System.Drawing.Point(38, 146);
+            this.yearLabel.Location = new System.Drawing.Point(28, 153);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(108, 18);
             this.yearLabel.TabIndex = 11;
@@ -123,7 +123,7 @@
             this.albumLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.albumLabel.AutoSize = true;
             this.albumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.albumLabel.Location = new System.Drawing.Point(37, 114);
+            this.albumLabel.Location = new System.Drawing.Point(27, 121);
             this.albumLabel.Name = "albumLabel";
             this.albumLabel.Size = new System.Drawing.Size(109, 18);
             this.albumLabel.TabIndex = 10;
@@ -134,7 +134,7 @@
             this.artistLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.artistLabel.AutoSize = true;
             this.artistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.artistLabel.Location = new System.Drawing.Point(105, 84);
+            this.artistLabel.Location = new System.Drawing.Point(95, 89);
             this.artistLabel.Name = "artistLabel";
             this.artistLabel.Size = new System.Drawing.Size(41, 18);
             this.artistLabel.TabIndex = 9;
@@ -144,60 +144,60 @@
             // 
             this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(152, 49);
+            this.titleTextBox.Location = new System.Drawing.Point(142, 52);
             this.titleTextBox.MaxLength = 30;
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(285, 26);
+            this.titleTextBox.Size = new System.Drawing.Size(346, 26);
             this.titleTextBox.TabIndex = 0;
             // 
             // artistTextBox
             // 
             this.artistTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.artistTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.artistTextBox.Location = new System.Drawing.Point(152, 81);
+            this.artistTextBox.Location = new System.Drawing.Point(142, 85);
             this.artistTextBox.MaxLength = 30;
             this.artistTextBox.Name = "artistTextBox";
-            this.artistTextBox.Size = new System.Drawing.Size(285, 26);
+            this.artistTextBox.Size = new System.Drawing.Size(346, 26);
             this.artistTextBox.TabIndex = 1;
             // 
             // albumTextBox
             // 
             this.albumTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.albumTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.albumTextBox.Location = new System.Drawing.Point(152, 111);
+            this.albumTextBox.Location = new System.Drawing.Point(142, 117);
             this.albumTextBox.MaxLength = 30;
             this.albumTextBox.Name = "albumTextBox";
-            this.albumTextBox.Size = new System.Drawing.Size(285, 26);
+            this.albumTextBox.Size = new System.Drawing.Size(346, 26);
             this.albumTextBox.TabIndex = 2;
             // 
             // yearTextBox
             // 
             this.yearTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearTextBox.Location = new System.Drawing.Point(152, 142);
+            this.yearTextBox.Location = new System.Drawing.Point(142, 149);
             this.yearTextBox.MaxLength = 4;
             this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(285, 26);
+            this.yearTextBox.Size = new System.Drawing.Size(346, 26);
             this.yearTextBox.TabIndex = 3;
             // 
             // commentaryTextBox
             // 
             this.commentaryTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.commentaryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentaryTextBox.Location = new System.Drawing.Point(152, 177);
+            this.commentaryTextBox.Location = new System.Drawing.Point(142, 182);
             this.commentaryTextBox.MaxLength = 30;
             this.commentaryTextBox.Name = "commentaryTextBox";
-            this.commentaryTextBox.Size = new System.Drawing.Size(285, 26);
+            this.commentaryTextBox.Size = new System.Drawing.Size(346, 26);
             this.commentaryTextBox.TabIndex = 4;
             // 
             // genreTextBox
             // 
             this.genreTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.genreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreTextBox.Location = new System.Drawing.Point(152, 216);
+            this.genreTextBox.Location = new System.Drawing.Point(142, 216);
             this.genreTextBox.MaxLength = 1;
             this.genreTextBox.Name = "genreTextBox";
-            this.genreTextBox.Size = new System.Drawing.Size(285, 26);
+            this.genreTextBox.Size = new System.Drawing.Size(346, 26);
             this.genreTextBox.TabIndex = 5;
             // 
             // openButton
@@ -205,9 +205,9 @@
             this.openButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.openButton.AutoSize = true;
             this.openButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openButton.Location = new System.Drawing.Point(3, 4);
+            this.openButton.Location = new System.Drawing.Point(30, 6);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(143, 37);
+            this.openButton.Size = new System.Drawing.Size(106, 36);
             this.openButton.TabIndex = 6;
             this.openButton.Text = "Open MP3";
             this.openButton.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(69, 52);
+            this.titleLabel.Location = new System.Drawing.Point(59, 55);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(77, 20);
             this.titleLabel.TabIndex = 8;
@@ -229,9 +229,9 @@
             this.flowLayoutPanel1.Controls.Add(this.fileNameLabel);
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(152, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(142, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(285, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(346, 42);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // fileNameLabel
@@ -248,8 +248,10 @@
             // saveButton
             // 
             this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.saveButton.Enabled = false;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(221, 3);
+            this.saveButton.Location = new System.Drawing.Point(278, 3);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(60, 3, 3, 3);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(61, 37);
             this.saveButton.TabIndex = 1;
@@ -265,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 249);
+            this.ClientSize = new System.Drawing.Size(491, 246);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "MP3Gui editor";
