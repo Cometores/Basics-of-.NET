@@ -79,5 +79,11 @@
     <ItemGroup>
         <None Include="App.config" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MP3FileStream\MP3FileStream.csproj">
+        <Project>{5c050aa3-f094-4ded-9d0a-d990333e30d3}</Project>
+        <Name>MP3FileStream</Name>
+      </ProjectReference>
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
