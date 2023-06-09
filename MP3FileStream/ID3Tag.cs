@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace MP3FileStream
@@ -16,59 +17,89 @@ namespace MP3FileStream
         private byte[] _commentBytes = new byte[30];
         private byte[] _genreBytes = new byte[1];
 
-        private string _tagIdString;
-        private string _titleString;
-        private string _artistString;
-        private string _albumString;
-        private string _yearString;
-        private string _commentString;
-        private string _genreString;
+        private string _TagId;
+        private string _Title;
+        private string _Artist;
+        private string _Album;
+        private string _Year;
+        private string _Comment;
+        private string _Genre;
 
         public string TagId
         {
-            get { return _tagIdString; }
+            get { return _TagId; }
             set
             {
                 if (value.Length != 3 && value != "TAG")
                     throw new Exception();
-                _tagIdString = value;
+                _TagId = value;
             }
         }
 
         public string Title
         {
-            get { return _titleString; }
-            set { _titleString = value; }
+            get { return _Title; }
+            set
+            {
+                if (value.Length > 30)
+                    throw new Exception();
+                _Title = value;
+            }
         }
 
         public string Artist
         {
-            get { return _artistString; }
-            set { _artistString = value; }
+            get { return _Artist; }
+            set
+            {
+                if (value.Length > 30)
+                    throw new Exception();
+                _Artist = value;
+            }
         }
 
         public string Album
         {
-            get { return _albumString; }
-            set { _albumString = value; }
+            get { return _Album; }
+            set
+            {
+                if (value.Length > 30)
+                    throw new Exception();
+                _Album = value;
+            }
         }
 
         public string Year
         {
-            get { return _yearString; }
-            set { _yearString = value; }
+            get { return _Year; }
+            set
+            {
+                if (value.Length > 4)
+                    throw new Exception();
+                _Year = value;
+            }
         }
 
         public string Comment
         {
-            get { return _commentString; }
-            set { _commentString = value; }
+            get { return _Comment; }
+            set
+            {
+                if (value.Length > 30)
+                    throw new Exception();
+                _Comment = value;
+            }
         }
 
         public string Genre
         {
-            get { return _genreString; }
-            set { _genreString = value; }
+            get { return _Genre; }
+            set
+            {
+                if (value.Length != 1)
+                    throw new Exception();
+                _Genre = value;
+            }
         }
 
         private ID3Tag(byte[] tagIdBytes,
@@ -81,25 +112,25 @@ namespace MP3FileStream
         {
             TagId = Encoding.Default.GetString(tagIdBytes);
             _tagIdBytes = tagIdBytes;
-            
+
             Title = Encoding.Default.GetString(titleBytes);
             _titleBytes = titleBytes;
-            
+
             Artist = Encoding.Default.GetString(artistBytes);
             _artistBytes = artistBytes;
 
             Album = Encoding.Default.GetString(albumBytes);
             _albumBytes = albumBytes;
-            
+
             Year = Encoding.Default.GetString(yearBytes);
             _yearBytes = yearBytes;
-            
+
             Comment = Encoding.Default.GetString(commentBytes);
             _commentBytes = commentBytes;
-            
+
             Genre = Encoding.Default.GetString(genreBytes);
             _genreBytes = genreBytes;
-            
+
             IsValid = TagId.Equals("TAG");
         }
 
@@ -108,38 +139,27 @@ namespace MP3FileStream
             if (stream.Length < 128)
                 throw new Exception(); //TODO: 
 
+            byte[] bytes = new byte[128];
             stream.Seek(-128, SeekOrigin.End);
+            stream.Read(bytes, 0, bytes.Length);
 
-            byte[] tagIdBytes = new byte[3];
-            byte[] titleBytes = new byte[30];
-            byte[] artistBytes = new byte[30];
-            byte[] albumBytes = new byte[30];
-            byte[] yearBytes = new byte[4];
-            byte[] commentBytes = new byte[30];
-            byte[] genreBytes = new byte[1];
-
-            stream.Read(tagIdBytes, 0, tagIdBytes.Length);
-            stream.Read(titleBytes, 0, titleBytes.Length);
-            stream.Read(artistBytes, 0, artistBytes.Length);
-            stream.Read(albumBytes, 0, albumBytes.Length);
-            stream.Read(yearBytes, 0, yearBytes.Length);
-            stream.Read(commentBytes, 0, commentBytes.Length);
-            stream.Read(genreBytes, 0, genreBytes.Length);
-
-            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
+            return FromBytes(bytes);
         }
 
         // TODO:
         public static ID3Tag FromBytes(byte[] bytes)
         {
-            byte[] tagIdBytes = new byte[3];
-            byte[] titleBytes = new byte[30];
-            byte[] artistBytes = new byte[30];
-            byte[] albumBytes = new byte[30];
-            byte[] yearBytes = new byte[4];
-            byte[] commentBytes = new byte[30];
-            byte[] genreBytes = new byte[1];
-            
+            if (bytes.Length != 128)
+                throw new Exception(); //TODO: 
+
+            byte[] tagIdBytes = bytes.Take(3).ToArray();;
+            byte[] titleBytes = bytes.Skip(3).Take(30).ToArray();
+            byte[] artistBytes = bytes.Skip(33).Take(30).ToArray();
+            byte[] albumBytes = bytes.Skip(63).Take(30).ToArray();
+            byte[] yearBytes = bytes.Skip(93).Take(4).ToArray();
+            byte[] commentBytes = bytes.Skip(97).Take(30).ToArray();
+            byte[] genreBytes = bytes.Skip(127).Take(1).ToArray();
+
             return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
         }
 
