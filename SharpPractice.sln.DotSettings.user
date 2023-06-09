@@ -1,6 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cacac6ac_002D5ff2_002D4cf8_002Dae85_002Dc994004802b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\andrey\Rider\SharpPractice\MathematicsClassTests" Presentation="&amp;lt;Basics&amp;gt;\&amp;lt;MathematicsClassTests&amp;gt;" /&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\andrey\Rider\SharpPractice\MathematicsClassTests" Presentation="&amp;lt;Basics&amp;gt;\&amp;lt;MathematicsClassTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromStreamTests.ValidMp3Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::EC444AE2-B5A2-4443-A6BA-372CD03BC9C9::.NETFramework,Version=v4.8::MP3FileStreamTests.FromStreamTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FForm1/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>

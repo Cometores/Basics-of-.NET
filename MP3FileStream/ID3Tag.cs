@@ -6,7 +6,7 @@ using System.Text;
 /*
  * Notes for Chris
  * 1) IsValid is redundant, because we already throw Exceptions. Or?
- * 2) Did I defined Exceptions right?
+ * 2) Did I defined Exceptions right? They look like shitcode
  * 3) Length check in setters seems to be redundant, because we already define length in ID3Tag creation methonds
  */
 namespace MP3FileStream
@@ -36,8 +36,8 @@ namespace MP3FileStream
             get => _TagId;
             set
             {
-                if (value.Length != 3 && value != "TAG")
-                    throw new NotValidID3TagException("Not valid id-TAG");
+                if (value.Length != 3 || value != "TAG")
+                    throw new NotValidID3TagException("Not valid ID TAG");
                 _TagId = value;
             }
         }
@@ -49,7 +49,7 @@ namespace MP3FileStream
             {
                 if (value.Length > 30)
                     throw new NotValidID3TagException("Title is too long");
-                _Title = value;
+                _Title = value.Replace("\0", "");
             }
         }
 
@@ -60,7 +60,7 @@ namespace MP3FileStream
             {
                 if (value.Length > 30)
                     throw new NotValidID3TagException("Artist name is too long");
-                _Artist = value;
+                _Artist = value.Replace("\0", "");
             }
         }
 
@@ -71,7 +71,7 @@ namespace MP3FileStream
             {
                 if (value.Length > 30)
                     throw new NotValidID3TagException("Album name is too long");
-                _Album = value;
+                _Album = value.Replace("\0", "");
             }
         }
 
@@ -84,7 +84,7 @@ namespace MP3FileStream
                     throw new NotValidID3TagException("Year is too long");
                 if (Convert.ToInt32(value) > DateTime.Now.Year)
                     throw new NotValidID3TagException($"The year {value} hasn't come yet");
-                _Year = value;
+                _Year = value.Replace("\0", "");
             }
         }
 
@@ -95,7 +95,7 @@ namespace MP3FileStream
             {
                 if (value.Length > 30)
                     throw new NotValidID3TagException("Comment is too long");
-                _Comment = value;
+                _Comment = value.Replace("\0", "");
             }
         }
 
