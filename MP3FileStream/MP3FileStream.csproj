@@ -41,6 +41,8 @@
     <ItemGroup>
         <Compile Include="GenreTypes.cs" />
         <Compile Include="ID3Tag.cs" />
+        <Compile Include="NotValidID3TagException.cs" />
+        <Compile Include="NotValidMP3FileException.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

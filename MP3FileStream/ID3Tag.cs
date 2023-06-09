@@ -3,19 +3,24 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+/*
+ * Notes for Chris
+ * 1) IsValid is redundant, because we already throw Exceptions. Or?
+ * 2) Did I defined Exceptions right?
+ */
 namespace MP3FileStream
 {
     public class ID3Tag
     {
-        public bool IsValid { get; set; } // TODO: maybe redundant, because we already have exceptions
+        public bool IsValid { get; set; } 
 
-        private byte[] _tagIdBytes = new byte[3];
-        private byte[] _titleBytes = new byte[30];
-        private byte[] _artistBytes = new byte[30];
-        private byte[] _albumBytes = new byte[30];
-        private byte[] _yearBytes = new byte[4];
-        private byte[] _commentBytes = new byte[30];
-        private byte[] _genreBytes = new byte[1];
+        private byte[] _tagIdBytes;
+        private byte[] _titleBytes;
+        private byte[] _artistBytes;
+        private byte[] _albumBytes;
+        private byte[] _yearBytes;
+        private byte[] _commentBytes;
+        private byte[] _genreBytes;
 
         private string _TagId;
         private string _Title;
@@ -27,77 +32,79 @@ namespace MP3FileStream
 
         public string TagId
         {
-            get { return _TagId; }
+            get => _TagId;
             set
             {
                 if (value.Length != 3 && value != "TAG")
-                    throw new Exception();
+                    throw new NotValidID3TagException("Not valid id-TAG");
                 _TagId = value;
             }
         }
 
         public string Title
         {
-            get { return _Title; }
+            get => _Title;
             set
             {
                 if (value.Length > 30)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Title is too long");
                 _Title = value;
             }
         }
 
         public string Artist
         {
-            get { return _Artist; }
+            get => _Artist;
             set
             {
                 if (value.Length > 30)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Artist name is too long");
                 _Artist = value;
             }
         }
 
         public string Album
         {
-            get { return _Album; }
+            get => _Album;
             set
             {
                 if (value.Length > 30)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Album name is too long");
                 _Album = value;
             }
         }
 
         public string Year
         {
-            get { return _Year; }
+            get => _Year;
             set
             {
                 if (value.Length > 4)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Year is too long");
                 _Year = value;
             }
         }
 
         public string Comment
         {
-            get { return _Comment; }
+            get => _Comment;
             set
             {
                 if (value.Length > 30)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Comment is too long");
                 _Comment = value;
             }
         }
 
         public string Genre
         {
-            get { return _Genre; }
+            get => _Genre;
             set
             {
                 if (value.Length != 1)
-                    throw new Exception();
+                    throw new NotValidID3TagException("Genre need to be 1 byte");
+                // if (Convert.ToInt32(value) < 0 || Convert.ToInt32(value) > 147)
+                //     throw new NotValidID3TagException("Genre can only take values from 0 to 147");
                 _Genre = value;
             }
         }
@@ -137,7 +144,7 @@ namespace MP3FileStream
         public static ID3Tag FromStream(Stream stream)
         {
             if (stream.Length < 128)
-                throw new Exception(); //TODO: 
+                throw new NotValidMP3FileException(); 
 
             byte[] bytes = new byte[128];
             stream.Seek(-128, SeekOrigin.End);
@@ -146,11 +153,10 @@ namespace MP3FileStream
             return FromBytes(bytes);
         }
 
-        // TODO:
         public static ID3Tag FromBytes(byte[] bytes)
         {
             if (bytes.Length != 128)
-                throw new Exception(); //TODO: 
+                throw new NotValidMP3FileException();
 
             byte[] tagIdBytes = bytes.Take(3).ToArray();;
             byte[] titleBytes = bytes.Skip(3).Take(30).ToArray();
