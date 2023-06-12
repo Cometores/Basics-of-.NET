@@ -8,8 +8,10 @@ using System.Text;
  * 1) IsValid is redundant, because we already throw Exceptions. Or?
  * 2) Did I defined Exceptions right? They look like shitcode
  * 3) Length check in setters seems to be redundant, because we already define length in ID3Tag creation methonds
- * 4) Need to make more test cases. Is there an attribute for test method TODO?
- * 5) Need to improve genre.
+ * 4) Need to make more test cases. Is there an attribute for test method TODO that should be implemented?
+ * 5) Need to improve genre, it doesn't work.
+ * 6) Need to delete useless functions fileNameLabel_Click and SaveFileDialog1 in Form1.cs
+ * that was created accidentally
  */
 namespace MP3FileStream
 {

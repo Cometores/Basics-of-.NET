@@ -14,7 +14,10 @@ namespace MP3Gui
 {
     public partial class Form1 : Form
     {
-        private ID3Tag id3Tag;
+        private ID3Tag _id3Tag;
+        private string _mp3OriginalPath;
+        private string _mp3NewPath;
+        
         public Form1()
         {
             InitializeComponent();
@@ -24,18 +27,20 @@ namespace MP3Gui
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                _mp3OriginalPath = openFileDialog1.FileName;
+                
                 using (FileStream fs = File.OpenRead(openFileDialog1.FileName))
                 {
                     try
                     {
-                        id3Tag = ID3Tag.FromStream(fs);
+                        _id3Tag = ID3Tag.FromStream(fs);
                         
-                        titleTextBox.Text = id3Tag.Title;
-                        artistTextBox.Text = id3Tag.Artist;
-                        albumTextBox.Text = id3Tag.Album;
-                        yearTextBox.Text = id3Tag.Year;
-                        commentaryTextBox.Text = id3Tag.Comment;
-                        genreTextBox.Text = id3Tag.Genre;
+                        titleTextBox.Text = _id3Tag.Title;
+                        artistTextBox.Text = _id3Tag.Artist;
+                        albumTextBox.Text = _id3Tag.Album;
+                        yearTextBox.Text = _id3Tag.Year;
+                        commentaryTextBox.Text = _id3Tag.Comment;
+                        genreTextBox.Text = _id3Tag.Genre;
 
                         fileNameLabel.Text = openFileDialog1.SafeFileName;
                     }
@@ -49,19 +54,46 @@ namespace MP3Gui
                         Console.WriteLine(exception);
                         throw;
                     }
-                    
-                    
                 }
-                // using (BinaryReader binary_reader = new BinaryReader(File.Open(openFileDialog1.FileName, FileMode.Open)))
-                // {
-                //     
-                // }
+
+                saveButton.Enabled = true;
+            }
+        }
+        
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _mp3NewPath = saveFileDialog1.FileName;
+                
+                if(File.Exists(_mp3NewPath))
+                    File.Delete(_mp3NewPath);
+                
+                File.Copy(_mp3OriginalPath, _mp3NewPath);
+                
+                string title = titleTextBox.Text;
+                string artist = artistTextBox.Text;
+                string album = albumTextBox.Text;
+                string year = yearTextBox.Text;
+                string comment = commentaryTextBox.Text;
+                string genre = genreTextBox.Text; //TODO: Genre improvement
+
+                ID3Tag id3Tag = ID3Tag.FromStrings(title, artist, album, year, comment, genre);
+
+            
+                using (FileStream fs = File.OpenWrite(_mp3NewPath))
+                    id3Tag.ChangeID3Tag(fs);
+                
+                MessageBox.Show("File was saved");
             }
         }
 
         private void fileNameLabel_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
         }
     }
 }
