@@ -12,6 +12,8 @@ using System.Text;
  * 5) Need to improve genre, it doesn't work.
  * 6) Need to delete useless functions fileNameLabel_Click and SaveFileDialog1 in Form1.cs
  * that was created accidentally
+ * 7) I think methods BytesFromString and FillStringToLength should be implemented as string extensions methods
+ * and not belong to this class functionality
  */
 namespace MP3FileStream
 {
