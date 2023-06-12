@@ -13,13 +13,13 @@ namespace MP3FileStreamTests
         [Test]
         public void ValidByteID3Test()
         {
-            byte[] tag = FromString("TAG", 3);
-            byte[] title = FromString("Best track");
-            byte[] artist = FromString("Best artist");
-            byte[] album = FromString("Best album");
-            byte[] year = FromString("1997", 4);
-            byte[] comment = FromString("amazing");
-            byte[] genre = FromString("1", 1); //TODO: Genre improvement
+            byte[] tag = ID3Tag.BytesFromString("TAG", 3);
+            byte[] title = ID3Tag.BytesFromString("Best track");
+            byte[] artist = ID3Tag.BytesFromString("Best artist");
+            byte[] album = ID3Tag.BytesFromString("Best album");
+            byte[] year = ID3Tag.BytesFromString("1997", 4);
+            byte[] comment = ID3Tag.BytesFromString("amazing");
+            byte[] genre = ID3Tag.BytesFromString("1", 1); //TODO: Genre improvement
 
             //TODO: SHITCODE 
             byte[] bytes = tag.Concat(title).Concat(artist).Concat(album).Concat(year).Concat(comment)
@@ -36,17 +36,6 @@ namespace MP3FileStreamTests
             Assert.AreEqual("Best album", id3Tag.Album);
             Assert.AreEqual("1997", id3Tag.Year);
             Assert.AreEqual("amazing", id3Tag.Comment);
-        }
-
-        private static string FillToLenght(string s, int lenght)
-        {
-            return s + String.Concat(Enumerable.Repeat("\0", lenght - s.Length));
-        }
-
-        private static byte[] FromString(string s, int maxLength = 30)
-        {
-            string filledS = FillToLenght(s, maxLength);
-            return Encoding.ASCII.GetBytes(filledS);
         }
     }
 }

@@ -9,19 +9,18 @@ namespace MP3FileStreamTests
     public class FromStreamTests
     {
         private static string _projDirPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-        
+
         [Test]
         public void ValidMp3Test()
         {
             ID3Tag tag;
-            string _mp3Path = _projDirPath + "\\others\\ID3v1.mp3";
-            
-            using (FileStream fs = File.OpenRead(_mp3Path))
-            {
+            string mp3Path = _projDirPath + "\\others\\ID3v1.mp3";
+
+
+            using (FileStream fs = File.OpenRead(mp3Path))
                 tag = ID3Tag.FromStream(fs);
-                Console.WriteLine(tag);
-            }
-            
+
+
             Assert.NotNull(tag);
             Assert.AreEqual("Deskcenter On Track", tag.Title);
             Assert.AreEqual("Deskcenter", tag.Artist);
@@ -30,7 +29,7 @@ namespace MP3FileStreamTests
             Assert.AreEqual("Sick", tag.Comment);
             // TODO Genre test
         }
-        
+
         [Test]
         public void InvalidPngTest()
         {
@@ -38,13 +37,11 @@ namespace MP3FileStreamTests
             string _pngPath = _projDirPath + "\\others\\Lenna_ComputerVision.png";
 
             using (FileStream fs = File.OpenRead(_pngPath))
-            {
                 Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
-            }
-            
+
             // TODO: how to check Exception messages
         }
-        
+
         [Test]
         public void InvalidTxtTest()
         {
@@ -55,7 +52,7 @@ namespace MP3FileStreamTests
             {
                 Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
             }
-            
+
             // TODO: how to check Exception messages
         }
     }

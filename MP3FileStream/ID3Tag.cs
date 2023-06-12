@@ -8,6 +8,8 @@ using System.Text;
  * 1) IsValid is redundant, because we already throw Exceptions. Or?
  * 2) Did I defined Exceptions right? They look like shitcode
  * 3) Length check in setters seems to be redundant, because we already define length in ID3Tag creation methonds
+ * 4) Need to make more test cases. Is there an attribute for test method TODO?
+ * 5) Need to improve genre.
  */
 namespace MP3FileStream
 {
@@ -170,6 +172,53 @@ namespace MP3FileStream
             byte[] genreBytes = bytes.Skip(127).Take(1).ToArray();
 
             return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
+        }
+
+        public static ID3Tag FromStrings(string title,
+            string artist,
+            string album,
+            string year,
+            string comment,
+            string genre)
+        {
+            byte[] tagIdBytes = ID3Tag.BytesFromString("TAG", 3);
+            byte[] titleBytes = ID3Tag.BytesFromString(title);
+            byte[] artistBytes = ID3Tag.BytesFromString(artist);
+            byte[] albumBytes = ID3Tag.BytesFromString(album);
+            byte[] yearBytes = ID3Tag.BytesFromString(year, 4);
+            byte[] commentBytes = ID3Tag.BytesFromString(comment);
+            byte[] genreBytes = ID3Tag.BytesFromString(genre, 1);
+            
+            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
+        }
+
+        public void ChangeID3Tag(FileStream stream)
+        { 
+            stream.Seek(-128, SeekOrigin.End);
+            stream.Write(_tagIdBytes, 0, _tagIdBytes.Length);
+            stream.Write(_titleBytes, 0, _titleBytes.Length);
+            stream.Write(_artistBytes, 0, _artistBytes.Length);
+            stream.Write(_albumBytes, 0, _albumBytes.Length);
+            stream.Write(_yearBytes, 0, _yearBytes.Length);
+            stream.Write(_commentBytes, 0, _commentBytes.Length);
+            stream.Write(_genreBytes, 0, _genreBytes.Length);
+        }
+        
+        /// <summary>
+        /// Fills in the string with characters '\0' from C for the correct format of Id3Tag properties
+        /// </summary>
+        public static string FillStringToLenght(string s, int lenght)
+        {
+            return s + String.Concat(Enumerable.Repeat("\0", lenght - s.Length));
+        }
+
+        /// <summary>
+        /// Creates a bit string from the string, taking into account the length for Id3Tag.
+        /// </summary>
+        public static byte[] BytesFromString(string s, int maxLength = 30)
+        {
+            string filledS = FillStringToLenght(s, maxLength);
+            return Encoding.ASCII.GetBytes(filledS);
         }
 
         public override string ToString()
