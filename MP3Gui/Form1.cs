@@ -21,6 +21,7 @@ namespace MP3Gui
         public Form1()
         {
             InitializeComponent();
+            genreDropDown.DataSource = Enum.GetNames(typeof(GenreTypes)).ToList();
         }
 
         private void openButton_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace MP3Gui
                         albumTextBox.Text = _id3Tag.Album;
                         yearTextBox.Text = _id3Tag.Year;
                         commentaryTextBox.Text = _id3Tag.Comment;
-                        genreTextBox.Text = _id3Tag.Genre.ToString();
+                        genreDropDown.Text = _id3Tag.Genre.ToString();
 
                         fileNameLabel.Text = openFileDialog1.SafeFileName;
                     }
@@ -76,7 +77,7 @@ namespace MP3Gui
                 string album = albumTextBox.Text;
                 string year = yearTextBox.Text;
                 string comment = commentaryTextBox.Text;
-                string genre = genreTextBox.Text; //TODO: Genre improvement
+                string genre =  ((int)((GenreTypes)Enum.Parse(typeof(GenreTypes), genreDropDown.Text))).ToString();
 
                 ID3Tag id3Tag = ID3Tag.FromStrings(title, artist, album, year, comment, genre);
 
@@ -93,6 +94,10 @@ namespace MP3Gui
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
         }
     }

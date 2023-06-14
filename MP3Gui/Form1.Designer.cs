@@ -40,12 +40,12 @@
             this.albumTextBox = new System.Windows.Forms.TextBox();
             this.yearTextBox = new System.Windows.Forms.TextBox();
             this.commentaryTextBox = new System.Windows.Forms.TextBox();
-            this.genreTextBox = new System.Windows.Forms.TextBox();
             this.openButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.genreDropDown = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,10 +67,10 @@
             this.tableLayoutPanel1.Controls.Add(this.albumTextBox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.yearTextBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.commentaryTextBox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.genreTextBox, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.openButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.titleLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.genreDropDown, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -190,16 +190,6 @@
             this.commentaryTextBox.Size = new System.Drawing.Size(346, 26);
             this.commentaryTextBox.TabIndex = 4;
             // 
-            // genreTextBox
-            // 
-            this.genreTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.genreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreTextBox.Location = new System.Drawing.Point(142, 216);
-            this.genreTextBox.MaxLength = 1;
-            this.genreTextBox.Name = "genreTextBox";
-            this.genreTextBox.Size = new System.Drawing.Size(346, 26);
-            this.genreTextBox.TabIndex = 5;
-            // 
             // openButton
             // 
             this.openButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -259,6 +249,15 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // genreDropDown
+            // 
+            this.genreDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreDropDown.FormattingEnabled = true;
+            this.genreDropDown.Location = new System.Drawing.Point(142, 215);
+            this.genreDropDown.Name = "genreDropDown";
+            this.genreDropDown.Size = new System.Drawing.Size(346, 21);
+            this.genreDropDown.TabIndex = 15;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -283,6 +282,8 @@
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.ComboBox genreDropDown;
+
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 
@@ -300,8 +301,6 @@
         private System.Windows.Forms.Label titleLabel;
 
         private System.Windows.Forms.Button openButton;
-
-        private System.Windows.Forms.TextBox genreTextBox;
 
         private System.Windows.Forms.TextBox commentaryTextBox;
 
