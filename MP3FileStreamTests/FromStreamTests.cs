@@ -13,21 +13,21 @@ namespace MP3FileStreamTests
         [Test]
         public void ValidMp3Test()
         {
-            ID3Tag tag;
+            ID3Tag id3Tag;
             string mp3Path = _projDirPath + "\\others\\ID3v1.mp3";
 
 
             using (FileStream fs = File.OpenRead(mp3Path))
-                tag = ID3Tag.FromStream(fs);
+                id3Tag = ID3Tag.FromStream(fs);
 
 
-            Assert.NotNull(tag);
-            Assert.AreEqual("Deskcenter On Track", tag.Title);
-            Assert.AreEqual("Deskcenter", tag.Artist);
-            Assert.AreEqual("DC Superhits 1", tag.Album);
-            Assert.AreEqual("2023", tag.Year);
-            Assert.AreEqual("Sick", tag.Comment);
-            // TODO Genre test
+            Assert.NotNull(id3Tag);
+            Assert.AreEqual("Deskcenter On Track", id3Tag.Title);
+            Assert.AreEqual("Deskcenter", id3Tag.Artist);
+            Assert.AreEqual("DC Superhits 1", id3Tag.Album);
+            Assert.AreEqual("2023", id3Tag.Year);
+            Assert.AreEqual("Sick", id3Tag.Comment);
+            Assert.AreEqual(GenreTypes.PowerBallad, id3Tag.Genre);
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace MP3FileStreamTests
 
             using (FileStream fs = File.OpenRead(_pngPath))
                 Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
-
+            
             // TODO: how to check Exception messages
         }
 

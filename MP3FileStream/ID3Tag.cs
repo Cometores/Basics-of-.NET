@@ -19,8 +19,6 @@ namespace MP3FileStream
 {
     public class ID3Tag
     {
-        public bool IsValid { get; set; } 
-
         private byte[] _tagIdBytes;
         private byte[] _titleBytes;
         private byte[] _artistBytes;
@@ -35,7 +33,7 @@ namespace MP3FileStream
         private string _Album;
         private string _Year;
         private string _Comment;
-        private string _Genre;
+        private GenreTypes _Genre;
 
         public string TagId
         {
@@ -86,10 +84,19 @@ namespace MP3FileStream
             get => _Year;
             set
             {
+                try
+                {
+                    Convert.ToInt32(value);
+                }
+                catch (Exception)
+                {
+                    throw new NotValidID3TagException("Year must be a number");
+                }
                 if (value.Length > 4)
                     throw new NotValidID3TagException("Year is too long");
                 if (Convert.ToInt32(value) > DateTime.Now.Year)
-                    throw new NotValidID3TagException($"The year {value} hasn't come yet");
+                    throw new NotValidID3TagException(
+                        $"The year {value} hasn't come yet");
                 _Year = value.Replace("\0", "");
             }
         }
@@ -105,15 +112,13 @@ namespace MP3FileStream
             }
         }
 
-        public string Genre
+        public GenreTypes Genre
         {
             get => _Genre;
             set
             {
-                if (value.Length != 1)
-                    throw new NotValidID3TagException("Genre need to be 1 byte");
-                // if (Convert.ToInt32(value) < 0 || Convert.ToInt32(value) > 147) #TODO: Genre improvement needed
-                //     throw new NotValidID3TagException("Genre can only take values from 0 to 147");
+                if ((int)value > 147 || (int)value < 0)
+                    throw new NotValidID3TagException("Genre can only take values from 0 to 147");
                 _Genre = value;
             }
         }
@@ -144,16 +149,14 @@ namespace MP3FileStream
             Comment = Encoding.Default.GetString(commentBytes);
             _commentBytes = commentBytes;
 
-            Genre = Encoding.Default.GetString(genreBytes);
+            Genre = (GenreTypes)genreBytes[0];
             _genreBytes = genreBytes;
-
-            IsValid = TagId.Equals("TAG");
         }
 
         public static ID3Tag FromStream(Stream stream)
         {
             if (stream.Length < 128)
-                throw new NotValidMP3FileException(); 
+                throw new NotValidMP3FileException();
 
             byte[] bytes = new byte[128];
             stream.Seek(-128, SeekOrigin.End);
@@ -167,7 +170,8 @@ namespace MP3FileStream
             if (bytes.Length != 128)
                 throw new NotValidMP3FileException("ID3 should be 128 bytes");
 
-            byte[] tagIdBytes = bytes.Take(3).ToArray();;
+            byte[] tagIdBytes = bytes.Take(3).ToArray();
+            ;
             byte[] titleBytes = bytes.Skip(3).Take(30).ToArray();
             byte[] artistBytes = bytes.Skip(33).Take(30).ToArray();
             byte[] albumBytes = bytes.Skip(63).Take(30).ToArray();
@@ -185,19 +189,19 @@ namespace MP3FileStream
             string comment,
             string genre)
         {
-            byte[] tagIdBytes = ID3Tag.BytesFromString("TAG", 3);
-            byte[] titleBytes = ID3Tag.BytesFromString(title);
-            byte[] artistBytes = ID3Tag.BytesFromString(artist);
-            byte[] albumBytes = ID3Tag.BytesFromString(album);
-            byte[] yearBytes = ID3Tag.BytesFromString(year, 4);
-            byte[] commentBytes = ID3Tag.BytesFromString(comment);
-            byte[] genreBytes = ID3Tag.BytesFromString(genre, 1);
-            
+            byte[] tagIdBytes = "TAG".BytesFromString(3);
+            byte[] titleBytes = title.BytesFromString();
+            byte[] artistBytes = artist.BytesFromString();
+            byte[] albumBytes = album.BytesFromString();
+            byte[] yearBytes = year.BytesFromString(4);
+            byte[] commentBytes = comment.BytesFromString();
+            byte[] genreBytes = new byte[] { (byte)Convert.ToInt32(genre) };
+
             return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
         }
 
         public void ChangeID3Tag(FileStream stream)
-        { 
+        {
             stream.Seek(-128, SeekOrigin.End);
             stream.Write(_tagIdBytes, 0, _tagIdBytes.Length);
             stream.Write(_titleBytes, 0, _titleBytes.Length);
@@ -207,38 +211,18 @@ namespace MP3FileStream
             stream.Write(_commentBytes, 0, _commentBytes.Length);
             stream.Write(_genreBytes, 0, _genreBytes.Length);
         }
-        
-        /// <summary>
-        /// Fills in the string with characters '\0' from C for the correct format of Id3Tag properties
-        /// </summary>
-        public static string FillStringToLenght(string s, int lenght)
-        {
-            return s + String.Concat(Enumerable.Repeat("\0", lenght - s.Length));
-        }
 
-        /// <summary>
-        /// Creates a bit string from the string, taking into account the length for Id3Tag.
-        /// </summary>
-        public static byte[] BytesFromString(string s, int maxLength = 30)
-        {
-            string filledS = FillStringToLenght(s, maxLength);
-            return Encoding.ASCII.GetBytes(filledS);
-        }
+        
+        
 
         public override string ToString()
         {
-            string s = "Not valid MP3Gui file";
-            if (IsValid)
-            {
-                s = $"Title: {Title}\n" +
-                    $"Artist: {Artist}\n" +
-                    $"Album: {Album}\n" +
-                    $"Year: {Year}\n" +
-                    $"Comment: {Comment}\n" +
-                    $"Genre: {Genre}";
-            }
-
-            return s;
+            return $"Title: {Title}\n" +
+                $"Artist: {Artist}\n" +
+                $"Album: {Album}\n" +
+                $"Year: {Year}\n" +
+                $"Comment: {Comment}\n" +
+                $"Genre: {Genre}";
         }
     }
 }

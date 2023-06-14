@@ -44,6 +44,7 @@
         Noise,              // 39 
         AlternativeRock,    // 40 
         Bass,               // 41 
+        Soul,               // 42
         Punk,               // 43 
         Space,              // 44 
         Meditative,         // 45 

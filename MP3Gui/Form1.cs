@@ -40,7 +40,7 @@ namespace MP3Gui
                         albumTextBox.Text = _id3Tag.Album;
                         yearTextBox.Text = _id3Tag.Year;
                         commentaryTextBox.Text = _id3Tag.Comment;
-                        genreTextBox.Text = _id3Tag.Genre;
+                        genreTextBox.Text = _id3Tag.Genre.ToString();
 
                         fileNameLabel.Text = openFileDialog1.SafeFileName;
                     }

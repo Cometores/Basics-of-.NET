@@ -15,7 +15,7 @@ namespace MP3FileStreamTests
             string album = "Best album";
             string year = "1997";
             string comment = "amazing";
-            string genre = "1"; //TODO: Genre improvement
+            string genre = "98";
 
 
             ID3Tag id3Tag;
@@ -28,6 +28,7 @@ namespace MP3FileStreamTests
             Assert.AreEqual("Best album", id3Tag.Album);
             Assert.AreEqual("1997", id3Tag.Year);
             Assert.AreEqual("amazing", id3Tag.Comment);
+            Assert.AreEqual(GenreTypes.EasyListening, id3Tag.Genre);
         }
     }
 }

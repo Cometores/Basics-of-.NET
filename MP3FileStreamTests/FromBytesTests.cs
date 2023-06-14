@@ -13,15 +13,14 @@ namespace MP3FileStreamTests
         [Test]
         public void ValidByteID3Test()
         {
-            byte[] tag = ID3Tag.BytesFromString("TAG", 3);
-            byte[] title = ID3Tag.BytesFromString("Best track");
-            byte[] artist = ID3Tag.BytesFromString("Best artist");
-            byte[] album = ID3Tag.BytesFromString("Best album");
-            byte[] year = ID3Tag.BytesFromString("1997", 4);
-            byte[] comment = ID3Tag.BytesFromString("amazing");
-            byte[] genre = ID3Tag.BytesFromString("1", 1); //TODO: Genre improvement
+            byte[] tag = "TAG".BytesFromString(3);
+            byte[] title = "Best track".BytesFromString();
+            byte[] artist = "Best artist".BytesFromString();
+            byte[] album = "Best album".BytesFromString();
+            byte[] year = "1997".BytesFromString(4);
+            byte[] comment = "amazing".BytesFromString();
+            byte[] genre = new byte[] { 3 };
 
-            //TODO: SHITCODE 
             byte[] bytes = tag.Concat(title).Concat(artist).Concat(album).Concat(year).Concat(comment)
                 .Concat(genre).ToArray();
 
@@ -36,6 +35,7 @@ namespace MP3FileStreamTests
             Assert.AreEqual("Best album", id3Tag.Album);
             Assert.AreEqual("1997", id3Tag.Year);
             Assert.AreEqual("amazing", id3Tag.Comment);
+            Assert.AreEqual(GenreTypes.Dance, id3Tag.Genre);
         }
     }
 }
