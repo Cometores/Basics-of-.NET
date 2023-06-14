@@ -66,12 +66,6 @@ namespace MP3Gui
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 _mp3NewPath = saveFileDialog1.FileName;
-                
-                if(File.Exists(_mp3NewPath))
-                    File.Delete(_mp3NewPath);
-                
-                File.Copy(_mp3OriginalPath, _mp3NewPath);
-                
                 string title = titleTextBox.Text;
                 string artist = artistTextBox.Text;
                 string album = albumTextBox.Text;
@@ -79,13 +73,25 @@ namespace MP3Gui
                 string comment = commentaryTextBox.Text;
                 string genre =  ((int)((GenreTypes)Enum.Parse(typeof(GenreTypes), genreDropDown.Text))).ToString();
 
-                ID3Tag id3Tag = ID3Tag.FromStrings(title, artist, album, year, comment, genre);
-
-            
-                using (FileStream fs = File.OpenWrite(_mp3NewPath))
-                    id3Tag.WriteToStream(fs);
+                try
+                {
+                    ID3Tag id3Tag = ID3Tag.FromStrings(title, artist, album, year, comment, genre);
                 
-                MessageBox.Show("File was saved");
+                    if(File.Exists(_mp3NewPath))
+                        File.Delete(_mp3NewPath);
+                
+                    File.Copy(_mp3OriginalPath, _mp3NewPath);
+            
+                    using (FileStream fs = File.OpenWrite(_mp3NewPath))
+                        id3Tag.WriteToStream(fs);
+                
+                    MessageBox.Show("File was saved");
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Warning!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

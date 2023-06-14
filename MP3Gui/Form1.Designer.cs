@@ -251,9 +251,10 @@
             // 
             // genreDropDown
             // 
+            this.genreDropDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.genreDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreDropDown.FormattingEnabled = true;
-            this.genreDropDown.Location = new System.Drawing.Point(142, 215);
+            this.genreDropDown.Location = new System.Drawing.Point(142, 218);
             this.genreDropDown.Name = "genreDropDown";
             this.genreDropDown.Size = new System.Drawing.Size(346, 21);
             this.genreDropDown.TabIndex = 15;

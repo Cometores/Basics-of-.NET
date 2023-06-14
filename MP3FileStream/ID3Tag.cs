@@ -94,6 +94,10 @@ namespace MP3FileStream
                     || value.Length > 4)
                     throw new NotValidID3TagException(
                         $"The year {value} hasn't come yet");
+                
+                if (Convert.ToInt32(value) < 0)
+                    throw new NotValidID3TagException(
+                        $"The year cannot be negative");
 
                 _Year = value.Replace("\0", "");
                 _yearBytes = value.ToBytes(4);
