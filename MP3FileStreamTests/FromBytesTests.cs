@@ -6,36 +6,78 @@ using NUnit.Framework;
 
 namespace MP3FileStreamTests
 {
-    //TODO: more cases
     [TestFixture]
     public class FromBytesTests
     {
         [Test]
-        public void ValidByteID3Test()
+        [TestCase("Best track",
+            "Best artist",
+            "Best album",
+            "1890",
+            "amazing",
+            "3")]
+        public void FromBytes_CompleteValues_ValidId3Tag(string title,
+            string artist,
+            string album,
+            string year,
+            string comment,
+            string genre)
         {
-            byte[] tag = "TAG".BytesFromString(3);
-            byte[] title = "Best track".BytesFromString();
-            byte[] artist = "Best artist".BytesFromString();
-            byte[] album = "Best album".BytesFromString();
-            byte[] year = "1997".BytesFromString(4);
-            byte[] comment = "amazing".BytesFromString();
-            byte[] genre = new byte[] { 3 };
+            byte[] tagBytes = "TAG".ToBytes(3);
+            byte[] titleBytes = title.ToBytes();
+            byte[] artistBytes = artist.ToBytes();
+            byte[] albumBytes = album.ToBytes();
+            byte[] yearBytes = year.ToBytes(4);
+            byte[] commentBytes = comment.ToBytes();
+            byte[] genreBytes = new byte[] { (byte)Convert.ToInt32(genre) };
 
-            byte[] bytes = tag.Concat(title).Concat(artist).Concat(album).Concat(year).Concat(comment)
-                .Concat(genre).ToArray();
+            byte[] bytes = tagBytes.Concat(titleBytes).Concat(artistBytes)
+                .Concat(albumBytes).Concat(yearBytes).Concat(commentBytes)
+                .Concat(genreBytes).ToArray();
 
 
-            ID3Tag id3Tag;
-            id3Tag = ID3Tag.FromBytes(bytes);
+            ID3Tag id3Tag = ID3Tag.FromBytes(bytes);
 
 
             Assert.NotNull(id3Tag);
-            Assert.AreEqual("Best track", id3Tag.Title);
-            Assert.AreEqual("Best artist", id3Tag.Artist);
-            Assert.AreEqual("Best album", id3Tag.Album);
-            Assert.AreEqual("1997", id3Tag.Year);
-            Assert.AreEqual("amazing", id3Tag.Comment);
-            Assert.AreEqual(GenreTypes.Dance, id3Tag.Genre);
+            Assert.AreEqual(title, id3Tag.Title);
+            Assert.AreEqual(artist, id3Tag.Artist);
+            Assert.AreEqual(album, id3Tag.Album);
+            Assert.AreEqual(year, id3Tag.Year);
+            Assert.AreEqual(comment, id3Tag.Comment);
+            Assert.AreEqual((GenreTypes)Convert.ToInt32(genre), id3Tag.Genre);
+        }
+        
+        [Test]
+        [TestCase("There is a hell believe me i've seen it, there is a hell",
+            "Best artist",
+            "Best album",
+            "1890",
+            "amazing",
+            "3")]
+        public void FromBytes_TitleTooLong_ThrowsNotValidMP3FileException(string title,
+            string artist,
+            string album,
+            string year,
+            string comment,
+            string genre)
+        {
+            byte[] tagBytes = "TAG".ToBytes(3);
+            byte[] titleBytes = title.ToBytes();
+            byte[] artistBytes = artist.ToBytes();
+            byte[] albumBytes = album.ToBytes();
+            byte[] yearBytes = year.ToBytes(4);
+            byte[] commentBytes = comment.ToBytes();
+            byte[] genreBytes = new byte[] { (byte)Convert.ToInt32(genre) };
+
+            byte[] bytes = tagBytes.Concat(titleBytes).Concat(artistBytes)
+                .Concat(albumBytes).Concat(yearBytes).Concat(commentBytes)
+                .Concat(genreBytes).ToArray();
+
+
+            var exception = Assert.Throws<NotValidMP3FileException>(
+                () => ID3Tag.FromBytes(bytes));
+            Assert.AreEqual($"ID3 should be 128 bytes", exception.Message);
         }
     }
 }

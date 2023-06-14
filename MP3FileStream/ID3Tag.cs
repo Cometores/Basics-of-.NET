@@ -3,18 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-/*
- * Notes for Chris
- * 1) IsValid is redundant, because we already throw Exceptions. Or?
- * 2) Did I defined Exceptions right? They look like shitcode
- * 3) Length check in setters seems to be redundant, because we already define length in ID3Tag creation methonds
- * 4) Need to make more test cases. Is there an attribute for test method TODO that should be implemented?
- * 5) Need to improve genre, it doesn't work.
- * 6) Need to delete useless functions fileNameLabel_Click and SaveFileDialog1 in Form1.cs
- * that was created accidentally
- * 7) I think methods BytesFromString and FillStringToLength should be implemented as string extensions methods
- * and not belong to this class functionality
- */
 namespace MP3FileStream
 {
     public class ID3Tag
@@ -38,11 +26,13 @@ namespace MP3FileStream
         public string TagId
         {
             get => _TagId;
-            set
+            private set
             {
                 if (value.Length != 3 || value != "TAG")
-                    throw new NotValidID3TagException("Not valid ID TAG");
+                    throw new NotValidID3TagException(
+                        "Not valid ID TAG");
                 _TagId = value;
+                _tagIdBytes = value.ToBytes(3);
             }
         }
 
@@ -52,8 +42,10 @@ namespace MP3FileStream
             set
             {
                 if (value.Length > 30)
-                    throw new NotValidID3TagException("Title is too long");
+                    throw new NotValidID3TagException(
+                        "Title is too long");
                 _Title = value.Replace("\0", "");
+                _titleBytes = value.ToBytes();
             }
         }
 
@@ -63,8 +55,10 @@ namespace MP3FileStream
             set
             {
                 if (value.Length > 30)
-                    throw new NotValidID3TagException("Artist name is too long");
+                    throw new NotValidID3TagException(
+                        "Artist name is too long");
                 _Artist = value.Replace("\0", "");
+                _artistBytes = value.ToBytes();
             }
         }
 
@@ -74,8 +68,10 @@ namespace MP3FileStream
             set
             {
                 if (value.Length > 30)
-                    throw new NotValidID3TagException("Album name is too long");
+                    throw new NotValidID3TagException(
+                        "Album name is too long");
                 _Album = value.Replace("\0", "");
+                _albumBytes = value.ToBytes();
             }
         }
 
@@ -90,14 +86,17 @@ namespace MP3FileStream
                 }
                 catch (Exception)
                 {
-                    throw new NotValidID3TagException("Year must be a number");
+                    throw new NotValidID3TagException(
+                        "Year must be a number");
                 }
-                if (value.Length > 4)
-                    throw new NotValidID3TagException("Year is too long");
-                if (Convert.ToInt32(value) > DateTime.Now.Year)
+
+                if (Convert.ToInt32(value) > DateTime.Now.Year 
+                    || value.Length > 4)
                     throw new NotValidID3TagException(
                         $"The year {value} hasn't come yet");
+
                 _Year = value.Replace("\0", "");
+                _yearBytes = value.ToBytes(4);
             }
         }
 
@@ -107,8 +106,10 @@ namespace MP3FileStream
             set
             {
                 if (value.Length > 30)
-                    throw new NotValidID3TagException("Comment is too long");
+                    throw new NotValidID3TagException(
+                        "Comment is too long");
                 _Comment = value.Replace("\0", "");
+                _commentBytes = value.ToBytes();
             }
         }
 
@@ -118,8 +119,10 @@ namespace MP3FileStream
             set
             {
                 if ((int)value > 147 || (int)value < 0)
-                    throw new NotValidID3TagException("Genre can only take values from 0 to 147");
+                    throw new NotValidID3TagException(
+                        "Genre can only take values from 0 to 147");
                 _Genre = value;
+                _genreBytes = new byte[] { (byte)value };
             }
         }
 
@@ -132,25 +135,12 @@ namespace MP3FileStream
             byte[] genreBytes)
         {
             TagId = Encoding.Default.GetString(tagIdBytes);
-            _tagIdBytes = tagIdBytes;
-
             Title = Encoding.Default.GetString(titleBytes);
-            _titleBytes = titleBytes;
-
             Artist = Encoding.Default.GetString(artistBytes);
-            _artistBytes = artistBytes;
-
             Album = Encoding.Default.GetString(albumBytes);
-            _albumBytes = albumBytes;
-
             Year = Encoding.Default.GetString(yearBytes);
-            _yearBytes = yearBytes;
-
             Comment = Encoding.Default.GetString(commentBytes);
-            _commentBytes = commentBytes;
-
             Genre = (GenreTypes)genreBytes[0];
-            _genreBytes = genreBytes;
         }
 
         public static ID3Tag FromStream(Stream stream)
@@ -168,10 +158,10 @@ namespace MP3FileStream
         public static ID3Tag FromBytes(byte[] bytes)
         {
             if (bytes.Length != 128)
-                throw new NotValidMP3FileException("ID3 should be 128 bytes");
+                throw new NotValidMP3FileException(
+                    "ID3 should be 128 bytes");
 
             byte[] tagIdBytes = bytes.Take(3).ToArray();
-            ;
             byte[] titleBytes = bytes.Skip(3).Take(30).ToArray();
             byte[] artistBytes = bytes.Skip(33).Take(30).ToArray();
             byte[] albumBytes = bytes.Skip(63).Take(30).ToArray();
@@ -179,7 +169,8 @@ namespace MP3FileStream
             byte[] commentBytes = bytes.Skip(97).Take(30).ToArray();
             byte[] genreBytes = bytes.Skip(127).Take(1).ToArray();
 
-            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
+            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, 
+                albumBytes, yearBytes, commentBytes, genreBytes);
         }
 
         public static ID3Tag FromStrings(string title,
@@ -189,18 +180,19 @@ namespace MP3FileStream
             string comment,
             string genre)
         {
-            byte[] tagIdBytes = "TAG".BytesFromString(3);
-            byte[] titleBytes = title.BytesFromString();
-            byte[] artistBytes = artist.BytesFromString();
-            byte[] albumBytes = album.BytesFromString();
-            byte[] yearBytes = year.BytesFromString(4);
-            byte[] commentBytes = comment.BytesFromString();
+            byte[] tagIdBytes = "TAG".ToBytes(3);
+            byte[] titleBytes = title.ToBytes();
+            byte[] artistBytes = artist.ToBytes();
+            byte[] albumBytes = album.ToBytes();
+            byte[] yearBytes = year.ToBytes(4);
+            byte[] commentBytes = comment.ToBytes();
             byte[] genreBytes = new byte[] { (byte)Convert.ToInt32(genre) };
 
-            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, albumBytes, yearBytes, commentBytes, genreBytes);
+            return new ID3Tag(tagIdBytes, titleBytes, artistBytes, 
+                albumBytes, yearBytes, commentBytes, genreBytes);
         }
 
-        public void ChangeID3Tag(FileStream stream)
+        public void WriteToStream(FileStream stream)
         {
             stream.Seek(-128, SeekOrigin.End);
             stream.Write(_tagIdBytes, 0, _tagIdBytes.Length);
@@ -212,17 +204,14 @@ namespace MP3FileStream
             stream.Write(_genreBytes, 0, _genreBytes.Length);
         }
 
-        
-        
-
         public override string ToString()
         {
             return $"Title: {Title}\n" +
-                $"Artist: {Artist}\n" +
-                $"Album: {Album}\n" +
-                $"Year: {Year}\n" +
-                $"Comment: {Comment}\n" +
-                $"Genre: {Genre}";
+                   $"Artist: {Artist}\n" +
+                   $"Album: {Album}\n" +
+                   $"Year: {Year}\n" +
+                   $"Comment: {Comment}\n" +
+                   $"Genre: {Genre}";
         }
     }
 }

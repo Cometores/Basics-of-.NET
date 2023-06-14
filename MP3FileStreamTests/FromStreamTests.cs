@@ -11,16 +11,14 @@ namespace MP3FileStreamTests
         private static string _projDirPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
         [Test]
-        public void ValidMp3Test()
+        public void FromStream_FileStream_ValidId3Tag()
         {
             ID3Tag id3Tag;
             string mp3Path = _projDirPath + "\\others\\ID3v1.mp3";
 
-
             using (FileStream fs = File.OpenRead(mp3Path))
                 id3Tag = ID3Tag.FromStream(fs);
-
-
+            
             Assert.NotNull(id3Tag);
             Assert.AreEqual("Deskcenter On Track", id3Tag.Title);
             Assert.AreEqual("Deskcenter", id3Tag.Artist);
@@ -31,29 +29,29 @@ namespace MP3FileStreamTests
         }
 
         [Test]
-        public void InvalidPngTest()
+        public void FromStream_FileStream_Png_ThrowsNotValidId3TagException()
         {
             ID3Tag tag;
             string _pngPath = _projDirPath + "\\others\\Lenna_ComputerVision.png";
 
             using (FileStream fs = File.OpenRead(_pngPath))
-                Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
-            
-            // TODO: how to check Exception messages
+            {
+                var exception = Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
+                Assert.AreEqual("Not valid ID TAG", exception.Message);
+            }
         }
 
         [Test]
-        public void InvalidTxtTest()
+        public void FromStream_FileStream_Txt_ThrowsNotValidId3TagException()
         {
             ID3Tag tag;
             string _txtPath = _projDirPath + "\\others\\lorem.txt";
 
             using (FileStream fs = File.OpenRead(_txtPath))
             {
-                Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
+                var exception = Assert.Throws<NotValidID3TagException>(() => ID3Tag.FromStream(fs));
+                Assert.AreEqual("Not valid ID TAG", exception.Message);
             }
-
-            // TODO: how to check Exception messages
         }
     }
 }

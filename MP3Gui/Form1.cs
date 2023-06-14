@@ -82,7 +82,7 @@ namespace MP3Gui
 
             
                 using (FileStream fs = File.OpenWrite(_mp3NewPath))
-                    id3Tag.ChangeID3Tag(fs);
+                    id3Tag.WriteToStream(fs);
                 
                 MessageBox.Show("File was saved");
             }

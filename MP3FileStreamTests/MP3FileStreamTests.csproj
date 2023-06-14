@@ -42,7 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ChangeID3TagTest.cs" />
+        <Compile Include="WriteToStreamTests.cs" />
         <Compile Include="FromBytesTests.cs" />
         <Compile Include="FromStreamTests.cs" />
         <Compile Include="FromStringsTest.cs" />

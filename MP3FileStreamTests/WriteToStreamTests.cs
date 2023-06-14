@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace MP3FileStreamTests
 {
     [TestFixture]
-    public class ChangeID3TagTest
+    public class WriteToStreamTests
     {
         private static string _projDirPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
         private static string _mp3OriginalPath = _projDirPath + "\\others\\ID3v1.mp3";
@@ -20,7 +20,7 @@ namespace MP3FileStreamTests
         }
         
         [Test]
-        public void ValidMp3Test()
+        public void WriteToStream_CompleteStringsValues_ValidMP3File()
         {
             File.Copy(_mp3OriginalPath, _mp3TestPath);
             
@@ -35,7 +35,8 @@ namespace MP3FileStreamTests
 
             
             using (FileStream fs = File.OpenWrite(_mp3TestPath))
-                id3Tag.ChangeID3Tag(fs);
+                id3Tag.WriteToStream(fs);
+            
             
             using (FileStream fs = File.OpenRead(_mp3TestPath))
                 id3Tag = ID3Tag.FromStream(fs);
