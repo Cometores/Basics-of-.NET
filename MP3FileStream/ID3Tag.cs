@@ -80,25 +80,29 @@ namespace MP3FileStream
             get => _Year;
             set
             {
+                string message = string.Empty;
+                int intValue;
                 try
                 {
-                    Convert.ToInt32(value);
+                     intValue= Convert.ToInt32(value);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     throw new NotValidID3TagException(
                         "Year must be a number");
                 }
-
-                if (Convert.ToInt32(value) > DateTime.Now.Year 
+                
+                if (intValue > DateTime.Now.Year
                     || value.Length > 4)
+                {
                     throw new NotValidID3TagException(
                         $"The year {value} hasn't come yet");
-                
-                if (Convert.ToInt32(value) < 0)
+                }
+
+                if (intValue < 0)
                     throw new NotValidID3TagException(
                         $"The year cannot be negative");
-
+                
                 _Year = value.Replace("\0", "");
                 _yearBytes = value.ToBytes(4);
             }

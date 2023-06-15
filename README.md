@@ -3,6 +3,7 @@ The repository includes practice exercises in C# with solutions to various probl
 The tasks are divided into sections:
 1) [Basics](#basics)
 2) [Windows forms](#windows-forms)
+3) [LINQ](#linq)
 
 **Target**: .NET Framework 4.8.
 
@@ -222,6 +223,7 @@ A list of all meaningful German words is needed:
 
 
 ### 2.6 "Chat application" with the help of writing files
+**NOT IMPLEMENTED**
 
 #### Technologies:
 - Windows Forms
@@ -249,4 +251,40 @@ creating a quasi-chat
 - Continue to add the functionality to read a key file for your chat or set the path to it
 - Every time a message is written, the top unused key is read from the file and used to encrypt the entered message
 - When a message is received or read from the file the same key from the file is used for decryption
+
+
+## LINQ
+
+### 3.1 Filtering by first and last letter
+**NOT IMPLEMENTED**
+
+#### Technologies:
+- Console application
+- LINQ
+  - `.StartsWith()` 
+  - `.EndsWith()`
+- Listen
+
+#### Task:
+Write a program that filters words from a list by their initial and final letters. 
+The list of words can be taken from [here](https://sourceforge.net/projects/germandict/).
+
+
+### 3.2 Words in a certain position
+**NOT IMPLEMENTED**
+
+#### Technologies:
+- Console application
+- LINQ
+    - `.Take())`
+- - Listen
+
+#### Task:
+Write a program that outputs objects from the collection based on their position. 
+Use the dictionary from the previous assignment.
+
+**Example usage:**
+- Output all words at positions 10-20, 110-120, 210-220, and 310-320
+
+
 
