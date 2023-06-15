@@ -1,7 +1,10 @@
 ﻿# C# Practice
+The repository includes practice exercises in C# with solutions to various problems.
+The tasks are divided into sections:
+1) [Basics](#basics)
+2) [Windows forms](#windows-forms)
 
-
-## 1. Basics
+## Basics
 
 ### 1.1 Mathematics class
 #### Technologies:
@@ -75,7 +78,7 @@ for each of them.
 
 
 ### 1.4 Validation of login forms
-
+**NOT IMPLEMENTED**
 #### Technologies:
 - Console application
   - Input output from the console
@@ -95,7 +98,7 @@ string as an array.
 
 
 ### 1.5 Calculation task generator with timing
-
+**NOT IMPLEMENTED**
 #### Technologies:
 - Loops
 - Random
@@ -119,7 +122,7 @@ After the 10 tasks have been solved, the time required is to be output on the co
 
 
 ### 1.6 Simple name generator
-
+**NOT IMPLEMENTED**
 #### Technologies:
 - Console application
 - Reading files 
@@ -165,11 +168,17 @@ Matching game, where the player matches pairs of hidden icons.
 
 ### Technologies:
 - Windows Forms
-- BinaryReader & Writer
+  - TextBox, Label, ComboBox, Button
+- File Streams
+- Extension methods
+- Exceptions
+- NUnit
 
+### Task:
 An application where you can select an mp3 file, process its information, and save it.
 
-This information ("ID3 tags") are located as strings in the **last 125 bytes** of the file.
+This information ("ID3 tags") are located as strings in the **last 128 bytes** of the file.
+- Tag (3)
 - Piece title (30)
 - Artist (30)
 - Album / CD title (30)
@@ -177,10 +186,13 @@ This information ("ID3 tags") are located as strings in the **last 125 bytes** o
 - Commentary (30)
 - Genre (1)
 
-But first you have to check if the file is really a valid MP3 file.
-This information starts in the 128th byte and is 3 bytes long.
-(I.e. that the complete ID3 tag is 128 bytes long).
-In these 3 bytes must be "TAG" (= TAG-Identification), if not an exception or similar is thrown - is your beer.
-(Of course it can happen that another file has "TAG" in exactly this position, but for simplicity we leave it here).
+First you need to check if the file is really a valid MP3 file. 
+For this, Tag must be equal to "TAG".
+When the file is read, the text fields display information, they can be edited and saved with another button.
 
-If the file is read in and e.g. in text boxes the information was output, these can be edited and saved / written with another button.
+![MP3GUI](./others/readmePics/MP3GUI.png)
+
+### The functionality is divided into 3 projects:
+- Application logic - [MP3FileStream](MP3FileStream)
+- Tests - [MP3FileStreamTests](MP3FileStreamTests)
+- GUI - [MP3Gui](MP3Gui)
