@@ -4,6 +4,10 @@ The tasks are divided into sections:
 1) [Basics](#basics)
 2) [Windows forms](#windows-forms)
 
+**Target**: .NET Framework 4.8.
+
+Projects are logically divided into Solution Folders for the Rider IDE.
+
 ## Basics
 
 ### 1.1 Mathematics class
@@ -17,6 +21,10 @@ The tasks are divided into sections:
 - Create a class that provides the 4 basic arithmetic operations 
 each as a method.
     - Addition, subtraction, multiplication and division
+
+#### The functionality is divided into 2 projects:
+- Application logic - [MathematicsClass](MathematicsClass)
+- Tests - [MathematicsClassTests](MathematicsClassTests)
 
 
 
@@ -120,7 +128,6 @@ After the 10 tasks have been solved, the time required is to be output on the co
 
 
 
-
 ### 1.6 Simple name generator
 **NOT IMPLEMENTED**
 #### Technologies:
@@ -133,11 +140,6 @@ After the 10 tasks have been solved, the time required is to be output on the co
 Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt) 
 line by line into an array. Then output a random combination of first name and 
 last name.
-
-
-
-
-### 1.7 Anagram generator
 
 
 
@@ -166,7 +168,7 @@ Matching game, where the player matches pairs of hidden icons.
 
 ### 2.4 Read and edit information from MP3 files
 
-### Technologies:
+#### Technologies:
 - Windows Forms
   - TextBox, Label, ComboBox, Button
 - File Streams
@@ -174,7 +176,7 @@ Matching game, where the player matches pairs of hidden icons.
 - Exceptions
 - NUnit
 
-### Task:
+#### Task:
 An application where you can select an mp3 file, process its information, and save it.
 
 This information ("ID3 tags") are located as strings in the **last 128 bytes** of the file.
@@ -192,7 +194,59 @@ When the file is read, the text fields display information, they can be edited a
 
 ![MP3GUI](./others/readmePics/MP3GUI.png)
 
-### The functionality is divided into 3 projects:
+#### The functionality is divided into 3 projects:
 - Application logic - [MP3FileStream](MP3FileStream)
 - Tests - [MP3FileStreamTests](MP3FileStreamTests)
 - GUI - [MP3Gui](MP3Gui)
+
+
+
+### 2.5 Anagram generator
+**NOT IMPLEMENTED**
+
+#### Technologies:
+- Windows Forms
+- Reading a file
+- Listing data structures
+
+#### Task:
+Write a program that takes a base word and gives a list of anagrams, working on the basis
+of German words.
+
+A list of all meaningful German words is needed:
+[germany.dic file](https://sourceforge.net/projects/germandict/)
+![MP3GUI](./others/readmePics/AnagramGenerator.png)
+
+
+
+
+
+### 2.6 "Chat application" with the help of writing files
+
+#### Technologies:
+- Windows Forms
+- Reading and writing files
+
+#### Task:
+Write an application that writes a text file to a folder and can read its contents.
+Multiple instances of the application can be launched on different computers, 
+creating a quasi-chat
+
+**Step 1:**
+- Create the application based on a console application.
+
+**Step 2:**
+- Transfer the application to Windows Forms
+    - Using text fields
+    - Reacting to button click
+    - Ribbon?
+
+**Step 3:**
+- Create an encryption of the chat using the encryption method: **One Time Pad**
+- Add to the chat application the functionality to generate a file with a freely definable number of keys
+    - each of these keys is 250 characters long and can be used to encrypt and decrypt a message up to 250 characters long
+    - When clicking the button to create the key file, a .txt file containing the specified number of keys is created in the file system
+- Continue to add the functionality to read a key file for your chat or set the path to it
+- Every time a message is written, the top unused key is read from the file and used to encrypt the entered message
+- When a message is received or read from the file the same key from the file is used for decryption
+
