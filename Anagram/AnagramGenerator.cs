@@ -62,7 +62,7 @@ namespace Anagram
                     baseWordSymbols.Remove(symbol);
             }
             
-            if(!baseWordSymbols.Any())
+            if(baseWordSymbols.Count <= 0)
                 return true;
             
             return false;

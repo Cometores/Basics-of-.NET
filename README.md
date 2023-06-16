@@ -46,6 +46,8 @@ The program will greet the user with 4 functions.
 3) Output the average weight of all gears
 4) Exit program
 
+#### The implementation is in the next project:
+- Application logic - [GearFactory](GearFactory)
 
 
 
@@ -82,6 +84,9 @@ hierarchy:
 
 Create a list of traffic participant in your main method and call the method `MovesBy()` 
 for each of them.
+
+#### The implementation is in the next project:
+- Application logic - [Vehicles](Vehicles)
 
 
 
@@ -150,12 +155,16 @@ last name.
 ### 2.1 Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
 
+#### The implementation is in the next project:
+- GUI - [PictureViewer](PictureViewer)
 
 
 
 ### 2.2 Timed math quiz
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
 
+#### The implementation is in the next project:
+- GUI - [MathQuiz](MathQuiz)
 
 
 
@@ -164,6 +173,10 @@ last name.
 
 #### Task:
 Matching game, where the player matches pairs of hidden icons.
+
+#### The implementation is in the next project:
+- GUI - [MatchingGame](MatchingGame)
+
 
 
 
@@ -214,10 +227,12 @@ When the file is read, the text fields display information, they can be edited a
 Write a program that takes a base word and gives a list of anagrams, working on the basis
 of German words.
 
-A list of all meaningful German words is needed:
-[germany.dic file](https://sourceforge.net/projects/germandict/)
+A [list](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt) of all meaningful German words is needed.
 ![MP3GUI](./others/readmePics/AnagramGenerator.png)
 
+#### The functionality is divided into 2 projects:
+- Application logic - [Anagram](Anagram)
+- Tests - [AnagramTests](AnagramTests)
 
 
 
@@ -267,7 +282,7 @@ creating a quasi-chat
 
 #### Task:
 Write a program that filters words from a list by their initial and final letters. 
-The list of words can be taken from [here](https://sourceforge.net/projects/germandict/).
+The list of words can be taken from [here](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt/).
 
 
 ### 3.2 Words in a certain position
