@@ -29,6 +29,7 @@
     &lt;Project Location="C:\andrey\Rider\SharpPractice\MP3FileStreamTests" Presentation="&amp;lt;MP3&amp;gt;\&amp;lt;MP3FileStreamTests&amp;gt;" /&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;NUnit3x::811F0927-78C8-45AB-9655-A75A31FE57E2::.NETFramework,Version=v4.8::MathematicsClassTests.AddGenericsTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::9146DB7D-787D-4A2D-AB26-18EBE7361DBD::.NETFramework,Version=v4.8::AnagramTests.AnagramGeneratorTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Project Location="C:\andrey\Rider\SharpPractice\MP3FileStreamTests" Presentation="&amp;lt;WindowsForms&amp;gt;\&amp;lt;MP3&amp;gt;\&amp;lt;MP3FileStreamTests&amp;gt;" /&gt;&#xD;
   &lt;/Or&gt;&#xD;

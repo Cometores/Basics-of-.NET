@@ -54,6 +54,11 @@
         <Name>MP3FileStream</Name>
       </ProjectReference>
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="others\ID3v1.mp3" />
+      <Content Include="others\Lenna_ComputerVision.png" />
+      <Content Include="others\lorem.txt" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
