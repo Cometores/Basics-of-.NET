@@ -3,82 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WiredBrainCoffee.CustomersApp"
+        xmlns:local="clr-namespace:WiredBrainCoffee.CustomersApp" 
+        xmlns:controls="clr-namespace:CustomersApp.Controls"
+        xmlns:view="clr-namespace:CustomersApp.View"
         mc:Ignorable="d"
         Title="Customers App" 
         d:DesignWidth="700" d:DesignHeight="600"  Height="500" Width="800" FontSize="20">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto"/>
-      <ColumnDefinition/>
-      <ColumnDefinition Width="Auto"/>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"/>
-      <RowDefinition Height="Auto"/>
-      <RowDefinition/>
-      <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-    <!-- Main menu -->
-    <Menu Grid.ColumnSpan="3" FontSize="20">
-      <MenuItem Header="_View">
-        <MenuItem Header="_Customers"/>
-        <MenuItem Header="_Products"/>
-      </MenuItem>
-    </Menu>
 
-    <!-- Header -->
-    <Grid Grid.Row="1" Grid.ColumnSpan="3" Background="#F05A28">
-      <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-        <Image Source="/Images/logo.png" Width="100" Margin="5"/>
-        <TextBlock Text="Customers App" FontSize="30" 
-                 Foreground="White" VerticalAlignment="Center"/>
-        <TextBlock Text="Version 1.0" FontSize="16"
-                 Foreground="#333333" VerticalAlignment="Bottom" Margin="10 0 0 22"/>
-      </StackPanel>
+        <Menu FontSize="20">
+            <MenuItem Header="_View">
+                <MenuItem Header="_Customers"/>
+                <MenuItem Header="_Products"/>
+            </MenuItem>
+        </Menu>
+
+
+        <controls:HeaderControl Grid.Row="1" />
+
+
+        <view:CustomersView Grid.Row="2"/>
+
+
+        <StatusBar Grid.Row="3">
+            <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
+        </StatusBar>
+
     </Grid>
-
-    <!-- Customer list -->
-    <Grid x:Name="customerListGrid"
-      Grid.Row="2" Background="#777">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition/>
-      </Grid.RowDefinitions>
-      <StackPanel Orientation="Horizontal">
-        <Button Margin="10" Width="75">
-          <StackPanel Orientation="Horizontal">
-            <Image Source="/Images/add.png" Height="18" Margin="0 0 5 0"/>
-            <TextBlock Text="Add"/>
-          </StackPanel>
-        </Button>
-        <Button Content="Delete" Width="75" Margin="0 10 10 10" />
-        <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
-          <Image Source="/Images/move.png" Height="18"/>
-        </Button>
-      </StackPanel>
-      <ListView Grid.Row="1" Margin="10 0 10 10">
-        <ListViewItem>Julia</ListViewItem>
-        <ListViewItem>Alex</ListViewItem>
-        <ListViewItem>Thomas</ListViewItem>
-      </ListView>
-    </Grid>
-
-    <!-- Customer detail -->
-    <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
-      <Label>Firstname:</Label>
-      <TextBox/>
-      <Label>Lastname:</Label>
-      <TextBox/>
-      <CheckBox Margin="0 10 0 0">
-        Is developer
-      </CheckBox>
-    </StackPanel>
-
-    <!-- Statusbar -->
-    <StatusBar Grid.Row="3" Grid.ColumnSpan="3">
-      <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
-    </StatusBar>
-  </Grid>
 </Window>

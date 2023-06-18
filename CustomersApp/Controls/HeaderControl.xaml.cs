@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WiredBrainCoffee.CustomersApp
+namespace CustomersApp.Controls
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
-  public partial class MainWindow : Window
-  {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for HeaderControl.xaml
+    /// </summary>
+    public partial class HeaderControl : UserControl
     {
-      InitializeComponent();
+        public HeaderControl()
+        {
+            InitializeComponent();
+        }
     }
-  }
 }
