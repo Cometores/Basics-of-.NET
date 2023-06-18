@@ -17,6 +17,8 @@ namespace CustomersApp.ViewModel
 
         public ObservableCollection<Customer> Customers { get; } = new();
 
+        public Customer? SelectedCustomer { get; set; }
+
         public async Task LoadAsync()
         {
             if (Customers.Any())
