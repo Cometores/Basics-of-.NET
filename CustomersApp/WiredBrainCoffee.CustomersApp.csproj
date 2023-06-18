@@ -14,15 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\add.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\move.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\move.png" />
   </ItemGroup>
 
 </Project>
