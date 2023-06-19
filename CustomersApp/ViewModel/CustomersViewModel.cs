@@ -1,4 +1,5 @@
-﻿using CustomersApp.Data;
+﻿using CustomersApp.Command;
+using CustomersApp.Data;
 using CustomersApp.Model;
 using System;
 using System.Collections.ObjectModel;
@@ -17,6 +18,8 @@ namespace CustomersApp.ViewModel
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
         }
 
         public ObservableCollection<Customer> Customers { get; } = new();
@@ -38,6 +41,9 @@ namespace CustomersApp.ViewModel
             }
         }
 
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+
         public async Task LoadAsync()
         {
             if (Customers.Any())
@@ -55,14 +61,14 @@ namespace CustomersApp.ViewModel
             }
         }
 
-        internal void Add()
+        private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
             Customers.Add(customer);
             SelectedCustomer = customer;
         }
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             NavigationSide = NavigationSide == NavigationSide.Left
                 ? NavigationSide.Right

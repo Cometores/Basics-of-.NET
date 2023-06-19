@@ -22,15 +22,5 @@ namespace CustomersApp.View
         {
             await _viewModel.LoadAsync();
         }
-
-        private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
-        {
-            _viewModel.MoveNavigation();
-        }
-
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            _viewModel.Add();
-        }
     }
 }
