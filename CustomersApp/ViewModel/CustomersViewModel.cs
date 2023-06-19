@@ -20,6 +20,7 @@ namespace CustomersApp.ViewModel
             _customerDataProvider = customerDataProvider;
             AddCommand = new DelegateCommand(Add);
             MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
 
         public ObservableCollection<Customer> Customers { get; } = new();
@@ -30,6 +31,7 @@ namespace CustomersApp.ViewModel
             set {
                 _selectedCustomer = value; 
                 RaisePropertyChanged();
+                DeleteCommand.RaiseCanExecteChanged();
             }
         }
 
@@ -43,6 +45,7 @@ namespace CustomersApp.ViewModel
 
         public DelegateCommand AddCommand { get; }
         public DelegateCommand MoveNavigationCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
 
         public async Task LoadAsync()
         {
@@ -74,6 +77,18 @@ namespace CustomersApp.ViewModel
                 ? NavigationSide.Right
                 : NavigationSide.Left;
         }
+
+        private void Delete(object? parameter)
+        {
+            if(SelectedCustomer is not null)
+            {
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
+            }
+        }
+
+        private bool CanDelete(object? parameter) =>SelectedCustomer is not null;
+
     }
 
     public enum NavigationSide
