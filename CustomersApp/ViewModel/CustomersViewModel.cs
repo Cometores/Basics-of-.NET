@@ -31,9 +31,12 @@ namespace CustomersApp.ViewModel
             set {
                 _selectedCustomer = value; 
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.RaiseCanExecteChanged();
             }
         }
+
+        public bool IsCustomerSelected => _selectedCustomer is not null;
 
         public NavigationSide NavigationSide { get => _navigationSide;
             private set

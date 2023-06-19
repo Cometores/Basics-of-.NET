@@ -6,11 +6,12 @@
              xmlns:local="clr-namespace:CustomersApp.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#F05A28">
+    
+    <Grid Background="{StaticResource HeaderBackgroundBrush}">
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <Image Source="/Images/logo.png" Width="100" Margin="5"/>
             <TextBlock Text="Customers App" FontSize="30" 
-                 Foreground="White" VerticalAlignment="Center"/>
+                 Foreground="{StaticResource HeaderForegroundBrush}" VerticalAlignment="Center"/>
             <TextBlock Text="Version 1.0" FontSize="16"
                  Foreground="#333333" VerticalAlignment="Bottom" Margin="10 0 0 22"/>
         </StackPanel>
