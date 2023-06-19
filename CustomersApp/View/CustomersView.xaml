@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CustomersApp.View"
+             xmlns:local="clr-namespace:CustomersApp.View" xmlns:converter="clr-namespace:CustomersApp.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:NavigationSideToGridColumnConverter 
+            x:Key="NavigationSideToGridColumnConv"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -14,8 +18,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Customer list -->
-        <Grid x:Name="customerListGrid"
-                  Background="#777">
+        <Grid Grid.Column="{Binding NavigationSide, 
+            Converter={StaticResource NavigationSideToGridColumnConv}}"
+            Background="#777">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>

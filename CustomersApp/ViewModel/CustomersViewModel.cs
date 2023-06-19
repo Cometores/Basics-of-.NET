@@ -12,6 +12,7 @@ namespace CustomersApp.ViewModel
     {
         private readonly ICustomerDataProvider _customerDataProvider;
         private Customer? _selectedCustomer;
+        private NavigationSide _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -25,6 +26,14 @@ namespace CustomersApp.ViewModel
             get => _selectedCustomer;
             set {
                 _selectedCustomer = value; 
+                RaisePropertyChanged();
+            }
+        }
+
+        public NavigationSide NavigationSide { get => _navigationSide;
+            private set
+            {
+                _navigationSide = value;
                 RaisePropertyChanged();
             }
         }
@@ -52,5 +61,18 @@ namespace CustomersApp.ViewModel
             Customers.Add(customer);
             SelectedCustomer = customer;
         }
+
+        internal void MoveNavigation()
+        {
+            NavigationSide = NavigationSide == NavigationSide.Left
+                ? NavigationSide.Right
+                : NavigationSide.Left;
+        }
+    }
+
+    public enum NavigationSide
+    {
+        Left,
+        Right
     }
 }
