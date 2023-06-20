@@ -6,9 +6,20 @@
         xmlns:local="clr-namespace:CustomersApp" 
         xmlns:controls="clr-namespace:CustomersApp.Controls"
         xmlns:view="clr-namespace:CustomersApp.View"
+        xmlns:viewModel="clr-namespace:CustomersApp.ViewModel"
         mc:Ignorable="d"
         Title="Customers App" 
         d:DesignWidth="700" d:DesignHeight="600"  Height="500" Width="800" FontSize="20">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}">
+            <view:CustomersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
+            <view:ProductsView/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -20,8 +31,12 @@
 
         <Menu FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customers"/>
-                <MenuItem Header="_Products"/>
+                <MenuItem Header="_Customers"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding CustomersViewModel}"/>
+                <MenuItem Header="_Products"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding ProductsViewModel}"/>
             </MenuItem>
         </Menu>
 
@@ -29,7 +44,7 @@
         <controls:HeaderControl Grid.Row="1" />
 
 
-        <view:CustomersView Grid.Row="2"/>
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}" />
 
 
         <StatusBar Grid.Row="3">

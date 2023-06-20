@@ -13,6 +13,9 @@
     <Compile Update="View\CustomersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ProductsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\HeaderControl.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CustomersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ProductsView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
