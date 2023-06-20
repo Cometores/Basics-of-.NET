@@ -30,6 +30,9 @@
     <Page Update="Resources\Converters.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CustomersView.xaml">
       <SubType>Designer</SubType>
     </Page>

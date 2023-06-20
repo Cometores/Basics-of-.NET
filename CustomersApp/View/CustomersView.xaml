@@ -56,18 +56,23 @@
 
         <!-- Customer detail -->
         <StackPanel Grid.Column="1" Margin="10"
-                    Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConv}}">
+                    Visibility="{Binding IsCustomerSelected, 
+                                Converter={StaticResource BooleanToVisibilityConv}}">
+
             <Label>Firstname:</Label>
             <TextBox Text="{Binding Path=SelectedCustomer.FirstName, 
                 Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
             <Label>Lastname:</Label>
             <TextBox Text="{Binding Path=SelectedCustomer.LastName, 
                 Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
             <CheckBox IsChecked="{Binding Path=SelectedCustomer.IsDeveloper, 
                 Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 Margin="0 10 0 0">
                 Is developer
             </CheckBox>
+                
         </StackPanel>
 
     </Grid>
