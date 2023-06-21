@@ -17,7 +17,7 @@ namespace CustomersApp.Command
 
         public event EventHandler? CanExecuteChanged;
 
-        public void RaiseCanExecteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
         public bool CanExecute(object? parameter) => _canExecute is null || _canExecute(parameter);
 

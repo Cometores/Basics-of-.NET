@@ -12,7 +12,7 @@ namespace CustomersApp.ViewModel
     public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider _customerDataProvider;
-        private Customer? _selectedCustomer;
+        private CustomerItemViewModel? _selectedCustomer;
         private NavigationSide _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
@@ -23,22 +23,25 @@ namespace CustomersApp.ViewModel
             DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
 
-        public ObservableCollection<Customer> Customers { get; } = new();
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
-        public Customer? SelectedCustomer
+        public CustomerItemViewModel? SelectedCustomer
         {
             get => _selectedCustomer;
-            set {
-                _selectedCustomer = value; 
+            set
+            {
+                _selectedCustomer = value;
                 RaisePropertyChanged();
                 RaisePropertyChanged(nameof(IsCustomerSelected));
-                DeleteCommand.RaiseCanExecteChanged();
+                DeleteCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public bool IsCustomerSelected => _selectedCustomer is not null;
+        public bool IsCustomerSelected => SelectedCustomer is not null;
 
-        public NavigationSide NavigationSide { get => _navigationSide;
+        public NavigationSide NavigationSide
+        {
+            get => _navigationSide;
             private set
             {
                 _navigationSide = value;
@@ -47,7 +50,9 @@ namespace CustomersApp.ViewModel
         }
 
         public DelegateCommand AddCommand { get; }
+
         public DelegateCommand MoveNavigationCommand { get; }
+
         public DelegateCommand DeleteCommand { get; }
 
         public async override Task LoadAsync()
@@ -62,7 +67,7 @@ namespace CustomersApp.ViewModel
             {
                 foreach (var customer in customers)
                 {
-                    Customers.Add(customer);
+                    Customers.Add(new CustomerItemViewModel(customer));
                 }
             }
         }
@@ -70,28 +75,28 @@ namespace CustomersApp.ViewModel
         private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
-            Customers.Add(customer);
-            SelectedCustomer = customer;
+            var viewModel = new CustomerItemViewModel(customer);
+            Customers.Add(viewModel);
+            SelectedCustomer = viewModel;
         }
 
         private void MoveNavigation(object? parameter)
         {
             NavigationSide = NavigationSide == NavigationSide.Left
-                ? NavigationSide.Right
-                : NavigationSide.Left;
+              ? NavigationSide.Right
+              : NavigationSide.Left;
         }
 
         private void Delete(object? parameter)
         {
-            if(SelectedCustomer is not null)
+            if (SelectedCustomer is not null)
             {
                 Customers.Remove(SelectedCustomer);
                 SelectedCustomer = null;
             }
         }
 
-        private bool CanDelete(object? parameter) =>SelectedCustomer is not null;
-
+        private bool CanDelete(object? parameter) => SelectedCustomer is not null;
     }
 
     public enum NavigationSide
