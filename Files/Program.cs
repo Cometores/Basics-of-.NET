@@ -12,13 +12,13 @@ namespace Files
         
         public static void Main(string[] args)
         {
-            IEnumerable<string> extensions = IOHandler.GetAllExtensionsFromDirectory(_dir);
+            IEnumerable<string> extensions = IoHandler.GetAllExtensionsFromDirectory(_dir);
             foreach (string extension in extensions)
             {
                 Console.WriteLine(extension);
             }
 
-            Console.WriteLine(IOHandler.GetAllDrivesInfo());
+            Console.WriteLine(IoHandler.GetAllDrivesInfo());
         }
     }
 }

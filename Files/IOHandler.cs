@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Files
 {
-    public static class IOHandler
+    public static class IoHandler
     {
         public static HashSet<string> GetAllExtensionsFromDirectory(string path)
         {
@@ -17,10 +17,9 @@ namespace Files
             return extensions;
         }
 
-        // Exception ... maybe because D.DriveType = cd room
         public static string GetAllDrivesInfo()
         {
-            string s = "";
+            string s = string.Empty;
             DriveInfo[] drives = DriveInfo.GetDrives().Where(drive => drive.DriveType != DriveType.CDRom).ToArray();
             foreach (DriveInfo drive in drives)
                 s += $"Drive {drive.Name}. Size {drive.TotalSize}. Free space {drive.AvailableFreeSpace}\n";

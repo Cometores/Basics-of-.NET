@@ -4,10 +4,11 @@ The tasks are divided into sections:
 1) [Basics](#basics)
 2) [Windows forms](#windows-forms)
 3) [LINQ](#linq)
+4) [WPF](#wpf)
 
-**Target**: .NET Framework 4.8.
+**Targets**: `.NET Framework 4.8` and `.NET 6`.
 
-Projects are logically divided into Solution Folders for the Rider IDE.
+Projects are logically divided into Solution Folders.
 
 ## Basics
 
@@ -148,6 +149,10 @@ line by line into an array. Then output a random combination of first name and
 last name.
 
 
+### 1.7 Files
+- GetAllExtensionsFromDirectory
+- GetAllDrivesInfo
+
 
 
 ## Windows forms
@@ -216,7 +221,6 @@ When the file is read, the text fields display information, they can be edited a
 
 
 ### 2.5 Anagram generator
-**NOT IMPLEMENTED**
 
 #### Technologies:
 - Windows Forms
@@ -303,3 +307,6 @@ Use the dictionary from the previous assignment.
 
 
 
+## WPF
+
+### 4.1 Customer App
