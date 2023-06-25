@@ -2,13 +2,19 @@
 The repository includes practice exercises in C# with solutions to various problems.
 The tasks are divided into sections:
 1) [Basics](#basics)
-2) [Windows forms](#windows-forms)
+2) [Files](#files)
 3) [LINQ](#linq)
-4) [WPF](#wpf)
+4) [Asynchronous](#asynchronous)
+5) [Windows forms](#windows-forms)
+6) [WPF](#wpf)
 
 **Targets**: `.NET Framework 4.8` and `.NET 6`.
 
 Projects are logically divided into Solution Folders.
+
+
+
+
 
 ## Basics
 
@@ -52,6 +58,7 @@ The program will greet the user with 4 functions.
 
 
 
+
 ### 1.3 Vehicles
 
 #### Technologies:
@@ -92,6 +99,7 @@ for each of them.
 
 
 
+
 ### 1.4 Validation of login forms
 **NOT IMPLEMENTED**
 #### Technologies:
@@ -108,6 +116,8 @@ Make two versions of the validation function for:
 
 One variant should use regular expressions, the other - explore a 
 string as an array.
+
+
 
 
 
@@ -135,29 +145,87 @@ After the 10 tasks have been solved, the time required is to be output on the co
 
 
 
-### 1.6 Simple name generator
+
+
+
+## Files
+
+### 2.1 Simple name generator
 **NOT IMPLEMENTED**
 #### Technologies:
 - Console application
-- Reading files 
-  - `File.ReadAllLines()`
-  - `StreamReader ReadLine()`
-  
+- Reading files
+    - `File.ReadAllLines()`
+    - `StreamReader ReadLine()`
+
 #### Task:
-Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt) 
-line by line into an array. Then output a random combination of first name and 
+Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt)
+line by line into an array. Then output a random combination of first name and
 last name.
 
 
-### 1.7 Files
-- GetAllExtensionsFromDirectory
-- GetAllDrivesInfo
 
+
+### 2.2 File system information
+#### Technologies:
+- Console application
+- `DriveInfo` & `DirectoryInfo` & `FileInfo`
+
+#### Task:
+Write a program with 2 functions:
+1) Output all file extensions inside a folder. The path to the folder must be passed to the function
+2) Output information about all storage devices on your computer in the following format: name, size, available space
+
+#### The implementation is in the next project:
+- Application logic - [FsInformation](FsInformation)
+
+
+
+
+## LINQ
+
+### 3.1 Filtering by first and last letter
+**NOT IMPLEMENTED**
+
+#### Technologies:
+- Console application
+- LINQ
+    - `.StartsWith()`
+    - `.EndsWith()`
+- Listen
+
+#### Task:
+Write a program that filters words from a list by their initial and final letters.
+The list of words can be taken from [here](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt/).
+
+
+### 3.2 Words in a certain position
+**NOT IMPLEMENTED**
+
+#### Technologies:
+- Console application
+- LINQ
+    - `.Take())`
+- - Listen
+
+#### Task:
+Write a program that outputs objects from the collection based on their position.
+Use the dictionary from the previous assignment.
+
+**Example usage:**
+- Output all words at positions 10-20, 110-120, 210-220, and 310-320
+
+
+
+## Asynchronous
+### 4.1
+
+### 4.2
 
 
 ## Windows forms
 
-### 2.1 Picture Viewer
+### 5.1 Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
 
 #### The implementation is in the next project:
@@ -165,7 +233,7 @@ last name.
 
 
 
-### 2.2 Timed math quiz
+### 5.2 Timed math quiz
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
 
 #### The implementation is in the next project:
@@ -173,7 +241,7 @@ last name.
 
 
 
-### 2.3 Matching game
+### 5.3 Matching game
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-create-match-game?view=vs-2022)
 
 #### Task:
@@ -185,7 +253,7 @@ Matching game, where the player matches pairs of hidden icons.
 
 
 
-### 2.4 Read and edit information from MP3 files
+### 5.4 Read and edit information from MP3 files
 
 #### Technologies:
 - Windows Forms
@@ -220,7 +288,7 @@ When the file is read, the text fields display information, they can be edited a
 
 
 
-### 2.5 Anagram generator
+### 5.5 Anagram generator
 
 #### Technologies:
 - Windows Forms
@@ -231,7 +299,8 @@ When the file is read, the text fields display information, they can be edited a
 Write a program that takes a base word and gives a list of anagrams, working on the basis
 of German words.
 
-A [list](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt) of all meaningful German words is needed.
+A [list](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt) 
+of all meaningful German words is needed.
 ![MP3GUI](./others/readmePics/AnagramGenerator.png)
 
 #### The functionality is divided into 2 projects:
@@ -241,16 +310,22 @@ A [list](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#f
 
 
 
-### 2.6 "Chat application" with the help of writing files
-**NOT IMPLEMENTED**
+## WPF
+
+### 6.1 Customer App
+
+
+
+
+### 6.2 "Chat application" with the help of writing files
 
 #### Technologies:
-- Windows Forms
+- WPF
 - Reading and writing files
 
 #### Task:
 Write an application that writes a text file to a folder and can read its contents.
-Multiple instances of the application can be launched on different computers, 
+Multiple instances of the application can be launched on different computers,
 creating a quasi-chat
 
 **Step 1:**
@@ -270,43 +345,3 @@ creating a quasi-chat
 - Continue to add the functionality to read a key file for your chat or set the path to it
 - Every time a message is written, the top unused key is read from the file and used to encrypt the entered message
 - When a message is received or read from the file the same key from the file is used for decryption
-
-
-## LINQ
-
-### 3.1 Filtering by first and last letter
-**NOT IMPLEMENTED**
-
-#### Technologies:
-- Console application
-- LINQ
-  - `.StartsWith()` 
-  - `.EndsWith()`
-- Listen
-
-#### Task:
-Write a program that filters words from a list by their initial and final letters. 
-The list of words can be taken from [here](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt/).
-
-
-### 3.2 Words in a certain position
-**NOT IMPLEMENTED**
-
-#### Technologies:
-- Console application
-- LINQ
-    - `.Take())`
-- - Listen
-
-#### Task:
-Write a program that outputs objects from the collection based on their position. 
-Use the dictionary from the previous assignment.
-
-**Example usage:**
-- Output all words at positions 10-20, 110-120, 210-220, and 310-320
-
-
-
-## WPF
-
-### 4.1 Customer App
