@@ -6,7 +6,7 @@ public class StatusBar
     private readonly int _topPosition;
     private int _filesDownloaded;
 
-    private readonly object _lockConsole = new();
+    // private readonly object _lockConsole = new();
     private readonly object _lockFiles = new();
     private Task _loadingTask;
     private CancellationTokenSource _cancellationTokenSource;
@@ -26,14 +26,14 @@ public class StatusBar
         _filesDownloaded = 0;
         _numberOfFiles = numberOfFiles;
         _topPosition = Console.CursorTop;
-        Console.WriteLine($"[{new string('-', numberOfFiles)}]");
-
+        ConsoleWriter.Write($"[{new string('-', numberOfFiles)}]");
+    
         _cancellationTokenSource = new();
         _cancellationToken = _cancellationTokenSource.Token;
         _loadingTask = new Task(PrintLoading, _cancellationToken);
         _loadingTask.Start();
     }
-
+    
     public void Add()
     {
         lock (_lockFiles)
@@ -49,65 +49,30 @@ public class StatusBar
     {
         for (int i = 0; i < _numberOfFiles; i++)
         {
+            ConsoleWriter.Write("_", i + 1, _topPosition, ConsoleColor.Cyan);
             System.Threading.Thread.Sleep(1000);
-            lock (_lockConsole)
-            {
-                var leftPosBefore = Console.CursorLeft;
-                var ct = Console.CursorTop;
-                var backgroundColor = Console.BackgroundColor;
-
-                Console.SetCursorPosition(i + 1, _topPosition);
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.Write(" ");
-
-                Console.BackgroundColor = backgroundColor;
-                Console.SetCursorPosition(leftPosBefore, ct);
-            }
         }
     }
 
     private void PrintBar(int leftPosition)
     {
-        lock (_lockConsole)
-        {
-            var leftPositionBefore = Console.CursorLeft;
-            var topPositionBefore = Console.CursorTop;
-            var backgroundBefore = Console.BackgroundColor;
-
-            Console.SetCursorPosition(leftPosition, _topPosition);
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.Write(" ");
-
-            Console.BackgroundColor = backgroundBefore;
-            Console.SetCursorPosition(leftPositionBefore, topPositionBefore);
-        }
+        ConsoleWriter.Write("_", leftPosition, _topPosition, ConsoleColor.Cyan);
     }
-
+    
     private void PrintLoading()
     {
         int i = 0;
         while (true)
         {  
-            System.Threading.Thread.Sleep(200);
-            lock (_lockConsole)
+            if (_cancellationToken.IsCancellationRequested)
             {
-                var leftPositionBefore = Console.CursorLeft;
-                var topPositionBefore = Console.CursorTop;
-
-                Console.SetCursorPosition(_numberOfFiles + 2, _topPosition);
-                
-                if (_cancellationToken.IsCancellationRequested)
-                {
-                    Console.Write(" ");
-                    Console.SetCursorPosition(leftPositionBefore, topPositionBefore);
-                    _cancellationToken.ThrowIfCancellationRequested();
-                
-                }
-                Console.Write(LoadingSymbols[i]);
-
-                Console.SetCursorPosition(leftPositionBefore, topPositionBefore);
+                ConsoleWriter.Write(" ", _numberOfFiles + 2, _topPosition);
+                _cancellationToken.ThrowIfCancellationRequested();
             }
-
+            
+            ConsoleWriter.Write(LoadingSymbols[i], _numberOfFiles + 2, _topPosition);
+            System.Threading.Thread.Sleep(200);
+           
             i = (i + 1) % LoadingSymbolsLength;
         }
     }
