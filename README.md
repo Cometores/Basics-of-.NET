@@ -231,6 +231,9 @@ For this, a main thread will track progress and draw status bar in the console:
 
 7 files to be loaded, 3 already loaded: `[+++----]`
 
+#### The implementation is in the next project:
+- Application logic - [FileDownload](FileDownload)
+
 
 
 ### 4.2 Grep
@@ -248,6 +251,12 @@ for the same strings in files located in that folder and subfolders.
 - Folder thread waits for the file threads and folder threads it created.
 - Program starts with only one thread - with one folder thread for the folders 
 passed in parameters.
+
+#### The implementation is in the next project:
+- Application logic - [Grep](Grep)
+
+
+
 
 ## Windows forms
 
