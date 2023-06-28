@@ -14,12 +14,12 @@ public class ConsoleWriter : IWriter
     
     public static void Write(string message, int leftPos, int topPos, ConsoleColor backgroundColor = ConsoleColor.Black)
     {
-        int leftPosBefore = Console.CursorLeft;
-        int topPosBefore = Console.CursorTop;
-        ConsoleColor backgroundColorBefore = Console.BackgroundColor;
-        
         lock (_lock)
         {
+            int leftPosBefore = Console.CursorLeft;
+            int topPosBefore = Console.CursorTop;
+            ConsoleColor backgroundColorBefore = Console.BackgroundColor;
+            
             // Set values for message
             Console.SetCursorPosition(leftPos, topPos);
             Console.BackgroundColor = backgroundColor;
