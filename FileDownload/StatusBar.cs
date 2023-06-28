@@ -67,7 +67,7 @@ public class StatusBar
             if (_cancellationToken.IsCancellationRequested)
             {
                 ConsoleWriter.Write(" ", _numberOfFiles + 2, _topPosition);
-                _cancellationToken.ThrowIfCancellationRequested();
+                return;
             }
             
             ConsoleWriter.Write(LoadingSymbols[i], _numberOfFiles + 2, _topPosition);

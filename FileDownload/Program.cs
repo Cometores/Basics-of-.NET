@@ -1,5 +1,10 @@
-﻿using FileDownload;
+﻿namespace FileDownload;
 
-// ConsoleWriterDownload.DrawStatusBarWithoutLoading();
-ConsoleWriterDownload.SimulateDownloading();
-
+public static class Program
+{
+    public static void Main(string[] args)
+    {
+        // ConsoleWriterDownload.DrawStatusBarWithoutLoading();
+        ConsoleWriterDownload.SimulateDownloading();
+    }
+}

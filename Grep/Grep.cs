@@ -1,57 +1,55 @@
-﻿namespace Grep;
+﻿using System.Text.RegularExpressions;
+
+namespace Grep;
 
 public class Grep
 {
-    private readonly string _path;
-    private readonly string _searchQuery;
+    private string _path;
+    private string _searchQuery;
     public int Cnt = 0;
-    private object _lockQuery = new();
+    private readonly object _lockQuery = new();
 
-    public Grep(string path, string searchQuery)
+    public Task GrepIt(string path, string query)
     {
         _path = path;
-        _searchQuery = searchQuery;
+        _searchQuery = query;
         if (!Directory.Exists(path))
             throw new DirectoryNotFoundException();
 
         DirectoryInfo dir = new DirectoryInfo(path);
-        Task t = DirectoryThread(dir);
-        t.Wait();
+        return GrepDirectoryAsync(dir);
     }
-
-    private async Task DirectoryThread(DirectoryInfo dir)
+    
+    private Task GrepDirectoryAsync(DirectoryInfo dir)
     {
-        List<Task> tList = new();
+        List<Task> tasks = new();
         foreach (DirectoryInfo childDir in dir.GetDirectories())
         {
-            Task t = DirectoryThread(childDir);
-            tList.Add(t);
+            Task directoryTask = GrepDirectoryAsync(childDir);
+            tasks.Add(directoryTask);
         }
 
         foreach (FileInfo childFile in dir.GetFiles())
         {
             if (childFile.Extension == ".txt")
             {
-                Task t = FileThread(childFile);
-                tList.Add(t);
+                Task fileTask = GrepFileAsync(childFile);
+                tasks.Add(fileTask);
             }
         }
-
-        Task.WaitAll(tList.ToArray());
+        return Task.WhenAll(tasks);
     }
 
-    private async Task FileThread(FileInfo file)
+    private async Task GrepFileAsync(FileInfo file)
     {
         using StreamReader sr = new StreamReader(file.OpenRead());
         while (!sr.EndOfStream)
         {
-            string? line = sr.ReadLine();
-            if (line != null && line.Contains(_searchQuery))
+            string? line = await sr.ReadLineAsync();
+            if (line != null && line.Contains(_searchQuery, StringComparison.OrdinalIgnoreCase))
             {
                 lock (_lockQuery)
-                {
                     Cnt++;
-                }
             }
         }
     }
