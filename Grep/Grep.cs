@@ -4,9 +4,10 @@ namespace Grep;
 
 public class Grep
 {
+    public int Cnt { get; private set; } = 0;
+    
     private string _path;
     private string _searchQuery;
-    public int Cnt = 0;
     private readonly object _lockQuery = new();
 
     public Task GrepIt(string path, string query)
