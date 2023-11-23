@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClientServer", "TCPClien
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Networking", "Networking", "{9CFF2EE1-7AF4-451B-B387-708186942130}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflections", "Reflections", "{49D3046D-C9A4-4880-B595-D25EAFAD96BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "ReflectionSample\ReflectionSample.csproj", "{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +139,10 @@ Global
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +169,7 @@ Global
 		{9770EA83-0E7D-40EE-8292-08A634EA5AA7} = {FEC5B651-399B-4F77-98DB-E098595DDB8E}
 		{1A29B72E-9457-4398-8E54-8AF4A4559954} = {FEC5B651-399B-4F77-98DB-E098595DDB8E}
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3} = {9CFF2EE1-7AF4-451B-B387-708186942130}
+		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC} = {49D3046D-C9A4-4880-B595-D25EAFAD96BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A60F337F-C7DA-4DFD-B6FA-1447B3C9678B}
