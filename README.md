@@ -23,7 +23,6 @@ Examples of working with classes, interfaces, exceptions and tests.
 **Console applications only.**
 
 
-
 [//]: # (__________________________________________________________)
 ### 1.1 Calculator
 *.NETFramework v4.8*
@@ -41,8 +40,8 @@ Examples of working with classes, interfaces, exceptions and tests.
 - Generics
 
 #### The functionality is divided into 2 projects:
-- Application logic - [MathematicsClass](MathematicsClass)
-- Tests - [MathematicsClassTests](MathematicsClassTests)
+- Application logic - [Calculator](Sources/OOP/Calculator)
+- Tests - [CalculatorTests](Sources/OOP/CalculatorTests)
 
 
 [//]: # (__________________________________________________________)
@@ -63,10 +62,10 @@ The program will greet the user with 4 functions.
 4) Exit program
 
 #### The implementation is in the next project:
-- Application logic - [GearFactory](GearFactory)
+- Application logic - [GearFactory](Sources/OOP/GearFactory)
 
 
-
+[//]: # (__________________________________________________________)
 ### 1.3 Vehicles
 
 #### Technologies:
@@ -105,9 +104,7 @@ for each of them.
 - Application logic - [Vehicles](Vehicles)
 
 
-
-
-
+[//]: # (__________________________________________________________)
 ### 1.4 Validation of login forms
 **NOT IMPLEMENTED**
 #### Technologies:
@@ -126,10 +123,7 @@ One variant should use regular expressions, the other - explore a
 string as an array.
 
 
-
-
-
-
+[//]: # (__________________________________________________________)
 ### 1.5 Calculation task generator with timing
 **NOT IMPLEMENTED**
 #### Technologies:
@@ -158,7 +152,24 @@ After the 10 tasks have been solved, the time required is to be output on the co
 
 ## 2. Files
 
-### 2.1 Simple name generator
+
+[//]: # (__________________________________________________________)
+### 2.1 File system information
+#### Technologies:
+- Console application
+- `DriveInfo` & `DirectoryInfo` & `FileInfo`
+
+#### Task:
+Write a program with 2 functions:
+1) Output all file extensions inside a folder. The path to the folder must be passed to the function
+2) Output information about all storage devices on your computer in the following format: name, size, available space
+
+#### The implementation is in the next project:
+- Application logic - [FsInformation](Sources/Files/FsInformation)
+
+
+[//]: # (__________________________________________________________)
+### 2.2 Simple name generator
 **NOT IMPLEMENTED**
 #### Technologies:
 - Console application
@@ -174,24 +185,12 @@ last name.
 
 
 
-### 2.2 File system information
-#### Technologies:
-- Console application
-- `DriveInfo` & `DirectoryInfo` & `FileInfo`
-
-#### Task:
-Write a program with 2 functions:
-1) Output all file extensions inside a folder. The path to the folder must be passed to the function
-2) Output information about all storage devices on your computer in the following format: name, size, available space
-
-#### The implementation is in the next project:
-- Application logic - [FsInformation](FsInformation)
-
-
 
 
 ## 3. LINQ
 
+
+[//]: # (__________________________________________________________)
 ### 3.1 Filtering by first and last letter
 **NOT IMPLEMENTED**
 
@@ -207,6 +206,7 @@ Write a program that filters words from a list by their initial and final letter
 The list of words can be taken from [here](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt/).
 
 
+[//]: # (__________________________________________________________)
 ### 3.2 Words in a certain position
 **NOT IMPLEMENTED**
 
@@ -226,6 +226,9 @@ Use the dictionary from the previous assignment.
 
 
 ## 4. Asynchronous
+
+
+[//]: # (__________________________________________________________)
 ### 4.1 Parallel file downloads
 #### Technologies:
 - Console application
@@ -240,10 +243,10 @@ For this, a main thread will track progress and draw status bar in the console:
 7 files to be loaded, 3 already loaded: `[+++----]`
 
 #### The implementation is in the next project:
-- Application logic - [FileDownload](FileDownload)
+- Application logic - [FileDownload](Sources\Asynchronous\FileDownload)
 
 
-
+[//]: # (__________________________________________________________)
 ### 4.2 Grep
 #### Technologies:
 - Console application
@@ -268,6 +271,8 @@ passed in parameters.
 
 ## 5. Windows forms
 
+
+[//]: # (__________________________________________________________)
 ### 5.1 Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
 
@@ -275,7 +280,7 @@ passed in parameters.
 - GUI - [PictureViewer](PictureViewer)
 
 
-
+[//]: # (__________________________________________________________)
 ### 5.2 Timed math quiz
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
 
@@ -283,7 +288,7 @@ passed in parameters.
 - GUI - [MathQuiz](MathQuiz)
 
 
-
+[//]: # (__________________________________________________________)
 ### 5.3 Matching game
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-create-match-game?view=vs-2022)
 
@@ -294,8 +299,7 @@ Matching game, where the player matches pairs of hidden icons.
 - GUI - [MatchingGame](MatchingGame)
 
 
-
-
+[//]: # (__________________________________________________________)
 ### 5.4 Read and edit information from MP3 files
 
 #### Technologies:
@@ -330,7 +334,7 @@ When the file is read, the text fields display information, they can be edited a
 - GUI - [MP3Gui](MP3Gui)
 
 
-
+[//]: # (__________________________________________________________)
 ### 5.5 Anagram generator
 
 #### Technologies:
@@ -353,13 +357,16 @@ of all meaningful German words is needed.
 
 
 
+
 ## 6. WPF
 
+
+[//]: # (__________________________________________________________)
 ### 6.1 Customer App
 
 
 
-
+[//]: # (__________________________________________________________)
 ### 6.2 "Chat application" with the help of writing files
 
 #### Technologies:

@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "Sources\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearFactory", "Sources\OOP\GearFactory\GearFactory.csproj", "{130EE57C-0DFB-4355-9E01-610927409444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Vehicles\Vehicles.csproj", "{D03EFC3E-4C06-4C40-ADCE-459D2B3EEDF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Sources\OOP\Vehicles\Vehicles.csproj", "{D03EFC3E-4C06-4C40-ADCE-459D2B3EEDF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation", "Validation\Validation.csproj", "{6B8E8EB1-9C34-4AE3-B0E0-4E21C3781E3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation", "Sources\OOP\Validation\Validation.csproj", "{6B8E8EB1-9C34-4AE3-B0E0-4E21C3781E3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureViewer", "PictureViewer\PictureViewer.csproj", "{02126DE0-76EE-4FB8-9FB3-5D40F1C8904B}"
 EndProject
@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Gui", "MP3Gui\MP3Gui.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStream", "MP3FileStream\MP3FileStream.csproj", "{5C050AA3-F094-4DED-9D0A-D990333E30D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsInformation", "FsInformation\FsInformation.csproj", "{A8BCF237-2BC1-4811-96FE-9705FFA5DD78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsInformation", "Sources\Files\FsInformation\FsInformation.csproj", "{A8BCF237-2BC1-4811-96FE-9705FFA5DD78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP3", "MP3", "{B25DB1E3-B563-45B2-A456-344471D52309}"
 EndProject
@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{20B9093B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asynchronous", "Asynchronous", "{FEC5B651-399B-4F77-98DB-E098595DDB8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "FileDownload\FileDownload.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "Sources\Asynchronous\FileDownload\FileDownload.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grep", "Grep\Grep.csproj", "{1A29B72E-9457-4398-8E54-8AF4A4559954}"
 EndProject
