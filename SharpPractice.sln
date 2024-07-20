@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOP", "OOP", "{5F3A9D61-63D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "Sources\OOP\CalculatorTests\CalculatorTests.csproj", "{811F0927-78C8-45AB-9655-A75A31FE57E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearFactory", "GearFactory\GearFactory.csproj", "{130EE57C-0DFB-4355-9E01-610927409444}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearFactory", "Sources\OOP\GearFactory\GearFactory.csproj", "{130EE57C-0DFB-4355-9E01-610927409444}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Vehicles\Vehicles.csproj", "{D03EFC3E-4C06-4C40-ADCE-459D2B3EEDF4}"
 EndProject
@@ -59,7 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflections", "Reflections"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "ReflectionSample\ReflectionSample.csproj", "{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Sources\OOP\Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
