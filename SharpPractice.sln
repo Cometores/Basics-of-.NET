@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basics", "Basics", "{5F3A9D61-63DA-4DF3-9EDF-E960E67AA614}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOP", "OOP", "{5F3A9D61-63DA-4DF3-9EDF-E960E67AA614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathematicsClass", "MathematicsClass\MathematicsClass.csproj", "{A2C00B28-61D5-47C0-87D1-6DEA582EEA19}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathematicsClassTests", "MathematicsClassTests\MathematicsClassTests.csproj", "{811F0927-78C8-45AB-9655-A75A31FE57E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "Sources\OOP\CalculatorTests\CalculatorTests.csproj", "{811F0927-78C8-45AB-9655-A75A31FE57E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearFactory", "GearFactory\GearFactory.csproj", "{130EE57C-0DFB-4355-9E01-610927409444}"
 EndProject
@@ -33,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP3", "MP3", "{B25DB1E3-B56
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStreamTests", "MP3FileStreamTests\MP3FileStreamTests.csproj", "{EC444AE2-B5A2-4443-A6BA-372CD03BC9C9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mathematics", "Mathematics", "{E0640032-EBE7-48B7-9647-122CB5EC02F6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator", "Calculator", "{E0640032-EBE7-48B7-9647-122CB5EC02F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Anagram", "Anagram", "{D38361E3-639C-41F2-83A4-4B555F8E04EF}"
 EndProject
@@ -61,16 +59,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflections", "Reflections"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "ReflectionSample\ReflectionSample.csproj", "{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2C00B28-61D5-47C0-87D1-6DEA582EEA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2C00B28-61D5-47C0-87D1-6DEA582EEA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2C00B28-61D5-47C0-87D1-6DEA582EEA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2C00B28-61D5-47C0-87D1-6DEA582EEA19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{811F0927-78C8-45AB-9655-A75A31FE57E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{811F0927-78C8-45AB-9655-A75A31FE57E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{811F0927-78C8-45AB-9655-A75A31FE57E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -143,12 +139,15 @@ Global
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A2C00B28-61D5-47C0-87D1-6DEA582EEA19} = {E0640032-EBE7-48B7-9647-122CB5EC02F6}
 		{811F0927-78C8-45AB-9655-A75A31FE57E2} = {E0640032-EBE7-48B7-9647-122CB5EC02F6}
 		{130EE57C-0DFB-4355-9E01-610927409444} = {5F3A9D61-63DA-4DF3-9EDF-E960E67AA614}
 		{D03EFC3E-4C06-4C40-ADCE-459D2B3EEDF4} = {5F3A9D61-63DA-4DF3-9EDF-E960E67AA614}
@@ -170,6 +169,7 @@ Global
 		{1A29B72E-9457-4398-8E54-8AF4A4559954} = {FEC5B651-399B-4F77-98DB-E098595DDB8E}
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3} = {9CFF2EE1-7AF4-451B-B387-708186942130}
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC} = {49D3046D-C9A4-4880-B595-D25EAFAD96BE}
+		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C} = {E0640032-EBE7-48B7-9647-122CB5EC02F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A60F337F-C7DA-4DFD-B6FA-1447B3C9678B}

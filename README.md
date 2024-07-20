@@ -16,27 +16,36 @@ Projects are logically divided into Solution Folders.
 
 
 
-## Basics
+## 1. OOP
+A set of tasks aimed at basic understanding of the .NET platform. 
+Examples of working with classes, interfaces, exceptions and tests.
 
-### 1.1 Mathematics class
-#### Technologies:
-- Console application
-- [Static class](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members) and methods
-- Unittest
-- \[Obsolete\] Generics
+**Console applications only.**
+
+
+
+[//]: # (__________________________________________________________)
+### 1.1 Calculator
+*.NETFramework v4.8*
 
 #### Task:
-- Create a class that provides the 4 basic arithmetic operations 
-each as a method.
+1. Create a class that provides the 4 basic arithmetic operations
+  each as a method.
     - Addition, subtraction, multiplication and division
+2. Create a class for tests using **NUnit**
+3. **\*Extra**: Create a generic class that supports operations on any type.
+  
+#### Technologies:
+- [Static class](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members) and methods
+- **NUnit**
+- Generics
 
 #### The functionality is divided into 2 projects:
 - Application logic - [MathematicsClass](MathematicsClass)
 - Tests - [MathematicsClassTests](MathematicsClassTests)
 
 
-
-
+[//]: # (__________________________________________________________)
 ### 1.2 Gear Factory
 
 #### Technologies:
@@ -55,7 +64,6 @@ The program will greet the user with 4 functions.
 
 #### The implementation is in the next project:
 - Application logic - [GearFactory](GearFactory)
-
 
 
 
@@ -148,7 +156,7 @@ After the 10 tasks have been solved, the time required is to be output on the co
 
 
 
-## Files
+## 2. Files
 
 ### 2.1 Simple name generator
 **NOT IMPLEMENTED**
@@ -182,7 +190,7 @@ Write a program with 2 functions:
 
 
 
-## LINQ
+## 3. LINQ
 
 ### 3.1 Filtering by first and last letter
 **NOT IMPLEMENTED**
@@ -217,7 +225,7 @@ Use the dictionary from the previous assignment.
 
 
 
-## Asynchronous
+## 4. Asynchronous
 ### 4.1 Parallel file downloads
 #### Technologies:
 - Console application
@@ -258,7 +266,7 @@ passed in parameters.
 
 
 
-## Windows forms
+## 5. Windows forms
 
 ### 5.1 Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
@@ -345,7 +353,7 @@ of all meaningful German words is needed.
 
 
 
-## WPF
+## 6. WPF
 
 ### 6.1 Customer App
 

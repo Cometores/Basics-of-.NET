@@ -8,8 +8,8 @@
         <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>MathematicsClassTests</RootNamespace>
-        <AssemblyName>MathematicsClassTests</AssemblyName>
+        <RootNamespace>CalculatorTests</RootNamespace>
+        <AssemblyName>CalculatorTests</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -33,6 +33,7 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Microsoft.CSharp" />
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -42,14 +43,14 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AddGenericsTests.cs" />
-        <Compile Include="Tests.cs" />
+        <Compile Include="GenericCalculatorTests.cs" />
+        <Compile Include="DefaultCalculatorTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\MathematicsClass\MathematicsClass.csproj">
-        <Project>{a2c00b28-61d5-47c0-87d1-6dea582eea19}</Project>
-        <Name>MathematicsClass</Name>
+      <ProjectReference Include="..\..\..\Calculator\Calculator.csproj">
+        <Project>{779e0875-9dd0-4b61-a6b5-2d2cd782ea0c}</Project>
+        <Name>Calculator</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,12 @@
 ﻿using System;
+using Calculator;
 using NUnit.Framework;
-using Math = MathematicsClass.Math;
 
-namespace MathematicsClassTests
+namespace CalculatorTests
 {
+    /// <summary>
+    /// Test class for default calculator.
+    /// </summary>
     [TestFixture]
     public class Tests
     {
@@ -13,8 +16,7 @@ namespace MathematicsClassTests
             double a = 10,
                 b = 0;
 
-            Assert.Throws<DivideByZeroException>(() => Math.Div(a, b));
-
+            Assert.Throws<DivideByZeroException>(() => CalculatorDefault.Div(a, b));
         }
     }
 }
