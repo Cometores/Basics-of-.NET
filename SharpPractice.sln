@@ -13,35 +13,35 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Sources\OOP\Veh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation", "Sources\OOP\Validation\Validation.csproj", "{6B8E8EB1-9C34-4AE3-B0E0-4E21C3781E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureViewer", "PictureViewer\PictureViewer.csproj", "{02126DE0-76EE-4FB8-9FB3-5D40F1C8904B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureViewer", "Sources\WindowsForms\PictureViewer\PictureViewer.csproj", "{02126DE0-76EE-4FB8-9FB3-5D40F1C8904B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsForms", "WindowsForms", "{C5ADA988-2918-4CDF-A797-32D01C138374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathQuiz", "MathQuiz\MathQuiz.csproj", "{13C6EBA4-9FC2-4561-B923-0C195F8A67BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathQuiz", "Sources\WindowsForms\MathQuiz\MathQuiz.csproj", "{13C6EBA4-9FC2-4561-B923-0C195F8A67BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchingGame", "MatchingGame\MatchingGame.csproj", "{2E33DB1D-DCC0-4714-898D-ED53075244B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchingGame", "Sources\WindowsForms\MatchingGame\MatchingGame.csproj", "{2E33DB1D-DCC0-4714-898D-ED53075244B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Gui", "MP3Gui\MP3Gui.csproj", "{E094B9AB-B025-4BAF-AA8D-3EB42143F385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Gui", "Sources\WindowsForms\MP3Gui\MP3Gui.csproj", "{E094B9AB-B025-4BAF-AA8D-3EB42143F385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStream", "MP3FileStream\MP3FileStream.csproj", "{5C050AA3-F094-4DED-9D0A-D990333E30D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStream", "Sources\WindowsForms\MP3FileStream\MP3FileStream.csproj", "{5C050AA3-F094-4DED-9D0A-D990333E30D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsInformation", "Sources\Files\FsInformation\FsInformation.csproj", "{A8BCF237-2BC1-4811-96FE-9705FFA5DD78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP3", "MP3", "{B25DB1E3-B563-45B2-A456-344471D52309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStreamTests", "MP3FileStreamTests\MP3FileStreamTests.csproj", "{EC444AE2-B5A2-4443-A6BA-372CD03BC9C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStreamTests", "Sources\WindowsForms\MP3FileStreamTests\MP3FileStreamTests.csproj", "{EC444AE2-B5A2-4443-A6BA-372CD03BC9C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator", "Calculator", "{E0640032-EBE7-48B7-9647-122CB5EC02F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Anagram", "Anagram", "{D38361E3-639C-41F2-83A4-4B555F8E04EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anagram", "Anagram\Anagram.csproj", "{0B381FDE-7594-417E-8FD4-8660199FE753}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anagram", "Sources\WindowsForms\Anagram\Anagram.csproj", "{0B381FDE-7594-417E-8FD4-8660199FE753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramTests", "AnagramTests\AnagramTests.csproj", "{9146DB7D-787D-4A2D-AB26-18EBE7361DBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramTests", "Sources\WindowsForms\AnagramTests\AnagramTests.csproj", "{9146DB7D-787D-4A2D-AB26-18EBE7361DBD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{37C1DFBB-E687-46B3-B3DA-2611BB1CF4E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersApp", "CustomersApp\CustomersApp.csproj", "{6F726490-0774-45C2-9EE6-089629CB87CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersApp", "Sources\WPF\CustomersApp\CustomersApp.csproj", "{6F726490-0774-45C2-9EE6-089629CB87CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{20B9093B-2DE9-4EE7-ACC8-1296897AB027}"
 EndProject
@@ -49,15 +49,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asynchronous", "Asynchronou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "Sources\Asynchronous\FileDownload\FileDownload.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grep", "Grep\Grep.csproj", "{1A29B72E-9457-4398-8E54-8AF4A4559954}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grep", "Sources\Asynchronous\Grep\Grep.csproj", "{1A29B72E-9457-4398-8E54-8AF4A4559954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClientServer", "TCPClientServer\TCPClientServer.csproj", "{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClientServer", "Sources\Networking\TCPClientServer\TCPClientServer.csproj", "{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Networking", "Networking", "{9CFF2EE1-7AF4-451B-B387-708186942130}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflections", "Reflections", "{49D3046D-C9A4-4880-B595-D25EAFAD96BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "ReflectionSample\ReflectionSample.csproj", "{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "Sources\Reflections\ReflectionSample\ReflectionSample.csproj", "{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Sources\OOP\Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
 EndProject

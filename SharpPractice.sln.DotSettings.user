@@ -23,11 +23,20 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4fbee029_002D4a69_002D4fc2_002Da9f8_002D9f12caea2494/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ValidByteID3Test #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\andrey\Rider\SharpPractice\MP3FileStreamTests" Presentation="&amp;lt;MP3&amp;gt;\&amp;lt;MP3FileStreamTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cacac6ac_002D5ff2_002D4cf8_002Dae85_002Dc994004802b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\andrey\Rider\SharpPractice\MP3FileStreamTests" Presentation="&amp;lt;WindowsForms&amp;gt;\&amp;lt;MP3&amp;gt;\&amp;lt;MP3FileStreamTests&amp;gt;" /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cacac6ac_002D5ff2_002D4cf8_002Dae85_002Dc994004802b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="D:\Coding\C#\Sharp-practice\Sources\WindowsForms\MP3FileStreamTests" Presentation="&amp;lt;WindowsForms&amp;gt;\&amp;lt;MP3&amp;gt;\&amp;lt;MP3FileStreamTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::9146DB7D-787D-4A2D-AB26-18EBE7361DBD::.NETFramework,Version=v4.8::AnagramTests.AnagramGeneratorTests.GetAllAnagrams_TorString_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::9146DB7D-787D-4A2D-AB26-18EBE7361DBD::.NETFramework,Version=v4.8::AnagramTests.AnagramGeneratorTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ea11f415_002Da84c_002D4552_002D86dc_002Da774ae0b3d6e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ValidByteID3Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="D:\Coding\C#\Sharp-practice\Sources\OOP\CalculatorTests" Presentation="&amp;lt;OOP&amp;gt;\&amp;lt;Calculator&amp;gt;\&amp;lt;CalculatorTests&amp;gt;" /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ea11f415_002Da84c_002D4552_002D86dc_002Da774ae0b3d6e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ValidByteID3Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="D:\Coding\C#\Sharp-practice\Sources\OOP\CalculatorTests" Presentation="&amp;lt;OOP&amp;gt;\&amp;lt;Calculator&amp;gt;\&amp;lt;CalculatorTests&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="D:\Coding\C#\Sharp-practice\Sources\WindowsForms\AnagramTests" Presentation="&amp;lt;WindowsForms&amp;gt;\&amp;lt;Anagram&amp;gt;\&amp;lt;AnagramTests&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FForm1/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WindowsForms_002FMathQuiz_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>
