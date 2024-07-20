@@ -101,7 +101,7 @@ Create a list of traffic participant in your main method and call the method `Mo
 for each of them.
 
 #### The implementation is in the next project:
-- Application logic - [Vehicles](Vehicles)
+- Application logic - [Vehicles](Sources/OOP/Vehicles)
 
 
 [//]: # (__________________________________________________________)
@@ -243,7 +243,7 @@ For this, a main thread will track progress and draw status bar in the console:
 7 files to be loaded, 3 already loaded: `[+++----]`
 
 #### The implementation is in the next project:
-- Application logic - [FileDownload](Sources\Asynchronous\FileDownload)
+- Application logic - [FileDownload](Sources/Asynchronous/FileDownload)
 
 
 [//]: # (__________________________________________________________)
