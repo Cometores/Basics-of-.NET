@@ -1,7 +1,7 @@
 # OOP
 
 [//]: # (__________________________________________________________)
-### 1. Calculator
+## 1. Calculator
 *.NETFramework v4.8*
 
 #### Task:
@@ -22,7 +22,7 @@
 
 
 [//]: # (__________________________________________________________)
-### 2. Gear Factory
+## 2. Gear Factory
 *.NETFramework v4.8*
 
 #### Task:
@@ -44,7 +44,7 @@ The program will greet the user with 4 functions.
 
 
 [//]: # (__________________________________________________________)
-### 3. Vehicles
+## 3. Vehicles
 *.NETFramework v4.8*
 
 #### Task:
@@ -84,7 +84,7 @@ for each of them.
 
 
 [//]: # (__________________________________________________________)
-### 4. Validation of login forms
+## 4. Validation of login forms
 *.NETFramework v4.8*
 
 **NOT IMPLEMENTED**
@@ -106,7 +106,7 @@ string as an array.
 
 
 [//]: # (__________________________________________________________)
-### 5. Calculation task generator with timing
+## 5. Calculation task generator with timing
 *.NETFramework v4.8*
 
 **NOT IMPLEMENTED**

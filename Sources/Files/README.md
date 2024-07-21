@@ -1,7 +1,7 @@
 # Files
 
 [//]: # (__________________________________________________________)
-### 2.1 [File system information]
+## 2.1 File system information
 *.NETFramework v4.8*
 
 #### Task:
@@ -18,7 +18,7 @@ Write a program with 2 functions:
 
 
 [//]: # (__________________________________________________________)
-### 2.2 Simple name generator
+## 2.2 Simple name generator
 **NOT IMPLEMENTED**
 
 #### Task:

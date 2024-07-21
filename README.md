@@ -22,112 +22,53 @@ Examples of working with classes, interfaces, exceptions and tests.
 
 **Console applications only.**
 
-### 1.1 [Calculator](Sources/OOP/REAMDE.md)
+### 1.1. [Calculator](Sources/OOP/README.md)
 Basic calculator supporting operations with any data types and tests with **NUnit**.
 
-### 1.2 [Gear Factory](Sources/OOP/REAMDE.md)
+### 1.2. [Gear Factory](Sources/OOP/README.md)
 State machine for data recording and output.
 
-### 1.3 [Vehicles](Sources/OOP/REAMDE.md)
+### 1.3. [Vehicles](Sources/OOP/README.md)
 Inheritance hierarchy practice.
 
-### 1.4 [Validation of login forms](Sources/OOP/REAMDE.md)
+### 1.4. [Validation of login forms](Sources/OOP/README.md)
 Validation using regular expressions and string exploration.
 
-### 1.5 [Calculation task generator with timing](Sources/OOP/REAMDE.md)
+### 1.5. [Calculation task generator with timing](Sources/OOP/README.md)
 Handling timers and user input.
 
 
 
 ## 2. Files
-Working with the Windows file system. Creating, reading and writing files.
+Working with the **Windows file system**. Creating, reading and writing files.
 
-### 2.1 [File system information](Sources/Files/README.md)
+### 2.1. [File system information](Sources/Files/README.md)
 Output all file extensions inside a folder
 
-### 2.2 [Simple name generator](Sources/Files/README.md)
+### 2.2. [Simple name generator](Sources/Files/README.md)
 Load two files to generate a random name.
 
 
 
 ## 3. LINQ
+Working with **LINQ**, understanding concepts like `IQueryable` and `IEnumerable`.
 
+### 3.1. [Filtering by first and last letter](Sources/LINQ/README.md)
+Program that filters words from a list by their initial and final letters.
 
-[//]: # (__________________________________________________________)
-### 3.1 Filtering by first and last letter
-**NOT IMPLEMENTED**
-
-#### Technologies:
-- Console application
-- LINQ
-    - `.StartsWith()`
-    - `.EndsWith()`
-- Listen
-
-#### Task:
-Write a program that filters words from a list by their initial and final letters.
-The list of words can be taken from [here](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt/).
-
-
-[//]: # (__________________________________________________________)
-### 3.2 Words in a certain position
-**NOT IMPLEMENTED**
-
-#### Technologies:
-- Console application
-- LINQ
-    - `.Take())`
-- - Listen
-
-#### Task:
-Write a program that outputs objects from the collection based on their position.
-Use the dictionary from the previous assignment.
-
-**Example usage:**
-- Output all words at positions 10-20, 110-120, 210-220, and 310-320
+### 3.2 [Words in a certain position](Sources/LINQ/README.md)
+Program that outputs objects from the collection based on their position.
 
 
 
 ## 4. Asynchronous
+Working with **asynchronous programming**, understanding concepts like `async` and `await`.
 
+### 4.1. [Parallel file downloads](Sources/Asynchronous/README.md)
+Loading bar for downloading files.
 
-[//]: # (__________________________________________________________)
-### 4.1 Parallel file downloads
-#### Technologies:
-- Console application
-- `async` & `await` 
-- `WebClient` & `Uri`
-
-#### Task:
-Program to track the status of downloads. Several URI paths are passed, which can be used 
-to load files over HTTP. The files are installed in individual threads. 
-For this, a main thread will track progress and draw status bar in the console:
-
-7 files to be loaded, 3 already loaded: `[+++----]`
-
-#### The implementation is in the next project:
-- Application logic - [FileDownload](Sources/Asynchronous/FileDownload)
-
-
-[//]: # (__________________________________________________________)
-### 4.2 Grep
-#### Technologies:
-- Console application
-- `async` & `await`
-- `FileInfo` & `DirectoryInfo`
-
-#### Task:
-**"grep"** program, which does almost the same thing `grep(1)` does under Linux:
-
-It takes a byte string or normal string, as well as a path to a folder, and searches 
-for the same strings in files located in that folder and subfolders. 
-- For each folder a "folder" thread is created, and for each file a "file" thread.
-- Folder thread waits for the file threads and folder threads it created.
-- Program starts with only one thread - with one folder thread for the folders 
-passed in parameters.
-
-#### The implementation is in the next project:
-- Application logic - [Grep](Sources/Asynchronous/Grep)
+### 4.2. [Grep](Sources/Asynchronous/README.md)
+**"grep"** program, which does almost the same thing `grep(1)` does under Linux.
 
 
 
@@ -136,7 +77,7 @@ passed in parameters.
 
 
 [//]: # (__________________________________________________________)
-### 5.1 Picture Viewer
+### 5.1. Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
 
 #### The implementation is in the next project:
@@ -144,7 +85,7 @@ passed in parameters.
 
 
 [//]: # (__________________________________________________________)
-### 5.2 Timed math quiz
+### 5.2. Timed math quiz
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
 
 #### The implementation is in the next project:
@@ -152,7 +93,7 @@ passed in parameters.
 
 
 [//]: # (__________________________________________________________)
-### 5.3 Matching game
+### 5.3. Matching game
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-create-match-game?view=vs-2022)
 
 #### Task:
@@ -163,7 +104,7 @@ Matching game, where the player matches pairs of hidden icons.
 
 
 [//]: # (__________________________________________________________)
-### 5.4 Read and edit information from MP3 files
+### 5.4. Read and edit information from MP3 files
 
 #### Technologies:
 - Windows Forms
@@ -198,7 +139,7 @@ When the file is read, the text fields display information, they can be edited a
 
 
 [//]: # (__________________________________________________________)
-### 5.5 Anagram generator
+### 5.5. Anagram generator
 
 #### Technologies:
 - Windows Forms
@@ -225,12 +166,12 @@ of all meaningful German words is needed.
 
 
 [//]: # (__________________________________________________________)
-### 6.1 Customer App
+### 6.1. Customer App
 
 
 
 [//]: # (__________________________________________________________)
-### 6.2 "Chat application" with the help of writing files
+### 6.2. "Chat application" with the help of writing files
 
 #### Technologies:
 - WPF
