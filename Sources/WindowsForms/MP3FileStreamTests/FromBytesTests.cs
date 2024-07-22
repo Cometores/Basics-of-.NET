@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using MP3FileStream;
 using NUnit.Framework;
 
