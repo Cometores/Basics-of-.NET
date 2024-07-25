@@ -1,6 +1,6 @@
 # Asynchronous
 
-### 4.1. Parallel file downloads
+### 1. Parallel file downloads
 
 #### Task:
 Program to track the status of downloads. Several URI paths are passed, which can be used
@@ -19,7 +19,7 @@ For this, a main thread will track progress and draw status bar in the console:
 
 
 [//]: # (__________________________________________________________)
-### 4.2. Grep
+### 2. Grep
 
 #### Task:
 **"grep"** program, which does almost the same thing `grep(1)` does under Linux:

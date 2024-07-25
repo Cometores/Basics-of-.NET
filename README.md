@@ -56,7 +56,7 @@ Working with **LINQ**, understanding concepts like `IQueryable` and `IEnumerable
 ### 3.1. [Filtering by first and last letter](Sources/LINQ/README.md)
 Program that filters words from a list by their initial and final letters.
 
-### 3.2 [Words in a certain position](Sources/LINQ/README.md)
+### 3.2. [Words in a certain position](Sources/LINQ/README.md)
 Program that outputs objects from the collection based on their position.
 
 
@@ -72,130 +72,31 @@ Loading bar for downloading files.
 
 
 
-
 ## 5. Windows forms
+Creating graphical applications with Windows Forms.
 
+### 5.1. [Picture Viewer](Sources/WindowsForms/README.md)
+Application for viewing the picture and selecting the background image.
 
-[//]: # (__________________________________________________________)
-### 5.1. Picture Viewer
-[Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
+### 5.2. [Timed math quiz](Sources/WindowsForms/README.md)
+Solve 4 arithmetic problems in a limited amount of time.
 
-#### The implementation is in the next project:
-- GUI - [PictureViewer](Sources/WindowsForms/PictureViewer)
+### 5.3. [Matching game](Sources/WindowsForms/README.md)
+Memory game - find the pair.
 
-
-[//]: # (__________________________________________________________)
-### 5.2. Timed math quiz
-[Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
-
-#### The implementation is in the next project:
-- GUI - [MathQuiz](Sources/WindowsForms/MathQuiz)
-
-
-[//]: # (__________________________________________________________)
-### 5.3. Matching game
-[Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-create-match-game?view=vs-2022)
-
-#### Task:
-Matching game, where the player matches pairs of hidden icons.
-
-#### The implementation is in the next project:
-- GUI - [MatchingGame](Sources/WindowsForms/MatchingGame)
-
-
-[//]: # (__________________________________________________________)
-### 5.4. Read and edit information from MP3 files
-
-#### Technologies:
-- Windows Forms
-  - TextBox, Label, ComboBox, Button
-- File Streams
-- Extension methods
-- Exceptions
-- NUnit
-
-#### Task:
+### 5.4. [MP3 metadata editing](Sources/WindowsForms/README.md)
 An application where you can select a mp3 file, process its information, and save it.
 
-This information ("ID3 tags") are located as strings in the **last 128 bytes** of the file.
-- Tag (3)
-- Piece title (30)
-- Artist (30)
-- Album / CD title (30)
-- Year of release (4)
-- Commentary (30)
-- Genre (1)
-
-First you need to check if the file is really a valid MP3 file. 
-For this, Tag must be equal to "TAG".
-When the file is read, the text fields display information, they can be edited and saved with another button.
-
-![MP3GUI](./others/readmePics/MP3GUI.png)
-
-#### The functionality is divided into 3 projects:
-- Application logic - [MP3FileStream](Sources/WindowsForms/MP3FileStream)
-- Tests - [MP3FileStreamTests](Sources/WindowsForms/MP3FileStreamTests)
-- GUI - [MP3Gui](Sources/WindowsForms/MP3Gui)
-
-
-[//]: # (__________________________________________________________)
-### 5.5. Anagram generator
-
-#### Technologies:
-- Windows Forms
-- Reading a file
-- Listing data structures
-
-#### Task:
-Write a program that takes a base word and gives a list of anagrams, working on the basis
-of German words.
-
-A [list](https://gist.github.com/MarvinJWendt/2f4f4154b8ae218600eb091a5706b5f4#file-wordlist-german-txt) 
-of all meaningful German words is needed.
-![MP3GUI](./others/readmePics/AnagramGenerator.png)
-
-#### The functionality is divided into 2 projects:
-- Application logic - [Anagram](Sources/WindowsForms/Anagram)
-- Tests - [AnagramTests](Sources/WindowsForms/AnagramTests)
-
-
+### 5.5. [Anagram generator](Sources/WindowsForms/README.md)
+Program that takes a "base" word and gives a list of all existing anagrams.
 
 
 
 ## 6. WPF
+Creating graphical applications with WPF.
 
+### 6.1. [Customer App](Sources/WPF/README.md)
+Customer Information Management Application. Deleting, adding, editing.
 
-[//]: # (__________________________________________________________)
-### 6.1. Customer App
-
-
-
-[//]: # (__________________________________________________________)
-### 6.2. "Chat application" with the help of writing files
-
-#### Technologies:
-- WPF
-- Reading and writing files
-
-#### Task:
-Write an application that writes a text file to a folder and can read its contents.
-Multiple instances of the application can be launched on different computers,
-creating a quasi-chat
-
-**Step 1:**
-- Create the application based on a console application.
-
-**Step 2:**
-- Transfer the application to Windows Forms
-    - Using text fields
-    - Reacting to button click
-    - Ribbon?
-
-**Step 3:**
-- Create an encryption of the chat using the encryption method: **One Time Pad**
-- Add to the chat application the functionality to generate a file with a freely definable number of keys
-    - each of these keys is 250 characters long and can be used to encrypt and decrypt a message up to 250 characters long
-    - When clicking the button to create the key file, a .txt file containing the specified number of keys is created in the file system
-- Continue to add the functionality to read a key file for your chat or set the path to it
-- Every time a message is written, the top unused key is read from the file and used to encrypt the entered message
-- When a message is received or read from the file the same key from the file is used for decryption
+### 6.2. [Simple chat application](Sources/WPF/README.md)
+Using a text file for chat. Accessing a file from multiple computers.

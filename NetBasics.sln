@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOP", "OOP", "{5F3A9D61-63DA-4DF3-9EDF-E960E67AA614}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\OOP\README.md = Sources\OOP\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "Sources\OOP\CalculatorTests\CalculatorTests.csproj", "{811F0927-78C8-45AB-9655-A75A31FE57E2}"
 EndProject
@@ -16,6 +19,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureViewer", "Sources\WindowsForms\PictureViewer\PictureViewer.csproj", "{02126DE0-76EE-4FB8-9FB3-5D40F1C8904B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowsForms", "WindowsForms", "{C5ADA988-2918-4CDF-A797-32D01C138374}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\WindowsForms\README.md = Sources\WindowsForms\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathQuiz", "Sources\WindowsForms\MathQuiz\MathQuiz.csproj", "{13C6EBA4-9FC2-4561-B923-0C195F8A67BF}"
 EndProject
@@ -40,12 +46,21 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramTests", "Sources\WindowsForms\AnagramTests\AnagramTests.csproj", "{9146DB7D-787D-4A2D-AB26-18EBE7361DBD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{37C1DFBB-E687-46B3-B3DA-2611BB1CF4E4}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\WPF\README.md = Sources\WPF\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersApp", "Sources\WPF\CustomersApp\CustomersApp.csproj", "{6F726490-0774-45C2-9EE6-089629CB87CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{20B9093B-2DE9-4EE7-ACC8-1296897AB027}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\Files\README.md = Sources\Files\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asynchronous", "Asynchronous", "{FEC5B651-399B-4F77-98DB-E098595DDB8E}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\Asynchronous\README.md = Sources\Asynchronous\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "Sources\Asynchronous\FileDownload\FileDownload.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
 EndProject
