@@ -3,6 +3,8 @@
 ### 1. Picture Viewer
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-picture-viewer-layout?view=vs-2022)
 
+![PictureViewer](../../others/readmePics/PictureViewer.png)
+
 #### The implementation is in the next project:
 - GUI - [PictureViewer](PictureViewer)
 
@@ -11,6 +13,8 @@
 ### 2. Timed math quiz
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-math-quiz-create-project-add-controls?view=vs-2022)
 
+![MathQuiz](../../others/readmePics/MathQuiz.png)
+
 #### The implementation is in the next project:
 - GUI - [MathQuiz](MathQuiz)
 
@@ -18,6 +22,8 @@
 [//]: # (__________________________________________________________)
 ### 3. Matching game
 [Microsoft Tutorial](https://learn.microsoft.com/en-gb/visualstudio/get-started/csharp/tutorial-windows-forms-create-match-game?view=vs-2022)
+
+![MatchingGame](../../others/readmePics/MatchingGame.png)
 
 #### Task:
 Matching game, where the player matches pairs of hidden icons.
