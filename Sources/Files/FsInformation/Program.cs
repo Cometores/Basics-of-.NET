@@ -4,17 +4,16 @@ using System.IO;
 
 namespace FsInformation
 {
-    internal class Program
+    internal static class Program
     {
-        private static string _dir = Directory.GetParent(Directory.GetCurrentDirectory()).
+        private static readonly string Dir = Directory.GetParent(Directory.GetCurrentDirectory()).
             Parent.FullName + "\\others";
         
-        
-        public static void Main(string[] args)
+        public static void Main()
         {
             // 1) Get All Extensions
             Console.WriteLine("Extensions in 'others' folder are:");
-            IEnumerable<string> extensions = FsInformation.GetAllExtensionsFromDirectory(_dir);
+            IEnumerable<string> extensions = FsInformation.GetAllExtensionsFromDirectory(Dir);
             foreach (string extension in extensions)
                 Console.WriteLine("\t" + extension);
 

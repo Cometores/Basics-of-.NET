@@ -6,6 +6,11 @@ namespace FsInformation
 {
     public static class FsInformation
     {
+        /// <summary>
+        /// Collects all file extensions used in the directory.
+        /// </summary>
+        /// <param name="path">Absolute path to the Directory you want to scan.</param>
+        /// <returns>File extensions</returns>
         public static HashSet<string> GetAllExtensionsFromDirectory(string path)
         {
             if(!Directory.Exists(path))
@@ -20,6 +25,10 @@ namespace FsInformation
             return extensions;
         }
 
+        /// <summary>
+        /// Collects information about all the disks on your computer.
+        /// </summary>
+        /// <returns>String in a format "Drive name, Size, Free space"</returns>
         public static string GetAllDrivesInfo()
         {
             string result = string.Empty;
@@ -31,6 +40,11 @@ namespace FsInformation
             return result;
         }
 
+        /// <summary>
+        /// Converts the size given in bytes in a string.
+        /// </summary>
+        /// <param name="size">Amount of bytes</param>
+        /// <returns>String in a format "0.00 K/M/GB"</returns>
         private static string SizeToString(double size)
         {
             string[] units = new[] { "Byte", "KB", "MB", "GB", "TB", "EB" };
