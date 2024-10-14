@@ -1,13 +1,14 @@
-﻿public static class Program
+﻿namespace Grep;
+
+public static class Program
 {
     public static async Task Main(string[] args)
     {
-        string dir = Directory.GetParent(Environment.CurrentDirectory).Parent
-            .Parent.FullName + "\\others";
+        string dir = (Directory.GetParent(Environment.CurrentDirectory).Parent).Parent.FullName + "\\others";
 
-        Grep.Grep g = new Grep.Grep();
+        Grep g = new Grep();
 
-        await g.GrepIt(dir, "Alice");
+        await g.GrepItAsync(dir, "Alice");
         Console.Write(g.Cnt);
     }
 }

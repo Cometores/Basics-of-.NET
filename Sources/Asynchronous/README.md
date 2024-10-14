@@ -9,6 +9,8 @@ For this, a main thread will track progress and draw status bar in the console:
 
 7 files to be loaded, 3 already loaded: `[+++----]`
 
+![FileDownload](../../others/readmePics/FileDownload.gif)
+
 #### Technologies:
 - Console application
 - `async` & `await`

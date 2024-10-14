@@ -1,18 +1,21 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Grep;
+﻿namespace Grep;
 
 public class Grep
 {
     public int Cnt { get; private set; } = 0;
     
-    private string _path;
     private string _searchQuery;
     private readonly object _lockQuery = new();
 
-    public Task GrepIt(string path, string query)
+    /// <summary>
+    /// Searches for specific strings in files located in a folder and subfolders.
+    /// </summary>
+    /// <param name="path">Absolute path to directory</param>
+    /// <param name="query">Search string</param>
+    /// <returns></returns>
+    /// <exception cref="DirectoryNotFoundException"></exception>
+    public Task GrepItAsync(string path, string query)
     {
-        _path = path;
         _searchQuery = query;
         if (!Directory.Exists(path))
             throw new DirectoryNotFoundException();
@@ -21,6 +24,11 @@ public class Grep
         return GrepDirectoryAsync(dir);
     }
     
+    /// <summary>
+    /// Creates new GrepDirectory thread for each directory founded and GrepFile thread for each file.
+    /// </summary>
+    /// <param name="dir">Directory to grep</param>
+    /// <returns></returns>
     private Task GrepDirectoryAsync(DirectoryInfo dir)
     {
         List<Task> tasks = new();
@@ -41,6 +49,10 @@ public class Grep
         return Task.WhenAll(tasks);
     }
 
+    /// <summary>
+    /// Searches the file for sequence match.
+    /// </summary>
+    /// <param name="file">File to grep</param>
     private async Task GrepFileAsync(FileInfo file)
     {
         using StreamReader sr = new StreamReader(file.OpenRead());
