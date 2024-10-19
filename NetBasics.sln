@@ -76,6 +76,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionSample", "Sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Sources\OOP\Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Sources\WPF\Snake\Snake.csproj", "{5A3829A9-43C4-4869-8D1B-9638E004CA42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +160,10 @@ Global
 		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -185,6 +191,7 @@ Global
 		{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3} = {9CFF2EE1-7AF4-451B-B387-708186942130}
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC} = {49D3046D-C9A4-4880-B595-D25EAFAD96BE}
 		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C} = {E0640032-EBE7-48B7-9647-122CB5EC02F6}
+		{5A3829A9-43C4-4869-8D1B-9638E004CA42} = {37C1DFBB-E687-46B3-B3DA-2611BB1CF4E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A60F337F-C7DA-4DFD-B6FA-1447B3C9678B}
