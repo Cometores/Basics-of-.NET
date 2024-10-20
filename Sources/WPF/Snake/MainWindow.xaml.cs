@@ -287,12 +287,23 @@ public partial class MainWindow : Window
     
     private void UpdateGameStatus()
     {
-        Title = "SnakeWPF - Score: " + currentScore + " - Game speed: " + gameTickTimer.Interval.TotalMilliseconds;
+        tbStatusScore.Text = currentScore.ToString();
+        tbStatusSpeed.Text = gameTickTimer.Interval.TotalMilliseconds.ToString();
     }
     
     private void EndGame()
     {
         gameTickTimer.IsEnabled = false;
         MessageBox.Show("Oooops, you died!\n\nTo start a new game, just press the Space bar...", "SnakeWPF");
+    }
+
+    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        DragMove();
+    }
+
+    private void BtnClose_Click(object sender, RoutedEventArgs e)
+    {
+        Close();
     }
 }

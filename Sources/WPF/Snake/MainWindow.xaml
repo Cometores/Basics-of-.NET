@@ -8,10 +8,43 @@
         Title="SnakeWPF - Score: 0"
         SizeToContent="WidthAndHeight"
         ContentRendered="Window_ContentRendered"
-        KeyUp="Window_KeyUp">
-    <Border BorderBrush="Black" BorderThickness="5">
-        <Canvas Name="GameArea" ClipToBounds="True" Width="400" Height="400">
+        KeyUp="Window_KeyUp"
+        ResizeMode="NoResize" WindowStyle="None" Background="Black" MouseDown="Window_MouseDown">
+    <DockPanel Background="Black">
+        <Grid DockPanel.Dock="Top" Name="pnlTitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        </Canvas>
-    </Border>
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="Consolas" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+            </Grid.Resources>
+
+            <WrapPanel Margin="10,0,0,0">
+                <TextBlock>Score:</TextBlock>
+                <TextBlock Name="tbStatusScore">0</TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1">
+                <TextBlock>Speed:</TextBlock>
+                <TextBlock Name="tbStatusSpeed">0</TextBlock>
+            </WrapPanel>
+            <Button Grid.Column="2" DockPanel.Dock="Right" Background="Transparent" Foreground="White"
+                    FontWeight="Bold" FontSize="20" BorderThickness="0" Name="btnClose" Click="BtnClose_Click"
+                    Padding="10,0">
+                X
+            </Button>
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="5">
+            <Canvas Name="GameArea" ClipToBounds="True" Width="400" Height="400">
+
+            </Canvas>
+        </Border>
+    </DockPanel>
 </Window>
