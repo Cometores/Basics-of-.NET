@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Xml.Serialization;
+using System.Speech.Synthesis;
 
 namespace Snake;
 
@@ -34,6 +35,8 @@ public partial class MainWindow : Window
 
     private int currentScore = 0;
     const int MaxHighscoreListEntryCount = 5;
+    
+    private SpeechSynthesizer speechSynthesizer = new();
     
     public ObservableCollection<SnakeHighscore> HighscoreList { get; set; } = new();
 
@@ -285,6 +288,8 @@ public partial class MainWindow : Window
 
     private void EatSnakeFood()
     {
+        speechSynthesizer.SpeakAsync("yummy");
+        
         _snakeLength++;
         currentScore++;
         int timerInterval = 
@@ -320,6 +325,8 @@ public partial class MainWindow : Window
             bdrEndOfGame.Visibility = Visibility.Visible;
         }
         gameTickTimer.IsEnabled = false;
+        
+        SpeakEndOfGameInfo(isNewHighscore);
     }
 
     private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -386,5 +393,37 @@ public partial class MainWindow : Window
 
         bdrNewHighscore.Visibility = Visibility.Collapsed;
         bdrHighscoreList.Visibility = Visibility.Visible;
+    }
+    
+    private void SpeakEndOfGameInfo(bool isNewHighscore)  
+    {  
+        PromptBuilder promptBuilder = new PromptBuilder();  
+
+        promptBuilder.StartStyle(new PromptStyle()  
+        {  
+            Emphasis = PromptEmphasis.Reduced,  
+            Rate = PromptRate.Slow,  
+            Volume = PromptVolume.ExtraLoud  
+        });  
+        promptBuilder.AppendText("oh no");  
+        promptBuilder.AppendBreak(TimeSpan.FromMilliseconds(200));  
+        promptBuilder.AppendText("you died");  
+        promptBuilder.EndStyle();  
+
+        if(isNewHighscore)  
+        {  
+            promptBuilder.AppendBreak(TimeSpan.FromMilliseconds(500));  
+            promptBuilder.StartStyle(new PromptStyle()  
+            {  
+                Emphasis = PromptEmphasis.Moderate,  
+                Rate = PromptRate.Medium,  
+                Volume = PromptVolume.Medium  
+            });  
+            promptBuilder.AppendText("new high score:");  
+            promptBuilder.AppendBreak(TimeSpan.FromMilliseconds(200));  
+            promptBuilder.AppendTextWithHint(currentScore.ToString(), SayAs.NumberCardinal);  
+            promptBuilder.EndStyle();  
+        }  
+        speechSynthesizer.SpeakAsync(promptBuilder);  
     }
 }

@@ -8,4 +8,8 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.Speech" Version="9.0.0-rc.2.24473.5" />
+    </ItemGroup>
+
 </Project>
