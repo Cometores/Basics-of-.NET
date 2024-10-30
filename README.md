@@ -64,7 +64,7 @@ Program that outputs objects from the collection based on their position.
 ## 4. Asynchronous
 Working with **asynchronous programming**, understanding concepts like `async` and `await`.
 
-### 4.1. [Parallel file downloads](Sources/Asynchronous/README.md)
+### 4.1. [Console status bar](Sources/Asynchronous/README.md)
 Loading bar for downloading files.
 
 ### 4.2. [Grep](Sources/Asynchronous/README.md)

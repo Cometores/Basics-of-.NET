@@ -1,9 +1,11 @@
 # Asynchronous
 
-### 1. Parallel file downloads
+### 1. Console status bar
 
 #### Task:
-Program to track the status of downloads. Several URI paths are passed, which can be used
+Program to track the status of downloads. 
+
+Several URI paths are passed, which can be used
 to load files over HTTP. The files are installed in individual threads.
 For this, a main thread will track progress and draw status bar in the console:
 
@@ -32,6 +34,8 @@ for the same strings in files located in that folder and subfolders.
 - Folder thread waits for the file threads and folder threads it created.
 - Program starts with only one thread - with one folder thread for the folders
   passed in parameters.
+
+![Grep](../../others/readmePics/Grep.png)
 
 #### Technologies:
 - Console application
