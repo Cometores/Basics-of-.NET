@@ -62,7 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asynchronous", "Asynchronou
 		Sources\Asynchronous\README.md = Sources\Asynchronous\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDownload", "Sources\Asynchronous\FileDownload\FileDownload.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatusBar", "Sources\Asynchronous\StatusBar\StatusBar.csproj", "{9770EA83-0E7D-40EE-8292-08A634EA5AA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grep", "Sources\Asynchronous\Grep\Grep.csproj", "{1A29B72E-9457-4398-8E54-8AF4A4559954}"
 EndProject

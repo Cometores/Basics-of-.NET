@@ -1,21 +1,31 @@
-﻿namespace FileDownload;
+﻿namespace StatusBar;
 
-public class ConsoleWriter : IWriter
+/// <summary>
+/// Represents a utility class for writing messages to the console in multithreaded programming.
+/// </summary>
+public class ConsoleMT
 {
     private static object _lock = new();
 
-    public static void Write(string message)
+    /// <summary>
+    /// Writes the specified message to the console output.
+    /// </summary>
+    public static void WriteLine(string message)
     {
         lock (_lock)
         {
             Console.WriteLine(message);
         }
     }
-    
-    public static void Write(string message, int leftPos, int topPos, ConsoleColor backgroundColor = ConsoleColor.Black)
+
+    /// <summary>
+    /// Writes a message to the console output at a specific position.
+    /// </summary>
+    public static void WriteAtPos(string message, int leftPos, int topPos, ConsoleColor backgroundColor = ConsoleColor.Black)
     {
         lock (_lock)
         {
+            // Saving previous Console seetings
             int leftPosBefore = Console.CursorLeft;
             int topPosBefore = Console.CursorTop;
             ConsoleColor backgroundColorBefore = Console.BackgroundColor;
