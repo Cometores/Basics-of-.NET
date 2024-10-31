@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 
-namespace FsInformation
+namespace FileSystemInfo
 {
-    public static class FsInformation
+    public static class FileSystemInfo
     {
         /// <summary>
         /// Collects all file extensions used in the directory.
@@ -35,27 +35,27 @@ namespace FsInformation
             DriveInfo[] drives = DriveInfo.GetDrives().Where(drive => drive.DriveType != DriveType.CDRom).ToArray();
             foreach (DriveInfo drive in drives)
                 result += $"Drive {drive.Name}\n" +
-                          $"\tSize {SizeToString(drive.TotalSize)}\n" +
-                          $"\tFree space {SizeToString(drive.AvailableFreeSpace)}\n";
+                          $"\tSize {BytesToText(drive.TotalSize)}\n" +
+                          $"\tFree space {BytesToText(drive.AvailableFreeSpace)}\n";
             return result;
         }
 
         /// <summary>
         /// Converts the size given in bytes in a string.
         /// </summary>
-        /// <param name="size">Amount of bytes</param>
+        /// <param name="bytes">Amount of bytes</param>
         /// <returns>String in a format "0.00 K/M/GB"</returns>
-        private static string SizeToString(double size)
+        private static string BytesToText(double bytes)
         {
             string[] units = new[] { "Byte", "KB", "MB", "GB", "TB", "EB" };
             int idx = 0;
-            while (size >= 1024 && idx < units.Length)
+            while (bytes >= 1024 && idx < units.Length)
             {
-                size /= 1024;
+                bytes /= 1024;
                 idx++;
             }
 
-            return $"{size:0.00} {units[idx]}";
+            return $"{bytes:0.00} {units[idx]}";
         }
     }
 }

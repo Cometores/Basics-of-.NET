@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Gui", "Sources\WindowsFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3FileStream", "Sources\WindowsForms\MP3FileStream\MP3FileStream.csproj", "{5C050AA3-F094-4DED-9D0A-D990333E30D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsInformation", "Sources\Files\FsInformation\FsInformation.csproj", "{A8BCF237-2BC1-4811-96FE-9705FFA5DD78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemInfo", "Sources\Files\FileSystemInfo\FileSystemInfo.csproj", "{A8BCF237-2BC1-4811-96FE-9705FFA5DD78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP3", "MP3", "{B25DB1E3-B563-45B2-A456-344471D52309}"
 EndProject
@@ -77,6 +77,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Sources\OOP\Calculator\Calculator.csproj", "{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Sources\WPF\Snake\Snake.csproj", "{5A3829A9-43C4-4869-8D1B-9638E004CA42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rename", "Rename\Rename.csproj", "{611FB36B-B5EF-41FC-8801-CFCDCB23D226}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -164,6 +166,10 @@ Global
 		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A3829A9-43C4-4869-8D1B-9638E004CA42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611FB36B-B5EF-41FC-8801-CFCDCB23D226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611FB36B-B5EF-41FC-8801-CFCDCB23D226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611FB36B-B5EF-41FC-8801-CFCDCB23D226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611FB36B-B5EF-41FC-8801-CFCDCB23D226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +198,7 @@ Global
 		{6E4F4E86-0EC4-44B9-A3A6-D89A26AA2ACC} = {49D3046D-C9A4-4880-B595-D25EAFAD96BE}
 		{779E0875-9DD0-4B61-A6B5-2D2CD782EA0C} = {E0640032-EBE7-48B7-9647-122CB5EC02F6}
 		{5A3829A9-43C4-4869-8D1B-9638E004CA42} = {37C1DFBB-E687-46B3-B3DA-2611BB1CF4E4}
+		{611FB36B-B5EF-41FC-8801-CFCDCB23D226} = {20B9093B-2DE9-4EE7-ACC8-1296897AB027}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A60F337F-C7DA-4DFD-B6FA-1447B3C9678B}

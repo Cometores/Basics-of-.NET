@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace FsInformation
+namespace FileSystemInfo
 {
     internal static class Program
     {
@@ -13,13 +13,13 @@ namespace FsInformation
         {
             // 1) Get All Extensions
             Console.WriteLine("Extensions in 'others' folder are:");
-            IEnumerable<string> extensions = FsInformation.GetAllExtensionsFromDirectory(Dir);
+            IEnumerable<string> extensions = FileSystemInfo.GetAllExtensionsFromDirectory(Dir);
             foreach (string extension in extensions)
                 Console.WriteLine("\t" + extension);
 
             // 2) Get All Drivers Info
             Console.WriteLine("\nInformation about drives:");
-            Console.WriteLine(FsInformation.GetAllDrivesInfo());
+            Console.WriteLine(FileSystemInfo.GetAllDrivesInfo());
         }
     }
 }
