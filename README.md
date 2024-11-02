@@ -48,6 +48,9 @@ Output all file extensions inside a folder
 ### 2.2. [Simple name generator](Sources/Files/README.md)
 Load two files to generate a random name.
 
+### 2.3. [Folder and File Renamer](Sources/Files/README.md)
+Recursively rename files and folders to the same format.
+
 
 
 ## 3. LINQ

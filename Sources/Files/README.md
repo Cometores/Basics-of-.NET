@@ -31,3 +31,55 @@ last name.
 - Reading files
     - `File.ReadAllLines()`
     - `StreamReader ReadLine()`
+
+
+[//]: # (__________________________________________________________)
+## 3. Folder and File Renamer
+This program renames folders and files in a specified directory with the chosen formatting style, 
+supporting recursive renaming if needed. Supported formats include **CamelCase** and **snake_case**.
+
+#### Task:
+Recursive or single-level renaming of folders and files.<br>
+Supported formats:
+- **CamelCase** – capitalizes the first letter of each word, removing spaces.
+- **snake_case** – uses underscores to separate words and lowercase letters.
+
+Displays the final folder structure using the tree command.
+
+#### Usage:
+Run the program.
+1. Enter the **directory path**.
+2. Choose the renaming format:
+   - **CamelCase**
+   - **snake_case**
+3. Specify whether renaming should be **recursive** (for nested directories).
+4. The program outputs the final folder and file structure.
+
+
+#### Example:
+```console
+Enter folder path:
+C:\TestFolder
+
+Select formatting type (CamelCase or SnakeCase):
+CamelCase
+
+Rename recursively? (yes/no):
+yes
+
+File and folder structure after renaming:
+C:\TestFolder
+│   ExampleFile.txt
+│   AnotherFile.doc
+│
+└───SubFolder
+        NestedFile.png
+```
+
+#### Technology:
+- System.IO
+- Strategy design pattern
+
+
+#### Notes for Extending:
+To add new formats, create a new class implementing the `IFormatStrategy` interface and specify the format logic.
