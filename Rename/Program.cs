@@ -1,85 +1,41 @@
-﻿using System.Diagnostics;
-using Rename.Formatters;
-using Formatter = Rename.Formatters.Formatter;
+﻿using Rename.Formatters;
 
 namespace Rename;
 
 class Program
 {
+    private const string CAMEL_CASE = "CamelCase";
+    private const string SNAKE_CASE = "snake_case";
+    
     static void Main()
     {
-        Console.WriteLine("Введите путь к папке:");
-        string path = Console.ReadLine();
+        Console.WriteLine("Enter the path to the folder:");
+        string path = Console.ReadLine() ?? throw new InvalidOperationException();
 
-        Console.WriteLine("Выберите тип форматирования (CamelCase или SnakeCase):");
-        string formatType = Console.ReadLine();
+        Console.WriteLine($"Select the type of formatting ({CAMEL_CASE} or {SNAKE_CASE}):");
+        string formatType = Console.ReadLine() ?? throw new InvalidOperationException();
 
-        Console.WriteLine("Переименовывать рекурсивно? (да/нет):");
-        bool recursive = Console.ReadLine()?.ToLower() == "да";
+        Console.WriteLine("Rename recursively? (yes/no):");
+        bool recursive = Console.ReadLine()?.ToLower() == "yes";
 
-        if (Directory.Exists(path))
+        if (!Directory.Exists(path))
         {
-            RenameFilesAndFolders(path, formatType, recursive);
-            Console.WriteLine("Переименование завершено.");
-
-            // Вызов команды "tree" для отображения структуры
-            DisplayTreeCommand(path, recursive);
+            Console.WriteLine("The specified path does not exist.");
+            return;
         }
-        else
+        
+        IFormatStrategy strategy = formatType switch
         {
-            Console.WriteLine("Указанный путь не существует.");
-        }
-    }
-
-    static void RenameFilesAndFolders(string path, string formatType, bool recursive)
-    {
-        IFormatStrategy formatter = formatType switch
-        {
-            "CamelCase" => new CamelCaseFormatter(),
-            "SnakeCase" => new SnakeCaseFormatter(),
-            _ => throw new ArgumentException("Неизвестный тип форматирования")
+            CAMEL_CASE => new CamelCaseFormatter(),
+            SNAKE_CASE => new SnakeCaseFormatter(),
+            _ => throw new ArgumentException("Unknown formatting type.")
         };
+        Formatter formatter = new(strategy);
 
-        var renamer = new Formatter(formatter);
+        Renamer.RenameFilesAndFolders(path, formatter, recursive);
+        Console.WriteLine("The renaming is complete.");
 
-        foreach (var directory in Directory.GetDirectories(path))
-        {
-            string newDirectoryName = renamer.ApplyFormat(Path.GetFileName(directory));
-            string newDirectoryPath = Path.Combine(Path.GetDirectoryName(directory), newDirectoryName);
-            Directory.Move(directory, newDirectoryPath);
-
-            if (recursive)
-            {
-                RenameFilesAndFolders(newDirectoryPath, formatType, recursive);
-            }
-        }
-
-        foreach (var file in Directory.GetFiles(path))
-        {
-            string newFileName = renamer.ApplyFormat(Path.GetFileName(file));
-            string newFilePath = Path.Combine(Path.GetDirectoryName(file), newFileName);
-            File.Move(file, newFilePath);
-        }
-    }
-
-    static void DisplayTreeCommand(string path, bool recursive)
-    {
-        string command = recursive ? "/c tree /f" : "/c tree";
-
-        var processInfo = new ProcessStartInfo("cmd", $"{command} \"{path}\"")
-        {
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-
-        using (var process = Process.Start(processInfo))
-        {
-            string output = process.StandardOutput.ReadToEnd();
-            var filteredOutput = string.Join("\n", output.Split('\n')
-                .SkipWhile(line => line.StartsWith("Folder PATH listing") || line.StartsWith("Volume")));
-            Console.WriteLine("Результат структуры файлов и папок после переименования:\n");
-            Console.WriteLine(filteredOutput);
-        }
+        // Call the “tree” command to display the structure
+        Renamer.DisplayTreeCommand(path, recursive);
     }
 }
