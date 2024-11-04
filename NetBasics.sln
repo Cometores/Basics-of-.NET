@@ -69,6 +69,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClientServer", "Sources\Networking\TCPClientServer\TCPClientServer.csproj", "{4FCFD67E-F25E-4D13-B163-6EDCEEA110E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Networking", "Networking", "{9CFF2EE1-7AF4-451B-B387-708186942130}"
+	ProjectSection(SolutionItems) = preProject
+		Sources\Networking\README.md = Sources\Networking\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflections", "Reflections", "{49D3046D-C9A4-4880-B595-D25EAFAD96BE}"
 EndProject
