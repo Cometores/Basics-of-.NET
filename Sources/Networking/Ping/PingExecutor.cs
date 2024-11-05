@@ -2,6 +2,9 @@
 
 namespace Ping;
 
+/// <summary>
+/// Represents a class that executes ping operations asynchronously and displays the results and statistics.
+/// </summary>
 public class PingExecutor(string logFilePath)
 {
     private readonly System.Net.NetworkInformation.Ping _pingSender = new();
@@ -9,6 +12,12 @@ public class PingExecutor(string logFilePath)
     private readonly PingDisplay _display = new();
     private readonly PingLogger _logger = new(logFilePath);
 
+    /// <summary>
+    /// Initiates asynchronous pinging process to the specified host with the given timeout.
+    /// </summary>
+    /// <param name="host">The host to ping, can be an IP address or domain.</param>
+    /// <param name="timeout">The timeout value in milliseconds for each ping operation.</param>
+    /// <returns>Returns a Task representing the asynchronous operation.</returns>
     public async Task StartPingingAsync(string host, int timeout)
     {
         Console.CancelKeyPress += (sender, e) =>

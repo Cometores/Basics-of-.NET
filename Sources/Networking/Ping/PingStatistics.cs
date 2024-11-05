@@ -1,5 +1,11 @@
 ﻿namespace Ping;
 
+/// <summary>
+/// Represents a class for storing statistics related to ping operations.
+/// The class includes properties for tracking the number of successful and failed pings,
+/// as well as the total roundtrip time, minimum roundtrip time, maximum roundtrip time,
+/// and average roundtrip time.
+/// </summary>
 public class PingStatistics
 {
     public int SuccessCount { get; private set; }

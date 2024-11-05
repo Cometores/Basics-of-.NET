@@ -2,8 +2,16 @@
 
 namespace Ping;
 
+/// <summary>
+/// Represents a class for displaying the result of ping operations and related statistics.
+/// </summary>
 public class PingDisplay
 {
+    /// <summary>
+    /// Displays the result of a ping operation.
+    /// </summary>
+    /// <param name="reply">The PingReply object containing the result of the ping operation.</param>
+    /// <param name="success">A boolean indicating whether the ping operation was successful or not.</param>
     public void DisplayPingResult(PingReply reply, bool success)
     {
         Console.ForegroundColor = success ? ConsoleColor.Green : ConsoleColor.Red;
@@ -16,6 +24,10 @@ public class PingDisplay
         Console.ResetColor();
     }
 
+    /// <summary>
+    /// Displays an error message on the console in red color.
+    /// </summary>
+    /// <param name="message">The error message to be displayed.</param>
     public void DisplayError(string message)
     {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -23,6 +35,10 @@ public class PingDisplay
         Console.ResetColor();
     }
 
+    /// <summary>
+    /// Displays the statistics of the ping operations including success count, failure count, min, max, and average roundtrip times.
+    /// </summary>
+    /// <param name="statistics">The PingStatistics object containing the statistical information of the ping operations.</param>
     public void DisplayStatistics(PingStatistics statistics)
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
