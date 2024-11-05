@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rename", "Rename\Rename.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ping", "Sources\Networking\Ping\Ping.csproj", "{C4FCC31A-84C4-4135-8364-F61C75B12CB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortScanner", "Sources\Networking\PortScanner\PortScanner.csproj", "{28EA36BE-BB68-4AE8-9676-8E8B3CD98275}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +181,10 @@ Global
 		{C4FCC31A-84C4-4135-8364-F61C75B12CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4FCC31A-84C4-4135-8364-F61C75B12CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4FCC31A-84C4-4135-8364-F61C75B12CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EA36BE-BB68-4AE8-9676-8E8B3CD98275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EA36BE-BB68-4AE8-9676-8E8B3CD98275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EA36BE-BB68-4AE8-9676-8E8B3CD98275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EA36BE-BB68-4AE8-9676-8E8B3CD98275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +215,7 @@ Global
 		{5A3829A9-43C4-4869-8D1B-9638E004CA42} = {37C1DFBB-E687-46B3-B3DA-2611BB1CF4E4}
 		{611FB36B-B5EF-41FC-8801-CFCDCB23D226} = {20B9093B-2DE9-4EE7-ACC8-1296897AB027}
 		{C4FCC31A-84C4-4135-8364-F61C75B12CB6} = {9CFF2EE1-7AF4-451B-B387-708186942130}
+		{28EA36BE-BB68-4AE8-9676-8E8B3CD98275} = {9CFF2EE1-7AF4-451B-B387-708186942130}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A60F337F-C7DA-4DFD-B6FA-1447B3C9678B}
