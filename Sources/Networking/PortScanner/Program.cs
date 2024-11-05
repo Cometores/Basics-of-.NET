@@ -8,7 +8,7 @@ static class Program
         UserInterface userInterface = new UserInterface();
         PortScanner portScanner = new PortScanner();
 
-        List<string> devices = networkDevices.GetDevices();
+        List<(string Ip, string Mac, string Manufacturer)> devices = await networkDevices.GetDevicesAsync();
         if (devices.Count == 0)
         {
             Console.WriteLine("No devices found in the local network.");

@@ -2,7 +2,7 @@
 
 public class UserInterface
 {
-    public string SelectDevice(List<string> devices)
+    public string SelectDevice(List<(string Ip, string Mac, string Manufacturer)> devices)
     {
         int index = 0;
         ConsoleKey key;
@@ -10,8 +10,9 @@ public class UserInterface
         do
         {
             Console.Clear();
-            Console.WriteLine("Select an IP address using the arrow keys:\n");
-
+            Console.WriteLine("{0,-20} {1,-20} {2,-25}", "IP Address", "MAC Address", "Manufacturer");
+            Console.WriteLine(new string('-', 65)); // Разделитель
+            
             for (int i = 0; i < devices.Count; i++)
             {
                 if (i == index)
@@ -20,7 +21,7 @@ public class UserInterface
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
 
-                Console.WriteLine(devices[i]);
+                Console.WriteLine("{0,-20} {1,-20} {2,-25}", devices[i].Ip, devices[i].Mac, devices[i].Manufacturer);
                 Console.ResetColor();
             }
 
@@ -37,7 +38,7 @@ public class UserInterface
 
         } while (key != ConsoleKey.Enter);
 
-        return devices[index];
+        return devices[index].Ip;
     }
 
     public int GetPort(string message)

@@ -4,9 +4,16 @@ namespace PortScanner;
 
 public class NetworkDevices
 {
-    public List<string> GetDevices()
+    private readonly ManufacturerService _manufacturerService;
+
+    public NetworkDevices()
     {
-        var devices = new List<string>();
+        _manufacturerService = new ManufacturerService();
+    }
+
+    public async Task<List<(string Ip, string Mac, string Manufacturer)>> GetDevicesAsync()
+    {
+        var devices = new List<(string Ip, string Mac, string Manufacturer)>();
         Process process = new Process();
         process.StartInfo.FileName = "arp";
         process.StartInfo.Arguments = "-a";
@@ -26,7 +33,9 @@ public class NetworkDevices
                 if (parts.Length >= 2)
                 {
                     var ip = parts[0];
-                    devices.Add(ip);
+                    var mac = parts[1];
+                    var manufacturer = await _manufacturerService.GetManufacturerByMacAsync(mac);
+                    devices.Add((ip, mac, manufacturer));
                 }
             }
         }
