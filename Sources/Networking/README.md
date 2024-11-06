@@ -21,3 +21,10 @@ dotnet run <host> <timeout> <logFilePath>
 - `host`: IP address or domain to ping.
 - `timeout`: Timeout in milliseconds for each ping request (optional, default: 1000ms).
 - `logFilePath`: Path to the log file (optional, default: ping_log.txt).
+
+
+
+
+[//]: # (__________________________________________________________)
+## 2. Port Scanner
+in progress...

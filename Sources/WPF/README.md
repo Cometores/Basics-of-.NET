@@ -7,7 +7,11 @@
 
 
 [//]: # (__________________________________________________________)
-### 6.2. "Chat application" with the help of writing files
+### 6.2. Snake
+in progress...
+
+[//]: # (__________________________________________________________)
+### 6.3. "Chat application" with the help of writing files
 
 #### Task:
 Write an application that writes a text file to a folder and can read its contents.
