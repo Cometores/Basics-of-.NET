@@ -1,41 +1,37 @@
-﻿using System.Net.Sockets;
+﻿using System.Collections.Concurrent;
+using System.Net.Sockets;
 
 namespace PortScanner;
 
 public class PortScanner
 {
-    public async Task<string> ScanPortAsync(string host, int port)
-    {
-        using (var client = new TcpClient())
-        {
-            try
-            {
-                var connectTask = client.ConnectAsync(host, port);
-                var result = await Task.WhenAny(connectTask, Task.Delay(2000)); // 2 seconds timeout
-
-                if (result == connectTask && client.Connected)
-                {
-                    return "Open";
-                }
-                else
-                {
-                    return "Closed";
-                }
-            }
-            catch
-            {
-                return "Error";
-            }
-        }
-    }
+    private ConcurrentBag<(int Port, string Status)> _results = new();
 
     public async Task ScanPortsAsync(string host, int startPort, int endPort)
     {
-        Console.WriteLine($"Scanning {host} from port {startPort} to {endPort}...");
-        for (int port = startPort; port <= endPort; port++)
+        await Parallel.ForEachAsync(
+            Enumerable.Range(startPort, endPort - startPort + 1),
+            new ParallelOptions { MaxDegreeOfParallelism = 10 },
+            async (port, token) =>
+            {
+                string status = await CheckPortAsync(host, port);
+                _results.Add((port, status));
+                Console.WriteLine($"Port {port}: {status}");
+            });
+    }
+
+    private async Task<string> CheckPortAsync(string host, int port)
+    {
+        using var client = new TcpClient();
+        try
         {
-            var result = await ScanPortAsync(host, port);
-            Console.WriteLine($"Port {port}: {result}");
+            var connectTask = client.ConnectAsync(host, port);
+            var result = await Task.WhenAny(connectTask, Task.Delay(2000));
+            return client.Connected ? "Open" : "Closed";
+        }
+        catch
+        {
+            return "Error";
         }
     }
 }
