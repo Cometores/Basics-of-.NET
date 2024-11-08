@@ -5,9 +5,16 @@ namespace PortScanner;
 using Port = (int Number, string Status);
 using DeviceInfo = (string Ip, string Mac, string Manufacturer);
 
+/// <summary>
+/// Represents the user interface for interacting with the port scanner application.
+/// </summary>
 public class UserInterface
 {
-    // Main method to display device list and allow user selection
+    /// <summary>
+    /// Selects a device from a list of DeviceInfo by displaying them in a table and allowing the user to navigate and choose.
+    /// </summary>
+    /// <param name="devices">The list of DeviceInfo representing the available devices to select from.</param>
+    /// <returns>The IP address of the selected device as a string.</returns>
     public string SelectDevice(List<DeviceInfo> devices)
     {
         int selectedIndex = 0;
@@ -21,6 +28,31 @@ public class UserInterface
         } while (key != ConsoleKey.Enter);
 
         return devices[selectedIndex].Ip;
+    }
+
+    /// <summary>
+    /// Gets the range of ports from user input as the start and end port numbers.
+    /// </summary>
+    /// <returns>A tuple containing the start and end port numbers for the port range.</returns>
+    public (int startPort, int endPort) GetPortRange()
+    {
+        int startPort = GetPortInput("Enter start port: ");
+        int endPort = GetPortInput("Enter end port: ");
+        return (startPort, endPort);
+    }
+
+    /// <summary>
+    /// Displays the scanning results in a formatted table by grouping and printing the port ranges and their statuses.
+    /// </summary>
+    /// <param name="results">The concurrent bag of ports with their corresponding statuses to display.</param>
+    public void DisplayResults(ConcurrentBag<Port> results)
+    {
+        Console.Clear();
+        Console.WriteLine("{0,-15} {1}", "Port Range", "Status");
+        Console.WriteLine(new string('-', 30));
+
+        var orderedResults = results.OrderBy(r => r.Number).ToList();
+        GroupAndPrintRanges(orderedResults);
     }
 
     // Helper to display device list in table format
@@ -54,29 +86,10 @@ public class UserInterface
         return index;
     }
 
-    // Gets and parses port input from the user
-    public (int startPort, int endPort) GetPortRange()
-    {
-        int startPort = GetPortInput("Enter start port: ");
-        int endPort = GetPortInput("Enter end port: ");
-        return (startPort, endPort);
-    }
-
     private int GetPortInput(string prompt)
     {
         Console.Write(prompt);
         return int.TryParse(Console.ReadLine(), out var port) ? port : 0;
-    }
-
-    // Display the port scan results with grouped ranges
-    public void DisplayResults(ConcurrentBag<Port> results)
-    {
-        Console.Clear();
-        Console.WriteLine("{0,-15} {1}", "Port Range", "Status");
-        Console.WriteLine(new string('-', 30));
-
-        var orderedResults = results.OrderBy(r => r.Number).ToList();
-        GroupAndPrintRanges(orderedResults);
     }
 
     // Groups results by range and status, printing each range

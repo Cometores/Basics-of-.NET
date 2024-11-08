@@ -1,5 +1,8 @@
 ﻿namespace PortScanner;
 
+/// <summary>
+/// Represents a service for retrieving manufacturer information based on MAC addresses.
+/// </summary>
 public class ManufacturerService
 {
     private readonly HttpClient _httpClient = new();
@@ -12,10 +15,15 @@ public class ManufacturerService
     /// <returns>A string representing the manufacturer associated with the provided MAC address, or "Unknown Manufacturer" if the information is unavailable.</returns>
     public async Task<string> GetManufacturerByMacAsync(string macAddress)
     {
+        if (_cache.TryGetValue(macAddress, out var manufacturer))
+        {
+            return manufacturer;
+        }
+        
         await Task.Delay(1000);
         var response = await _httpClient.GetStringAsync($"https://api.macvendors.com/{macAddress}");
         
-        string manufacturer = !string.IsNullOrEmpty(response) ? response : "Unknown Manufacturer";
+        manufacturer = !string.IsNullOrEmpty(response) ? response : "Unknown Manufacturer";
         _cache[macAddress] = manufacturer;
         
         return manufacturer;

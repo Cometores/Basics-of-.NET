@@ -4,6 +4,9 @@ using ShellProgressBar;
 
 namespace PortScanner;
 
+/// <summary>
+/// Represents a class for scanning a range of ports on a specified host asynchronously.
+/// </summary>
 public class PortScanner
 {
     public readonly ConcurrentBag<(int Port, string Status)> Results = new();
@@ -43,10 +46,11 @@ public class PortScanner
     private async Task<string> CheckPortAsync(string host, int port)
     {
         using var client = new TcpClient();
+        
         try
         {
             var connectTask = client.ConnectAsync(host, port);
-            var result = await Task.WhenAny(connectTask, Task.Delay(2000));
+            await Task.WhenAny(connectTask, Task.Delay(2000));
             return client.Connected ? "Open" : "Closed";
         }
         catch
