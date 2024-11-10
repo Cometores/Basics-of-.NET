@@ -2,7 +2,7 @@
 using System.Net.Sockets;
 using ShellProgressBar;
 
-namespace PortScanner;
+namespace PortScanner.PortScan;
 
 /// <summary>
 /// Represents a class for scanning a range of ports on a specified host asynchronously.
@@ -20,12 +20,11 @@ public class PortScanner
     };
 
     /// <summary>
-    /// Asynchronously scans a range of ports on the specified host and updates the <see cref="ConcurrentBag{T}"/> Results with port status.
+    /// Scans a range of ports on the specified host and updates the <see cref="ConcurrentBag{T}"/> Results with port status.
     /// </summary>
     /// <param name="host">The host to scan ports on.</param>
     /// <param name="startPort">The starting port number of the range to scan.</param>
     /// <param name="endPort">The ending port number of the range to scan.</param>
-    /// <returns>A Task representing the asynchronous operation.</returns>
     public async Task ScanPortsAsync(string host, int startPort, int endPort)
     {
         int totalPorts = endPort - startPort + 1;

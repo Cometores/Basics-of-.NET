@@ -1,4 +1,4 @@
-﻿namespace PortScanner;
+﻿namespace PortScanner.PortScan;
 
 /// <summary>
 /// Represents a service for retrieving manufacturer information based on MAC addresses.

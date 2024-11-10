@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace PortScanner;
+namespace PortScanner.PortScan;
 
 using DeviceInfo = (string Ip, string Mac, string Manufacturer);
 
@@ -27,7 +27,7 @@ public class NetworkDevices
     }
 
     /// <summary>
-    /// Asynchronously retrieves information about network devices within the same subnet by using ARP commands
+    /// Retrieves information about network devices within the same subnet by using ARP commands
     /// and a service to retrieve manufacturer information based on MAC addresses.
     /// </summary>
     /// <returns>A list of DeviceInfo tuples containing IP address, MAC address, and manufacturer information for each

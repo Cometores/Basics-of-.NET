@@ -1,4 +1,6 @@
-﻿namespace PortScanner;
+﻿using PortScanner.PortScan;
+
+namespace PortScanner;
 
 using DeviceInfo = (string Ip, string Mac, string Manufacturer);
 
@@ -6,7 +8,7 @@ public static class Program
 {
     private static readonly NetworkDevices NetworkDevices = new();
     private static readonly UserInterface UserInterface = new();
-    private static readonly PortScanner PortScanner = new();
+    private static readonly PortScan.PortScanner PortScanner = new();
 
     private static async Task Main(string[] args)
     {
