@@ -1,71 +1,80 @@
 ﻿using System.Drawing;
 using System.Threading.Tasks.Dataflow;
+using ImageProcessor.Filters;
 
 namespace ImageProcessor;
 
+#pragma warning disable CA1416
+
 public class ImageProcessor
 {
-    private readonly BufferBlock<string> _bufferBlock = new BufferBlock<string>();
+    private readonly BufferBlock<string> _filePathBuffer = new();
 
-    public async Task ProcessImages(string inputFolder, string outputFolder, bool scale, bool grayscale, bool sepia)
+    public async Task ProcessImages(string inputFolder, string outputFolder, List<IImageFilter> filters, IUserInterface ui)
     {
-        // Список блоков для хранения последовательности обработки
-        var blocks = new List<IDataflowBlock>();
-        
-        // Создаем необходимые блоки и добавляем их в список по порядку
-        if (scale)
-        {
-            var scaleBlock = Transformations.CreateScaleBlock();
-            _bufferBlock.LinkTo(scaleBlock, new DataflowLinkOptions { PropagateCompletion = true });
-            blocks.Add(scaleBlock);
-        }
+        var loadImageBlock = CreateLoadImageBlock();
+        var saveImageBlock = CreateSaveImageBlock(outputFolder, ui);
 
-        if (grayscale)
-        {
-            var grayscaleBlock = Transformations.CreateGrayscaleBlock();
-            LinkLastBlock(blocks, grayscaleBlock);
-            blocks.Add(grayscaleBlock);
-        }
+        LinkProcessingBlocks(loadImageBlock, saveImageBlock, filters);
 
-        if (sepia)
-        {
-            var sepiaBlock = Transformations.CreateSepiaBlock();
-            LinkLastBlock(blocks, sepiaBlock);
-            blocks.Add(sepiaBlock);
-        }
+        _filePathBuffer.LinkTo(loadImageBlock, new DataflowLinkOptions { PropagateCompletion = true });
 
-        // Блок для сохранения изображений
-        var saveBlock = Transformations.CreateSaveBlock(outputFolder);
-        LinkLastBlock(blocks, saveBlock);
+        var files = Directory.GetFiles(inputFolder, "*.png").ToList();
+        ui.DisplayFilesToProcess(files);
 
-        // Передаем файлы в конвейер
-        foreach (var filePath in Directory.GetFiles(inputFolder, "*.png"))
-        {
-            await _bufferBlock.SendAsync(filePath);
-        }
-        _bufferBlock.Complete();
-        await saveBlock.Completion;
+        await SendFilePathsToBuffer(files, ui);
 
-        Console.WriteLine("Обработка изображений завершена.");
+        _filePathBuffer.Complete();
+        await saveImageBlock.Completion;
+
+        ui.ShowCompletionMessage("Обработка изображений завершена.");
     }
 
-    // Вспомогательный метод для связывания блоков
-    private void LinkLastBlock(List<IDataflowBlock> blocks, IDataflowBlock nextBlock)
+    private TransformBlock<string, Bitmap> CreateLoadImageBlock()
     {
-        // Если список блоков пуст, связываем с _bufferBlock
-        if (blocks.Count == 0)
+        return new TransformBlock<string, Bitmap>(filePath => new Bitmap(filePath));
+    }
+
+    private ActionBlock<Bitmap> CreateSaveImageBlock(string outputFolder, IUserInterface ui)
+    {
+        return new ActionBlock<Bitmap>(async image =>
         {
-            var target = nextBlock as ITargetBlock<string>;
-            if (target != null)
-                _bufferBlock.LinkTo(target, new DataflowLinkOptions { PropagateCompletion = true });
-            return;
+            string outputFilePath = Path.Combine(outputFolder, $"{Guid.NewGuid()}.jpg");
+            image.Save(outputFilePath);
+            image.Dispose();
+            ui.ShowFileSavedMessage(outputFilePath);
+        });
+    }
+
+    private void LinkProcessingBlocks(ISourceBlock<Bitmap> loadImageBlock, ITargetBlock<Bitmap> saveImageBlock, List<IImageFilter> filters)
+    {
+        ISourceBlock<Bitmap> currentSourceBlock = loadImageBlock;
+
+        foreach (var filter in filters)
+        {
+            var filterBlock = CreateFilterBlock(filter);
+            currentSourceBlock.LinkTo(filterBlock, new DataflowLinkOptions { PropagateCompletion = true });
+            currentSourceBlock = filterBlock;
         }
 
-        // Иначе связываем последний блок в списке с новым блоком
-        var lastBlock = blocks[^1];
-        if (lastBlock is ISourceBlock<Bitmap> lastBitmapSource && nextBlock is ITargetBlock<Bitmap> nextBitmapTarget)
+        currentSourceBlock.LinkTo(saveImageBlock, new DataflowLinkOptions { PropagateCompletion = true });
+    }
+
+    private TransformBlock<Bitmap, Bitmap> CreateFilterBlock(IImageFilter filter)
+    {
+        return new TransformBlock<Bitmap, Bitmap>(img => filter.Apply(img));
+    }
+
+    private async Task SendFilePathsToBuffer(List<string> files, IUserInterface ui)
+    {
+        int totalFiles = files.Count;
+        int processedFiles = 0;
+
+        foreach (var filePath in files)
         {
-            lastBitmapSource.LinkTo(nextBitmapTarget, new DataflowLinkOptions { PropagateCompletion = true });
+            await _filePathBuffer.SendAsync(filePath);
+            processedFiles++;
+            ui.DisplayProgress(processedFiles, totalFiles);
         }
     }
 }
