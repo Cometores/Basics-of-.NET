@@ -1,4 +1,4 @@
-﻿namespace Ping;
+﻿namespace Ping.Ping;
 
 /// <summary>
 /// Represents a class for logging ping results to a specified file.

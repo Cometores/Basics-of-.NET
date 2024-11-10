@@ -1,4 +1,4 @@
-﻿namespace Ping;
+﻿namespace Ping.Ping;
 
 /// <summary>
 /// Represents a class for storing statistics related to ping operations.

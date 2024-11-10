@@ -1,6 +1,6 @@
 ﻿using System.Net.NetworkInformation;
 
-namespace Ping;
+namespace Ping.Ping;
 
 /// <summary>
 /// Represents a class that executes ping operations asynchronously and displays the results and statistics.
@@ -9,7 +9,6 @@ public class PingExecutor(string logFilePath)
 {
     private readonly System.Net.NetworkInformation.Ping _pingSender = new();
     private readonly PingStatistics _statistics = new();
-    private readonly PingDisplay _display = new();
     private readonly PingLogger _logger = new(logFilePath);
 
     /// <summary>
@@ -20,10 +19,11 @@ public class PingExecutor(string logFilePath)
     /// <returns>Returns a Task representing the asynchronous operation.</returns>
     public async Task StartPingingAsync(string host, int timeout)
     {
+        UserInterface.DisplayCancelCombination();
         Console.CancelKeyPress += (sender, e) =>
         {
             e.Cancel = true;
-            _display.DisplayStatistics(_statistics);
+            UserInterface.DisplayStatistics(_statistics);
             Environment.Exit(0);
         };
 
@@ -42,20 +42,20 @@ public class PingExecutor(string logFilePath)
             if (reply.Status == IPStatus.Success)
             {
                 _statistics.AddSuccess(reply.RoundtripTime);
-                _display.DisplayPingResult(reply, true);
+                UserInterface.DisplayPingResult(reply, true);
                 _logger.LogPingResult($"Reply from {reply.Address}: time={reply.RoundtripTime}ms");
             }
             else
             {
                 _statistics.AddFailure();
-                _display.DisplayPingResult(reply, false);
+                UserInterface.DisplayPingResult(reply, false);
                 _logger.LogPingResult($"Ping failed: {reply.Status}");
             }
         }
         catch (Exception ex)
         {
             _statistics.AddFailure();
-            _display.DisplayError(ex.Message);
+            UserInterface.DisplayError(ex.Message);
             _logger.LogPingResult($"Error: {ex.Message}");
         }
     }
