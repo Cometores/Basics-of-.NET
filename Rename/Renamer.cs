@@ -32,7 +32,7 @@ static class Renamer
 
             if (recursive && Directory.Exists(newPath))
             {
-                RenameItems(newPath, formatter, recursive, getItems, moveItem);
+                RenameFilesAndFolders(newPath, formatter, recursive);
             }
         }
     }

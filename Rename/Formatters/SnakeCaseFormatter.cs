@@ -6,16 +6,16 @@ public class SnakeCaseFormatter : IFormatter
 {
     public string Format(string input)
     {
-        // Отделяем расширение файла, чтобы оставить его в нижнем регистре
+        // Получаем расширение файла
         string extension = Path.GetExtension(input).ToLower();
         string nameWithoutExtension = Path.GetFileNameWithoutExtension(input);
 
-        // Заменяем все пробелы, дефисы и символы подчеркивания на пробелы для разбивки слов
-        nameWithoutExtension = Regex.Replace(nameWithoutExtension, @"[\s_-]+", " ").ToLower();
+        // Используем регулярное выражение для разделения слов на основе переходов от строчных к заглавным
+        nameWithoutExtension = Regex.Replace(nameWithoutExtension, @"([a-z0-9])([A-Z])", "$1_$2");
 
-        // Разбиваем текст на слова, используя пробелы, и соединяем их символом "_"
-        string formattedName = string.Join("_", nameWithoutExtension.Split(' '));
+        // Заменяем пробелы, дефисы и символы подчеркивания на единый символ "_", переводим в нижний регистр
+        nameWithoutExtension = Regex.Replace(nameWithoutExtension, @"[\s_-]+", "_").ToLower();
 
-        return formattedName + extension;
+        return nameWithoutExtension + extension;
     }
 }
