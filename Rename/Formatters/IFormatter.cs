@@ -1,6 +1,6 @@
 ﻿namespace Rename.Formatters;
 
-public interface IFormatStrategy
+public interface IFormatter
 {
     string Format(string input);
 }

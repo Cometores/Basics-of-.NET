@@ -24,18 +24,17 @@ class Program
             return;
         }
         
-        IFormatStrategy strategy = formatType switch
+        IFormatter formatter = formatType switch
         {
             CAMEL_CASE => new CamelCaseFormatter(),
             SNAKE_CASE => new SnakeCaseFormatter(),
             _ => throw new ArgumentException("Unknown formatting type.")
         };
-        Formatter formatter = new(strategy);
 
         Renamer.RenameFilesAndFolders(path, formatter, recursive);
-        Console.WriteLine("The renaming is complete.");
+        Console.WriteLine("The renaming is complete.\n");
 
         // Call the “tree” command to display the structure
-        Renamer.DisplayTreeCommand(path, recursive);
+        Renamer.DisplayTree(path, recursive);
     }
 }

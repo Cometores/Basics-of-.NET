@@ -1,6 +1,6 @@
 ﻿namespace Rename.Formatters;
 
-public class SnakeCaseFormatter : IFormatStrategy
+public class SnakeCaseFormatter : IFormatter
 {
     public string Format(string input)
     {

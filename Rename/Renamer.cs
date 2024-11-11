@@ -1,22 +1,19 @@
-﻿using System.Diagnostics;
-using Rename.Formatters;
+﻿using Rename.Formatters;
 
 namespace Rename;
 
 /// <summary>
-/// Renames files and folders based on a specified format.
-/// Displayes the structure after renaming.
+/// Renames files and folders based on a specified format and displays the structure after renaming.
 /// </summary>
 static class Renamer
 {
     /// <summary>
-    /// Renames files and folders based on a specified format.
-    /// Displaying the structure after renaming.
+    /// Renames files and folders based on a specified format and displays the structure after renaming.
     /// </summary>
-    /// <param name="path">The path to the folder where files and folders will be renamed.</param>
+    /// <param name="path">Path to the folder where files and folders will be renamed.</param>
     /// <param name="formatter">The formatter to apply the renaming format.</param>
     /// <param name="recursive">True if renaming should be done recursively, false otherwise.</param>
-    public static void RenameFilesAndFolders(string path, Formatter formatter, bool recursive)
+    public static void RenameFilesAndFolders(string path, IFormatter formatter, bool recursive)
     {
         RenameItems(path, formatter, recursive, Directory.GetDirectories, Directory.Move);
         RenameItems(path, formatter, recursive, Directory.GetFiles, File.Move);
@@ -27,39 +24,45 @@ static class Renamer
     /// </summary>
     /// <param name="path">The path to the folder whose structure is to be displayed.</param>
     /// <param name="recursive">A boolean indicating whether the command should run recursively within the folder.</param>
-    public static void DisplayTreeCommand(string path, bool recursive)
+    public static void DisplayTree(string path, bool recursive, string indent = "")
     {
-        string command = recursive ? "/c tree /f" : "/c tree";
-
-        var processInfo = new ProcessStartInfo("cmd", $"{command} \"{path}\"")
+        // Вывод пути к корневой директории
+        if (string.IsNullOrEmpty(indent))
         {
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-
-        using var process = Process.Start(processInfo);
+            Console.WriteLine(path);
+        }
         
-        if (process != null)
+        var directories = Directory.GetDirectories(path);
+        var files = Directory.GetFiles(path);
+
+        // Вывод файлов и папок с нужными отступами
+        foreach (var directory in directories)
         {
-            string output = process.StandardOutput.ReadToEnd();
-            var filteredOutput = string.Join("\n", output.Split('\n')
-                .SkipWhile(line => line.StartsWith("Folder PATH listing") || line.StartsWith("Volume")));
-            
-            Console.WriteLine("Result of file and folder structure after renaming:\n");
-            Console.WriteLine(filteredOutput);
+            Console.WriteLine($"{indent}├── {Path.GetFileName(directory)}");
+            if (recursive)
+            {
+                DisplayTree(directory, true, indent + "│   ");
+            }
+        }
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            string prefix = i == files.Length - 1 
+                ? "└──" 
+                : "├──";
+            Console.WriteLine($"{indent}{prefix} {Path.GetFileName(files[i])}");
         }
     }
     
-    private static void RenameItems(string path, Formatter formatter, bool recursive, 
+    private static void RenameItems(string path, IFormatter formatter, bool recursive, 
         Func<string, string[]> getItems, Action<string, string> moveItem)
     {
         foreach (var item in getItems(path))
         {
-            string newName = formatter.ApplyFormat(Path.GetFileName(item));
+            string newName = formatter.Format(Path.GetFileName(item));
             string newPath = Path.Combine(Path.GetDirectoryName(item), newName);
             
-            if (path != newPath)
+            if (item != newPath)
                 moveItem(item, newPath);
 
             if (recursive && Directory.Exists(newPath))

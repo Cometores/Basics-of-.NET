@@ -2,7 +2,7 @@
 
 namespace Rename.Formatters;
 
-public class CamelCaseFormatter : IFormatStrategy
+public class CamelCaseFormatter : IFormatter
 {
     public string Format(string input)
     {
