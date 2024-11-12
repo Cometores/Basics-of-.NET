@@ -48,11 +48,11 @@ Working with the **Windows file system**. Creating, reading and writing files.
 ### 2.1. [File system information](Sources/Files/README.md)
 Output all file extensions inside a folder
 
-### 2.2. [Simple name generator](Sources/Files/README.md)
-Load two files to generate a random name.
-
-### 2.3. [Folder and file renamer](Sources/Files/README.md)
+### 2.2. [Folder and file renamer](Sources/Files/README.md)
 Recursively rename files and folders to the same format.
+
+### 2.3. [Simple name generator](Sources/Files/README.md)
+Load two files to generate a random name.
 
 
 
@@ -77,6 +77,8 @@ Loading bar for downloading files.
 
 ### 4.2. [Grep](Sources/Asynchronous/README.md)
 **"grep"** program, which does almost the same thing `grep(1)` does under Linux.
+
+### 4.2. [Grep](Sources/Asynchronous/README.md)
 
 
 

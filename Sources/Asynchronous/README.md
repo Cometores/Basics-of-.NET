@@ -22,6 +22,7 @@ For this, a main thread will track progress and draw status bar in the console:
 - Application logic - [FileDownload](FileDownload)
 
 
+
 [//]: # (__________________________________________________________)
 ### 2. Grep
 
@@ -44,3 +45,9 @@ for the same strings in files located in that folder and subfolders.
 
 #### The implementation is in the next project:
 - Application logic - [Grep](Grep)
+
+
+
+[//]: # (__________________________________________________________)
+### 3. Image processor
+In progress...

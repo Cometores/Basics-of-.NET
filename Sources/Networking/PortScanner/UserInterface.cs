@@ -81,7 +81,7 @@ public class UserInterface
     {
         if (key == ConsoleKey.UpArrow)
             return (index <= 0) ? itemCount - 1 : index - 1;
-        else if (key == ConsoleKey.DownArrow)
+        if (key == ConsoleKey.DownArrow)
             return (index >= itemCount - 1) ? 0 : index + 1;
         return index;
     }

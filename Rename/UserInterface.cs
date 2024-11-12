@@ -8,29 +8,6 @@ public class UserInterface
     public const string CAMEL_CASE = "CamelCase";
     public const string SNAKE_CASE = "snake_case";
 
-    public string GetFolderPath()
-    {
-        Console.WriteLine("Enter the path to the folder:");
-        return Console.ReadLine() ?? throw new InvalidOperationException("Path cannot be null.");
-    }
-
-    public string GetFormatType()
-    {
-        Console.WriteLine($"Select the type of formatting ({CAMEL_CASE} or {SNAKE_CASE}):");
-        return Console.ReadLine() ?? throw new InvalidOperationException("Format type cannot be null.");
-    }
-
-    public bool GetRecursiveOption()
-    {
-        Console.WriteLine("Rename recursively? (yes/no):");
-        return Console.ReadLine()?.ToLower() == "yes";
-    }
-
-    public void DisplayMessage(string message)
-    {
-        Console.WriteLine(message);
-    }
-
     /// <summary>
     /// Displays the directory structure starting from the given path.
     /// </summary>
@@ -67,4 +44,24 @@ public class UserInterface
             Console.WriteLine($"{indent}{prefix} {Path.GetFileName(files[i])}");
         }
     }
+    
+    public string GetFolderPath()
+    {
+        Console.WriteLine("Enter the path to the folder:");
+        return Console.ReadLine() ?? throw new InvalidOperationException("Path cannot be null.");
+    }
+
+    public string GetFormatType()
+    {
+        Console.WriteLine($"Select the type of formatting ({CAMEL_CASE} or {SNAKE_CASE}):");
+        return Console.ReadLine() ?? throw new InvalidOperationException("Format type cannot be null.");
+    }
+
+    public bool GetRecursiveOption()
+    {
+        Console.WriteLine("Rename recursively? (yes/no):");
+        return Console.ReadLine()?.ToLower() == "yes";
+    }
+
+    public void DisplayMessage(string message) => Console.WriteLine(message);
 }

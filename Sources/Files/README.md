@@ -17,24 +17,10 @@ Write a program with 2 functions:
 - Application logic - [FsInformation](FsInformation)
 
 
-[//]: # (__________________________________________________________)
-## 2. Simple name generator
-**NOT IMPLEMENTED**
-
-#### Task:
-Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt)
-line by line into an array. Then output a random combination of first name and
-last name.
-
-#### Technologies:
-- Console application
-- Reading files
-    - `File.ReadAllLines()`
-    - `StreamReader ReadLine()`
 
 
 [//]: # (__________________________________________________________)
-## 3. Folder and File Renamer
+## 2. Folder and File Renamer
 This program renames folders and files in a specified directory with the chosen formatting style, 
 supporting recursive renaming if needed. Supported formats include **CamelCase** and **snake_case**.
 
@@ -54,7 +40,6 @@ Run the program.
    - **snake_case**
 3. Specify whether renaming should be **recursive** (for nested directories).
 4. The program outputs the final folder and file structure.
-
 
 #### Example:
 ```console
@@ -80,6 +65,23 @@ C:\TestFolder
 - System.IO
 - Strategy design pattern
 
-
 #### Notes for Extending:
 To add new formats, create a new class implementing the `IFormatStrategy` interface and specify the format logic.
+
+
+
+
+[//]: # (__________________________________________________________)
+## 3. Simple name generator
+**NOT IMPLEMENTED**
+
+#### Task:
+Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt)
+line by line into an array. Then output a random combination of first name and
+last name.
+
+#### Technologies:
+- Console application
+- Reading files
+    - `File.ReadAllLines()`
+    - `StreamReader ReadLine()`
