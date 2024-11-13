@@ -11,7 +11,7 @@ public class PortScanner
 {
     public readonly ConcurrentBag<(int Port, string Status)> Results = new();
 
-    readonly ProgressBarOptions _progressBarOptions = new()
+    private readonly ProgressBarOptions _progressBarOptions = new()
     {
         ForegroundColor = ConsoleColor.Cyan,
         ForegroundColorDone = ConsoleColor.Green,

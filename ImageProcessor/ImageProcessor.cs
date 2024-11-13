@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Threading.Tasks.Dataflow;
 using ImageProcessor.Filters;
+using ImageProcessor.UserInterface;
 
 namespace ImageProcessor;
 

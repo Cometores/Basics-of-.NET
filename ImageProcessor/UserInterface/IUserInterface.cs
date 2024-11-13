@@ -1,6 +1,6 @@
 ﻿using ImageProcessor.Filters;
 
-namespace ImageProcessor;
+namespace ImageProcessor.UserInterface;
 
 public interface IUserInterface
 {

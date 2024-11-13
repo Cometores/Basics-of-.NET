@@ -48,7 +48,8 @@ public class UserInterface
     public string GetFolderPath()
     {
         Console.WriteLine("Enter the path to the folder:");
-        return Console.ReadLine() ?? throw new InvalidOperationException("Path cannot be null.");
+        string path = Console.ReadLine() ?? throw new InvalidOperationException("Path cannot be null.");
+        return path.Trim();
     }
 
     public string GetFormatType()

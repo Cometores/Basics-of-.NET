@@ -1,6 +1,6 @@
 ﻿using ImageProcessor.Filters;
 
-namespace ImageProcessor;
+namespace ImageProcessor.UserInterface;
 
 public class ConsoleUI : IUserInterface
 {
@@ -32,7 +32,8 @@ public class ConsoleUI : IUserInterface
     public string GetFolderPath(string prompt)
     {
         Console.WriteLine(prompt);
-        return Console.ReadLine() ?? throw new InvalidOperationException("Неверный путь к папке.");
+        string folderPath = Console.ReadLine() ?? throw new InvalidOperationException("Неверный путь к папке.");
+        return folderPath.Trim();
     }
 
     public List<IImageFilter> GetFiltersFromUser(Dictionary<int, Func<IImageFilter>> availableFilters)

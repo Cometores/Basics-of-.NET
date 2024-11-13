@@ -1,4 +1,5 @@
 ﻿using ImageProcessor.Filters;
+using ImageProcessor.UserInterface;
 
 namespace ImageProcessor;
 
