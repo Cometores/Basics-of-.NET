@@ -4,21 +4,14 @@ namespace ImageProcessor.Filters;
 
 #pragma warning disable CA1416
 
-public class ScaleFilter : IImageFilter
+public class ScaleFilter(float scaleFactor) : IImageFilter
 {
-    private readonly float _scaleFactor;
-
-    public ScaleFilter(float scaleFactor)
-    {
-        _scaleFactor = scaleFactor;
-    }
-
     public Bitmap Apply(Bitmap image)
     {
         var newSize = new Size()
         {
-            Height = (int)(image.Height * _scaleFactor),
-            Width = (int)(image.Width * _scaleFactor)
+            Height = (int)(image.Height * scaleFactor),
+            Width = (int)(image.Width * scaleFactor)
         };
         
         return new Bitmap(image, newSize);

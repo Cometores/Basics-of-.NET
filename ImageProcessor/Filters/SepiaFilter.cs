@@ -4,15 +4,8 @@ namespace ImageProcessor.Filters;
 
 #pragma warning disable CA1416
 
-public class SepiaFilter: IImageFilter
+public class SepiaFilter(float intensity) : IImageFilter
 {
-    private readonly float _intensity;
-
-    public SepiaFilter(float intensity)
-    {
-        _intensity = intensity;
-    }
-
     public Bitmap Apply(Bitmap image)
     {
         var sepiaImage = new Bitmap(image.Width, image.Height);
@@ -30,9 +23,9 @@ public class SepiaFilter: IImageFilter
     private Color GetSepiaValue(Bitmap image, int x, int y)
     {
         var color = image.GetPixel(x, y);
-        int tr = (int)(color.R * (1 + _intensity));
-        int tg = (int)(color.G * (0.769 + _intensity));
-        int tb = (int)(color.B * (0.189 + _intensity));
+        int tr = (int)(color.R * (1 + intensity));
+        int tg = (int)(color.G * (0.769 + intensity));
+        int tb = (int)(color.B * (0.189 + intensity));
 
         return Color.FromArgb(Math.Min(tr, 255), Math.Min(tg, 255), Math.Min(tb, 255));
     }
