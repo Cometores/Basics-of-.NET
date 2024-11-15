@@ -1,20 +1,14 @@
-﻿namespace Rename;
+﻿namespace Rename.UserInterface;
 
-/// <summary>
-/// Represents a user interface for interacting with the user, displaying messages, and handling user inputs for a renaming application.
-/// </summary>
-public class UserInterface
+public abstract class Tree
 {
-    public const string CAMEL_CASE = "CamelCase";
-    public const string SNAKE_CASE = "snake_case";
-
     /// <summary>
     /// Displays the directory structure starting from the given path.
     /// </summary>
     /// <param name="path">The root directory path to start displaying the tree.</param>
     /// <param name="recursive">Boolean flag to indicate if the tree should be displayed recursively.</param>
     /// <param name="indent">Optional parameter for indentation in the tree structure. Default is an empty string.</param>
-    public void DisplayTree(string path, bool recursive, string indent = "")
+    public static void Display(string path, bool recursive, string indent = "")
     {
         // Display the root path, Happens only once
         if (string.IsNullOrEmpty(indent))
@@ -31,7 +25,7 @@ public class UserInterface
             Console.WriteLine($"{indent}├── {Path.GetFileName(directory)}");
             if (recursive)
             {
-                DisplayTree(directory, true, indent + "│   ");
+                Display(directory, true, indent + "│   ");
             }
         }
 
@@ -44,25 +38,4 @@ public class UserInterface
             Console.WriteLine($"{indent}{prefix} {Path.GetFileName(files[i])}");
         }
     }
-    
-    public string GetFolderPath()
-    {
-        Console.WriteLine("Enter the path to the folder:");
-        string path = Console.ReadLine() ?? throw new InvalidOperationException("Path cannot be null.");
-        return path.Trim();
-    }
-
-    public string GetFormatType()
-    {
-        Console.WriteLine($"Select the type of formatting ({CAMEL_CASE} or {SNAKE_CASE}):");
-        return Console.ReadLine() ?? throw new InvalidOperationException("Format type cannot be null.");
-    }
-
-    public bool GetRecursiveOption()
-    {
-        Console.WriteLine("Rename recursively? (yes/no):");
-        return Console.ReadLine()?.ToLower() == "yes";
-    }
-
-    public void DisplayMessage(string message) => Console.WriteLine(message);
 }

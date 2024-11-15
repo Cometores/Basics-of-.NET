@@ -1,32 +1,33 @@
 ﻿using Rename.Formatters;
+using Rename.UserInterface;
 
 namespace Rename;
 
 public static class Program
 {
+    private static readonly Dictionary<string, IFormatter> Formatters = new()
+    {
+        { "CamelCase", new CamelCaseFormatter() },
+        { "snake_case", new SnakeCaseFormatter() }
+    };
+
     private static void Main()
     {
-        UserInterface ui = new UserInterface();
-        
-        string path = ui.GetFolderPath();
+        string path = Selector.GetFolderPath();
         if (!Directory.Exists(path))
         {
-            ui.DisplayMessage("The specified path does not exist.");
+            Console.WriteLine("The specified path does not exist.");
             return;
         }
-        string formatType = ui.GetFormatType();
-        bool recursive = ui.GetRecursiveOption();
-
-        IFormatter formatter = formatType switch
-        {
-            UserInterface.CAMEL_CASE => new CamelCaseFormatter(),
-            UserInterface.SNAKE_CASE => new SnakeCaseFormatter(),
-            _ => throw new ArgumentException("Unknown formatting type.")
-        };
+        
+        string formatType = Table.SelectFormatter(Formatters.Keys.ToList());
+        IFormatter formatter = Formatters[formatType];
+        
+        bool recursive = Selector.GetYesNoInput("Rename recursively?");
 
         Renamer.RenameFilesAndFolders(path, formatter, recursive);
-        ui.DisplayMessage("The renaming is complete.\n");
+        Console.WriteLine("The renaming is complete.\n");
 
-        ui.DisplayTree(path, recursive);
+        Tree.Display(path, recursive);
     }
 }

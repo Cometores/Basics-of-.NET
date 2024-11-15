@@ -22,18 +22,21 @@ static class Renamer
     private static void RenameItems(string path, IFormatter formatter, bool recursive, 
         Func<string, string[]> getItems, Action<string, string> moveItem)
     {
-        foreach (var oldPath in getItems(path))
+        foreach (var oldPath in getItems(path).Where(item => !item.StartsWith('.')))
         {
             string newPath = GetNewPath(formatter, oldPath);
 
             if (oldPath != newPath)
+            {
+                newPath = GetPathWithoutCollision(newPath);
                 moveItem(oldPath, newPath);
+            }
 
             if (recursive && Directory.Exists(newPath))
                 RenameFilesAndFolders(newPath, formatter, recursive);
         }
     }
-
+    
     private static string GetNewPath(IFormatter formatter, string oldPath)
     {
         string directory = Path.GetDirectoryName(oldPath)!;
@@ -41,16 +44,25 @@ static class Renamer
         string originalName = Path.GetFileNameWithoutExtension(oldPath);
         string formattedName = formatter.Format(originalName);
         string newPath = Path.Combine(directory, formattedName + extension);
+        return newPath;
+    }
+    
+
+    private static string GetPathWithoutCollision(string path)
+    {
+        string directory = Path.GetDirectoryName(path)!;
+        string extension = Path.GetExtension(path);
+        string name = Path.GetFileNameWithoutExtension(path);
         
         // Collision check
         int suffix = 1;
-        while ((File.Exists(newPath) && Path.HasExtension(oldPath)) || 
-               (Directory.Exists(newPath) && !Path.HasExtension(oldPath)))
+        while ((File.Exists(path) && Path.HasExtension(path)) || 
+               (Directory.Exists(path) && !Path.HasExtension(path)))
         {
-            newPath = Path.Combine(directory, $"{formattedName}_{suffix}{extension}");
+            path = Path.Combine(directory, $"{name}_{suffix}{extension}");
             suffix++;
         }
 
-        return newPath;
+        return path;
     }
 }

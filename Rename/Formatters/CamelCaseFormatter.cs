@@ -8,9 +8,11 @@ public class CamelCaseFormatter : IFormatter
 {
     public string Format(string input)
     {
-        // Разделяем имя файла и расширение
-        string extension = Path.GetExtension(input).ToLower();
         string nameWithoutExtension = Path.GetFileNameWithoutExtension(input);
+        if (nameWithoutExtension.Contains('-') || nameWithoutExtension.Contains('_'))
+            return input;
+        
+        string extension = Path.GetExtension(input).ToLower();
 
         // Используем регулярное выражение для замены пробелов, дефисов и подчеркиваний на пробелы
         nameWithoutExtension = Regex.Replace(nameWithoutExtension, @"[\s_-]+", " ").ToLower();
