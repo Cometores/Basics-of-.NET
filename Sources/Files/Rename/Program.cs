@@ -29,5 +29,9 @@ public static class Program
         Console.WriteLine("The renaming is complete.\n");
 
         Tree.Display(path, recursive);
+        
+        /*TODO:
+           - Rename: Объединить табличный интерфейс с Пингом для выбора
+           - Починить ошибку с повторным переименованием */
     }
 }

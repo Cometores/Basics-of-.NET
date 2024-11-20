@@ -29,5 +29,11 @@ public static class Program
 
         var imageProcessor = new ImageProcessor();
         await imageProcessor.ProcessImages(inputFolder, outputFolder, filters, ui);
+        
+        /* TODO: Улучшить пользовательский интерфейс
+            - Добавить ещё немного фильтров и короткую документацию к каждому
+            - Добавить возможность изменять другие типы изображений
+            - Улучшить прогресс бар
+            - Сделать README */
     }
 }

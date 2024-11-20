@@ -1,8 +1,7 @@
-# Files
+# File System Operations
 
 [//]: # (__________________________________________________________)
-## 1. File system information
-*.NETFramework v4.8*
+## 1. File System Information
 
 #### Task:
 Write a program with 2 functions:
@@ -16,7 +15,7 @@ Write a program with 2 functions:
 #### The implementation is in the next project:
 - Application logic - [FsInformation](FsInformation)
 
-
+___
 
 
 [//]: # (__________________________________________________________)
@@ -68,20 +67,21 @@ C:\TestFolder
 #### Notes for Extending:
 To add new formats, create a new class implementing the `IFormatStrategy` interface and specify the format logic.
 
+___
 
 
+# 🌱 Future Projects
 
 [//]: # (__________________________________________________________)
-## 3. Simple name generator
-**NOT IMPLEMENTED**
-
-#### Task:
+## 3. Simple Name Generator
 Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt)
 line by line into an array. Then output a random combination of first name and
 last name.
 
-#### Technologies:
-- Console application
-- Reading files
-    - `File.ReadAllLines()`
-    - `StreamReader ReadLine()`
+
+## 4. Duplicate File Finder
+An application to find duplicate files in a specified directory based on name, size or hash.
+
+
+## 5. File Metadata Editor
+An application for reading and editing file metadata, such as EXIF for images.
