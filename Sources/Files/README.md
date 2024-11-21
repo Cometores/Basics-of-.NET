@@ -14,8 +14,7 @@ Write a program with 2 functions:
 
 #### The implementation is in the next project:
 - Application logic - [FsInformation](FsInformation)
-
-___
+<br><br>
 
 
 [//]: # (__________________________________________________________)
@@ -72,16 +71,13 @@ ___
 
 # 🌱 Future Projects
 
-[//]: # (__________________________________________________________)
 ## 3. Simple Name Generator
 Write a program that loads two text files (e.g. Firstname.txt, Lastname.txt)
 line by line into an array. Then output a random combination of first name and
 last name.
 
-
 ## 4. Duplicate File Finder
 An application to find duplicate files in a specified directory based on name, size or hash.
-
 
 ## 5. File Metadata Editor
 An application for reading and editing file metadata, such as EXIF for images.

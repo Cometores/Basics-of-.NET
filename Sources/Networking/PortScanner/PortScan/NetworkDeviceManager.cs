@@ -8,13 +8,13 @@ using DeviceInfo = (string Ip, string Mac, string Manufacturer);
 /// Represents a class for obtaining information about network devices within the same subnet by using ARP commands
 /// and a service to retrieve manufacturer information based on MAC addresses.
 /// </summary>
-public class NetworkDevices
+public class NetworkDeviceManager
 {
     private readonly ManufacturerService _manufacturerService;
     private readonly Process _process;
     private readonly List<DeviceInfo> _devices = [];
 
-    public NetworkDevices()
+    public NetworkDeviceManager()
     {
         _manufacturerService = new ManufacturerService();
 

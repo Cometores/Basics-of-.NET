@@ -15,16 +15,22 @@ public class ManufacturerService
     /// <returns>A string representing the manufacturer associated with the provided MAC address, or "Unknown Manufacturer" if the information is unavailable.</returns>
     public async Task<string> GetManufacturerByMacAsync(string macAddress)
     {
-        if (_cache.TryGetValue(macAddress, out var manufacturer))
+        if (_cache.TryGetValue(macAddress, out string? manufacturer))
         {
             return manufacturer;
         }
         
         await Task.Delay(1000);
-        var response = await _httpClient.GetStringAsync($"https://api.macvendors.com/{macAddress}");
-        
-        manufacturer = !string.IsNullOrEmpty(response) ? response : "Unknown Manufacturer";
-        _cache[macAddress] = manufacturer;
+        try
+        {
+            var response = await _httpClient.GetStringAsync($"https://api.macvendors.com/{macAddress}");
+            manufacturer = !string.IsNullOrEmpty(response) ? response : "Unknown Manufacturer";
+            _cache[macAddress] = manufacturer;
+        }
+        catch (Exception)
+        {
+            manufacturer = "Unknown Manufacturer";
+        }
         
         return manufacturer;
     }

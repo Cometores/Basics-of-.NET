@@ -5,8 +5,6 @@
 This repository is a collection of exercises and projects covering various .NET development areas.
 It's perfect for honing your skills in C# and related technologies.
 
-___
-
 
 
 ## 📂 Structure
@@ -19,8 +17,6 @@ ___
 | **Windows Forms**            | Simple GUI applications showcasing user interactions and controls. | [README](Sources/WindowsForms/README.md) |
 | **WPF**                      | Modern desktop applications with XAML and MVVM patterns.           | [README](Sources/WPF/README.md)          |
 
-___
-
 
 
 ## 🚀 Getting Started
@@ -29,8 +25,6 @@ ___
     git clone https://github.com/Cometores/Basics-of-.NET.git
     ```
 2) Open the solution file in Visual Studio or Rider, select a project, and start exploring!
-
-___
 
 
 
