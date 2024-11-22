@@ -1,9 +1,15 @@
 ﻿namespace DirectoryAnalyzer.Analyzer;
 
+/// <summary>
+/// Represents a directory analyzer that provides methods to analyze the contents of a directory.
+/// </summary>
 public class DirectoryAnalyzer
 {
+    /// <summary>
+    /// Path of the directory being analyzed.
+    /// </summary>
     public string Path { get; }
-
+    
     public DirectoryAnalyzer(string path)
     {
         if (!Directory.Exists(path))
@@ -22,7 +28,7 @@ public class DirectoryAnalyzer
         var searchOption = recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 
         return Directory.EnumerateFiles(Path, "*.*", searchOption)
-            .AsParallel() // Используем параллельную обработку
+            .AsParallel()
             .Select(file => System.IO.Path.GetExtension(file).ToLower())
             .Where(extension => !string.IsNullOrEmpty(extension))
             .Distinct();
@@ -42,7 +48,7 @@ public class DirectoryAnalyzer
         var searchOption = recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 
         var files = Directory.EnumerateFiles(Path, "*.*", searchOption)
-            .AsParallel() // Используем параллельную обработку
+            .AsParallel()
             .Where(file => System.IO.Path.GetExtension(file).Equals(extension, StringComparison.OrdinalIgnoreCase))
             .Select(file => System.IO.Path.GetRelativePath(Path, file))
             .ToList();
@@ -55,23 +61,21 @@ public class DirectoryAnalyzer
     /// </summary>
     /// <param name="recursive">Include subdirectories.</param>
     /// <returns>A collection of file extension sizes.</returns>
-    public IEnumerable<FileExtensionInfo>? GetFileSizesByExtension(bool recursive = false)
+    public IEnumerable<ExtensionInfo>? GetFileSizesByExtension(bool recursive = false)
     {
         var searchOption = recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-
         var files = Directory.EnumerateFiles(Path, "*.*", searchOption).ToList();
 
-        // Используем Task для параллельного подсчета размера файлов
         var groupedExtensions = files
-            .AsParallel() // Используем LINQ с многопоточностью
+            .AsParallel()
             .GroupBy(file => System.IO.Path.GetExtension(file).ToLower())
-            .Select(group => new FileExtensionInfo
+            .Select(group => new ExtensionInfo
             {
-                Extension = group.Key,
-                TotalSize = group.Sum(file => new FileInfo(file).Length),
+                Name = group.Key,
+                Size = group.Sum(file => new FileInfo(file).Length),
                 FileCount = group.Count()
             })
-            .OrderByDescending(info => info.TotalSize)
+            .OrderByDescending(info => info.Size)
             .ToList();
 
         return groupedExtensions;

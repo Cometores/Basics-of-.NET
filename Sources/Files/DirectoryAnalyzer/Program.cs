@@ -3,85 +3,41 @@
 internal static class Program
 {
     private static Analyzer.DirectoryAnalyzer? _directoryAnalyzer;
-    private static string? _dirPath;
 
     private static void Main()
     {
-        WriteGreeting();
+        UserInterface.IO.WriteGreeting();
 
         while (true)
         {
-            _dirPath = DirInput();
+            string directory = UserInterface.IO.ReadDirectory();
 
-            if (string.Equals(_dirPath, "exit", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(directory, "exit", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Goodbye!");
                 return;
             }
 
-            if (Directory.Exists(_dirPath))
+            if (Directory.Exists(directory))
             {
-                WriteLoadSuccess(_dirPath);
-                MainMenu(_dirPath);
+                StartAnalysis(directory);
             }
             else
             {
-                WriteLoadFailed(_dirPath);
+                UserInterface.IO.WriteLoadFailed(directory);
             }
         }
     }
 
-    private static void WriteLoadFailed(string input)
+    private static void StartAnalysis(string directory)
     {
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.Write("Error: The directory '");
-        Console.ResetColor();
-        
-        Console.Write(input);
-        
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine("' does not exist. Please try again.\n");
-        Console.ResetColor();
-    }
-
-    private static void WriteLoadSuccess(string input)
-    {
-        Console.Write($"Directory '{input}' loaded successfully.");
-    }
-
-    private static string DirInput()
-    {
-        Console.Write("Input your directory (or type '");
-
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("exit");
-        Console.ResetColor();
-
-        Console.Write("' to quit): ");
-
-        return Console.ReadLine() ?? string.Empty;
-    }
-
-    private static void WriteGreeting()
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("Welcome to the Directory Analyzer!\n");
-        Console.ResetColor();
-    }
-
-    private static void MainMenu(string input)
-    {
-        _directoryAnalyzer = new Analyzer.DirectoryAnalyzer(input);
+        _directoryAnalyzer = new Analyzer.DirectoryAnalyzer(directory);
+        Console.Clear();
+        UserInterface.IO.WriteLoadSuccess(directory);
 
         while (true)
         {
-            Console.WriteLine("\nChoose an action:");
-            Console.WriteLine("1. Show all file extensions");
-            Console.WriteLine("2. Show files for a specific extension");
-            Console.WriteLine("3. Show disk usage report");
-            Console.WriteLine("4. Change directory");
-            Console.WriteLine("5. Exit");
-            Console.Write("Enter your choice: ");
+            UserInterface.IO.WriteChoosingPrompt();
 
             if (!int.TryParse(Console.ReadLine(), out var choice))
             {
@@ -91,34 +47,41 @@ internal static class Program
 
             try
             {
-                switch (choice)
-                {
-                    case 1:
-                        ShowAllExtensions();
-                        break;
-                    case 2:
-                        ShowFilesForExtension();
-                        break;
-                    case 3:
-                        ShowDiskUsageReport();
-                        break;
-                    case 4:
-                        Console.WriteLine("Returning to directory selection...");
-                        return;
-                    case 5:
-                        Console.WriteLine("Exiting...");
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice. Please try again.");
-                        break;
-                }
+                if (ProcessCommand(choice)) return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+    }
+
+    private static bool ProcessCommand(int choice)
+    {
+        switch (choice)
+        {
+            case 1:
+                ShowAllExtensions();
+                break;
+            case 2:
+                ShowFilesForExtension();
+                break;
+            case 3:
+                ShowDiskUsageReport();
+                break;
+            case 4:
+                Console.WriteLine("Returning to directory selection...");
+                return true;
+            case 5:
+                Console.WriteLine("Exiting...");
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Please try again.");
+                break;
+        }
+
+        return false;
     }
 
     private static void ShowAllExtensions()
@@ -186,6 +149,6 @@ internal static class Program
         }
 
         Console.WriteLine("Disk usage report by extension:");
-        Console.WriteLine(UserInterface.Table.Display(fileSizes));
+        UserInterface.Table.Display(fileSizes.ToList());
     }
 }

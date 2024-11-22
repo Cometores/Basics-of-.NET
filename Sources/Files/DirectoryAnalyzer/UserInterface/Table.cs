@@ -3,40 +3,41 @@ using DirectoryAnalyzer.Analyzer;
 
 namespace DirectoryAnalyzer.UserInterface;
 
+/// <summary>
+/// Provides functionality to display file distribution report in a table format.
+/// </summary>
 public static class Table
 {
-    public static string Display(IEnumerable<FileExtensionInfo>? fileExtensionInfos)
+    /// <summary>
+    /// Displays the file distribution report in a table format.
+    /// </summary>
+    /// <param name="extensionInfos">A list of ExtensionInfo objects containing file size information for each extension.</param>
+    public static void Display(List<ExtensionInfo>? extensionInfos)
     {
-        if (fileExtensionInfos == null)
-            return "No data available to generate a chart.";
-
-        var fileInfoList = fileExtensionInfos.ToList();
-
-        if (fileInfoList.Count == 0)
-            return "No data available to generate a chart.";
-
-        long totalSize = fileInfoList.Sum(info => info.TotalSize);
-
-        var builder = new StringBuilder();
-        builder.AppendLine("File Distribution Report:");
-        builder.AppendLine("-----------------------------------------------");
-        builder.AppendLine("        Ext        |   Count   |  Total Size  |");
-        builder.AppendLine("-----------------------------------------------");
-
-        foreach (var info in fileInfoList)
+        if (extensionInfos == null || extensionInfos.Count == 0)
         {
-            // Генерация строки для текущего расширения
-            builder.AppendLine(
-                $"{info.Extension,-18} | {info.FileCount,8} | {BytesToText(info.TotalSize),13} |"
-            );
+            Console.WriteLine("No data available to generate a table.");
+            return;
         }
 
-        builder.AppendLine("-----------------------------------------------");
-        builder.AppendLine($"Total: {BytesToText(totalSize)} across all extensions.");
-        return builder.ToString();
+        PrintTableHeader();
+
+        long totalSize = 0;
+        foreach (var extension in extensionInfos)
+        {
+            totalSize += extension.Size;
+            Console.WriteLine($"{extension.Name,-18} | {extension.FileCount,8} | {BytesToText(extension.Size),13} |");
+        }
+
+        PrintTableFooter(totalSize);
     }
 
-    public static string BytesToText(long bytes)
+    /// <summary>
+    /// Converts a given number of bytes into a human-readable format with appropriate units (e.g., KB, MB, GB).
+    /// </summary>
+    /// <param name="bytes">The number of bytes to be converted into text.</param>
+    /// <returns>A string representing the given number of bytes in human-readable format with appropriate units.</returns>
+    private static string BytesToText(long bytes)
     {
         string[] units = { "Byte", "KB", "MB", "GB", "TB", "PB" };
         int unitIndex = 0;
@@ -49,5 +50,24 @@ public static class Table
         }
 
         return $"{size:0.00} {units[unitIndex]}";
+    }
+
+    private static void PrintTableFooter(long totalSize)
+    {
+        var builder = new StringBuilder();
+        builder.Clear();
+        builder.AppendLine("-----------------------------------------------");
+        builder.AppendLine($"Total: {BytesToText(totalSize)} across all extensions.");
+        Console.WriteLine(builder.ToString());
+    }
+
+    private static void PrintTableHeader()
+    {
+        var builder = new StringBuilder();
+        builder.AppendLine("File Distribution Report:");
+        builder.AppendLine("-----------------------------------------------");
+        builder.AppendLine("     Extension     |   Count  |   Total Size  |");
+        builder.AppendLine("-----------------------------------------------");
+        Console.Write(builder.ToString());
     }
 }
