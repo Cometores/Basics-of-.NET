@@ -19,6 +19,7 @@
 #### The functionality is divided into 2 projects:
 - Application logic - [Calculator](Calculator)
 - Tests - [CalculatorTests](CalculatorTests)
+<br><br>
 
 
 [//]: # (__________________________________________________________)
@@ -43,6 +44,7 @@ The program will greet the user with 4 functions.
 
 #### The implementation is in the next project:
 - Application logic - [GearFactory](GearFactory)
+  <br><br>
 
 
 [//]: # (__________________________________________________________)
@@ -83,7 +85,12 @@ for each of them.
 
 #### The implementation is in the next project:
 - Application logic - [Vehicles](Vehicles)
+  <br><br>
 
+
+___
+
+# 🌱 Future Projects
 
 [//]: # (__________________________________________________________)
 ## 4. Validation of login forms
@@ -105,6 +112,7 @@ Make two versions of the validation function for:
 
 One variant should use regular expressions, the other - explore a
 string as an array.
+<br><br>
 
 
 [//]: # (__________________________________________________________)

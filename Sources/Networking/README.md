@@ -41,7 +41,7 @@ displaying manufacturer details to enhance device recognition.
 
 #### Features:
 - **Device Selection**: Scans local network for devices, displaying IP, MAC, and manufacturer.
-- Manufacturer Lookup: Queries MAC address details to identify device manufacturers.
+- **Manufacturer Lookup**: Queries MAC address details to identify device manufacturers.
 - **Port Scanning**: Tests for open and closed ports over a specified range.
 - **Progress Visualization**: Displays a progress bar during the scan for real-time feedback.
 - **Detailed Report**: Outputs port status in ranges for easier readability.

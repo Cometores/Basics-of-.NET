@@ -81,3 +81,9 @@ An application to find duplicate files in a specified directory based on name, s
 
 ## 5. File Metadata Editor
 An application for reading and editing file metadata, such as EXIF for images.
+
+## 6. Webp to Gif Converter
+An application that converts animated Webp files to Gif format.
+
+## 7. File En-Decryption
+A program that can encrypt a file and can also decrypt it. 
