@@ -75,7 +75,7 @@ public class DirectoryAnalyzer
                 Size = group.Sum(file => new FileInfo(file).Length),
                 FileCount = group.Count()
             })
-            .OrderByDescending(info => info.Size)
+            .OrderByDescending(extInfo => extInfo.Size)
             .ToList();
 
         return groupedExtensions;

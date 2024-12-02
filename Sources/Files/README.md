@@ -1,20 +1,66 @@
 # File System Operations
 
 [//]: # (__________________________________________________________)
-## 1. File System Information
+## 1. Directory Analyzer
+Simple utility for **analyzing the contents of a directory**. 
+The program provides information about files in a specified directory, including their 
+**extensions**, **sizes**, and **disk space distribution**.
 
-#### Task:
-Write a program with 2 functions:
-1) Output all file extensions inside a folder. The path to the folder must be passed to the function
-2) Output information about all storage devices on your computer in the following format: name, size, available space
+### Features:
+1. **View all unique file extensions in a directory** </br> 
+Displays a list of all unique file extensions found in the specified folder.
+2. **Search for files by specific extension** </br> 
+Allows you to find and list all files with a given extension.
+3. **Disk usage report** </br>
+Generates a text-based report of disk space usage, showing the total number of files and their cumulative size for each extension.
+4. **User-friendly interface** </br>
+The program uses a console-based menu, making it easy to interact and choose actions.
 
-#### Technologies:
-- Console application
-- `DriveInfo` & `DirectoryInfo` & `FileInfo`
+### Usage:
+1. Run the program and specify the directory you want to analyze.
+2. Select the desired action from the menu:
+   1. _Show all file extensions in the directory._
+   2. _Show files for a specific extension._
+   3. _Show a disk usage report._
 
-#### The implementation is in the next project:
-- Application logic - [FsInformation](FsInformation)
+### Example:
+Starting the Program:
+```mathematica
+Input your directory: C:\MyFolder
+
+Choose an action:
+1. Show all file extensions
+2. Show files for a specific extension
+3. Show disk usage report
+4. Change directory
+5. Exit
+Enter your choice:
+```
+
+**Disk Usage Report** example:
+```mathematica
+File Distribution Report:
+-----------------------------------------------
+        Ext        |   Count   |  Total Size  |
+-----------------------------------------------
+.txt              |       12  |      3.25 MB  |
+.jpg              |        7  |     14.67 MB  |
+.png              |       10  |      8.91 MB  |
+-----------------------------------------------
+Total: 26.83 MB across all extensions.
+```
+
+### Benefits:
+- **Performance**: Multithreading accelerates the analysis of large directories.
+- **Convenient interface**: The program is designed to be user-friendly and easy to use via the command line.
+- **Flexibility**: Supports both shallow and recursive analysis of directories.
+
+### Possible Improvements
+- Add support for exporting reports to files (e.g., JSON or CSV format).
+- Extend functionality to filter files by size or last modification date.
+- Enhance the visualization of reports by adding colored text.
 <br><br>
+
 
 
 [//]: # (__________________________________________________________)
@@ -22,7 +68,7 @@ Write a program with 2 functions:
 This program renames folders and files in a specified directory with the chosen formatting style, 
 supporting recursive renaming if needed. Supported formats include **CamelCase** and **snake_case**.
 
-#### Task:
+### Task:
 Recursive or single-level renaming of folders and files.<br>
 Supported formats:
 - **CamelCase** – capitalizes the first letter of each word, removing spaces.
@@ -30,7 +76,7 @@ Supported formats:
 
 Displays the final folder structure using the tree command.
 
-#### Usage:
+### Usage:
 Run the program.
 1. Enter the **directory path**.
 2. Choose the renaming format:
@@ -39,7 +85,7 @@ Run the program.
 3. Specify whether renaming should be **recursive** (for nested directories).
 4. The program outputs the final folder and file structure.
 
-#### Example:
+### Example:
 ```console
 Enter folder path:
 C:\TestFolder
@@ -59,11 +105,11 @@ C:\TestFolder
         NestedFile.png
 ```
 
-#### Technology:
+### Technology:
 - System.IO
 - Strategy design pattern
 
-#### Notes for Extending:
+### Notes for Extending:
 To add new formats, create a new class implementing the `IFormatStrategy` interface and specify the format logic.
 
 ___

@@ -20,7 +20,7 @@ internal static class Program
 
             if (Directory.Exists(directory))
             {
-                StartAnalysis(directory);
+                AnalyseForDir(directory);
             }
             else
             {
@@ -29,7 +29,7 @@ internal static class Program
         }
     }
 
-    private static void StartAnalysis(string directory)
+    private static void AnalyseForDir(string directory)
     {
         _directoryAnalyzer = new Analyzer.DirectoryAnalyzer(directory);
         Console.Clear();

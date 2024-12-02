@@ -42,8 +42,8 @@ ___
 ### 1. File System Operations
 Working with the **Windows file system**. Creating, reading and writing files.
 
-#### 1.1. [File system information](Sources/Files/README.md)
-Output all file extensions inside a folder.
+#### 1.1. [Directory analyzer](Sources/Files/README.md)
+Analyzing the directory contents for space allocation and extension usage.
 
 #### 1.2. [Folder and file renamer](Sources/Files/README.md)
 Recursively rename files and folders to the same format.

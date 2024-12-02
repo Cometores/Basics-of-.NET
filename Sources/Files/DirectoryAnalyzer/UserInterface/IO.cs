@@ -2,6 +2,9 @@
 
 namespace DirectoryAnalyzer.UserInterface;
 
+/// <summary>
+/// Provides input and output functionality for the user interface.
+/// </summary>
 public static class IO
 {
     public static void WriteLoadSuccess(string directory)
