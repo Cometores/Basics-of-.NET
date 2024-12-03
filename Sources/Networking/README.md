@@ -76,3 +76,17 @@ Implement both client and server sides to handle file transfers.
 
 ## 5. HTTP Web Server
 Create a simple HTTP server that can serve static files and handle basic requests.
+
+## 6. Network Monitor
+An application that collects network status information such as active connections, bandwidth utilization, latency, and errors.
+
+## 7. Packet Sniffer
+A Program for intercepting and analyzing network packets with indication of source and destination, as well as decoding HTTP requests.
+
+## 8. Trace Route Visualizer
+A program for visualizing the route of requests (traceroute) on a map. Determines route to a specified IP or domain, 
+shows IP addresses, hosts, delays. Displays route points on a map (using APIs such as Google Maps or OpenStreetMap)
+
+## 9. Intrusion Detection System
+A program for monitoring suspicious activity on a local network. Logs all incoming and outgoing connections and 
+detects unauthorized connections or strange behavior (e.g. large number of requests).

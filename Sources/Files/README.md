@@ -68,7 +68,7 @@ Total: 26.83 MB across all extensions.
 This program renames folders and files in a specified directory with the chosen formatting style, 
 supporting recursive renaming if needed. Supported formats include **CamelCase** and **snake_case**.
 
-### Task:
+### Features:
 Recursive or single-level renaming of folders and files.<br>
 Supported formats:
 - **CamelCase** – capitalizes the first letter of each word, removing spaces.
@@ -133,3 +133,6 @@ An application that converts animated Webp files to Gif format.
 
 ## 7. File En-Decryption
 A program that can encrypt a file and can also decrypt it. 
+
+## 8. ASCII Player
+A program that converts an image or video into a sequence of ASCII characters.
