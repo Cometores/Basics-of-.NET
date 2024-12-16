@@ -12,8 +12,6 @@ public class Grep
     /// </summary>
     /// <param name="path">Absolute path to directory</param>
     /// <param name="query">Search string</param>
-    /// <returns></returns>
-    /// <exception cref="DirectoryNotFoundException"></exception>
     public Task GrepItAsync(string path, string query)
     {
         _searchQuery = query;
@@ -25,10 +23,9 @@ public class Grep
     }
     
     /// <summary>
-    /// Creates new GrepDirectory thread for each directory founded and GrepFile thread for each file.
+    /// Creates new <c>GrepDirectory thread</c> for each directory founded and <c>GrepFile thread</c> for each file.
     /// </summary>
     /// <param name="dir">Directory to grep</param>
-    /// <returns></returns>
     private Task GrepDirectoryAsync(DirectoryInfo dir)
     {
         List<Task> tasks = new();
