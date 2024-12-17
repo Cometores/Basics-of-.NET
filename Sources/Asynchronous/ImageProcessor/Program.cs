@@ -9,31 +9,31 @@ public static class Program
     {
         IUserInterface ui = new ConsoleUI();
 
-        Console.WriteLine("Добро пожаловать в Image Processor!");
+        Console.WriteLine("Welcome to Image Processor!");
 
-        // Получаем папки от пользователя через интерфейс
-        string inputFolder = ui.GetFolderPath("Введите путь к папке с исходными изображениями:");
-        string outputFolder = ui.GetFolderPath("Введите путь к папке для сохранения обработанных изображений:");
+        // Getting folders from the user through the interface
+        string inputFolder = ui.GetFolderPath("Enter the path to the folder containing source images:");
+        string outputFolder = ui.GetFolderPath("Enter the path to the folder for saving processed images:");
 
         // Запрашиваем фильтры
         var availableFilters = new Dictionary<int, Func<IImageFilter>>
         {
             { 1, () => new GrayscaleFilter() },
             { 2, () => new SepiaFilter(0.3f) },
-            { 3, () => new ScaleFilter(0.5f) }, // Пример фильтра изменения размера
+            { 3, () => new ScaleFilter(0.5f) },
             { 4, () => new InvertFilter() },
-            { 5, () => new BrightnessFilter(1.2f) } // Яркость 1.2 для увеличения на 20%
+            { 5, () => new BrightnessFilter(1.2f) } // Brightness 1.2 to increase by 20%
         };
 
         var filters = ui.GetFiltersFromUser(availableFilters);
 
         var imageProcessor = new ImageProcessor();
-        await imageProcessor.ProcessImages(inputFolder, outputFolder, filters, ui);
+        await imageProcessor.ProcessImagesAsync(inputFolder, outputFolder, filters, ui);
         
-        /* TODO: Улучшить пользовательский интерфейс
-            - Добавить ещё немного фильтров и короткую документацию к каждому
-            - Добавить возможность изменять другие типы изображений
-            - Улучшить прогресс бар
-            - Сделать README */
+        /* TODO: Improve the user interface
+            - Add ability to change other image types
+            - Improve progress bar
+            - Arrow filter selection
+            */
     }
 }

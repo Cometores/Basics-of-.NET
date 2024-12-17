@@ -4,24 +4,26 @@ namespace ImageProcessor.Filters;
 
 #pragma warning disable CA1416
 
+/// <summary>
+/// Represents a filter that adjusts the brightness of an image.
+/// </summary>
+/// <param name="brightnessFactor">The factor by which to adjust the brightness of the image.</param>
 public class BrightnessFilter(float brightnessFactor) : IImageFilter
 {
+    /// <inheritdoc/>
     public Bitmap Apply(Bitmap image)
     {
         var brightenedImage = new Bitmap(image.Width, image.Height);
 
         for (int y = 0; y < image.Height; y++)
-        {
-            for (int x = 0; x < image.Width; x++)
-            {
-                ChangePixelBrightness(image, x, y, brightenedImage);
-            }
-        }
+        for (int x = 0; x < image.Width; x++)
+            SetBrightnessForPixel(image, x, y, brightenedImage);
+
 
         return brightenedImage;
     }
 
-    private void ChangePixelBrightness(Bitmap image, int x, int y, Bitmap brightenedImage)
+    private void SetBrightnessForPixel(Bitmap image, int x, int y, Bitmap brightenedImage)
     {
         var originalColor = image.GetPixel(x, y);
 

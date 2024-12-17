@@ -7,11 +7,23 @@ namespace ImageProcessor;
 
 #pragma warning disable CA1416
 
+/// <summary>
+/// Represents an image processing class that applies a list of filters to images.
+/// </summary>
 public class ImageProcessor
 {
     private readonly BufferBlock<string> _filePathBuffer = new();
 
-    public async Task ProcessImages(string inputFolder, string outputFolder, List<IImageFilter> filters, IUserInterface ui)
+    /// <summary>
+    /// Processes images from the specified input folder using the given filters and saves the processed images to the output folder.
+    /// </summary>
+    /// <param name="inputFolder">The path to the input folder containing source images.</param>
+    /// <param name="outputFolder">The path to the output folder for saving processed images.</param>
+    /// <param name="filters">The list of image filters to apply during processing.</param>
+    /// <param name="ui">The user interface for displaying information and progress.</param>
+    /// <returns>Returns a Task representing the asynchronous operation.</returns>
+    public async Task ProcessImagesAsync(string inputFolder, string outputFolder, List<IImageFilter> filters,
+        IUserInterface ui)
     {
         var loadImageBlock = CreateLoadImageBlock();
         var saveImageBlock = CreateSaveImageBlock(outputFolder, ui);
@@ -28,24 +40,20 @@ public class ImageProcessor
         _filePathBuffer.Complete();
         await saveImageBlock.Completion;
 
-        ui.ShowCompletionMessage("Обработка изображений завершена.");
+        ui.ShowCompletionMessage("Image processing is complete.");
     }
 
-    private TransformBlock<string, Bitmap> CreateLoadImageBlock()
-    {
-        return new TransformBlock<string, Bitmap>(filePath => new Bitmap(filePath));
-    }
+    private TransformBlock<string, Bitmap> CreateLoadImageBlock() => new(filePath => new Bitmap(filePath));
+    private TransformBlock<Bitmap, Bitmap> CreateFilterBlock(IImageFilter filter) => new(filter.Apply);
 
-    private ActionBlock<Bitmap> CreateSaveImageBlock(string outputFolder, IUserInterface ui)
-    {
-        return new ActionBlock<Bitmap>(async image =>
+    private ActionBlock<Bitmap> CreateSaveImageBlock(string outputFolder, IUserInterface ui) =>
+        new(image =>
         {
             string outputFilePath = Path.Combine(outputFolder, $"{Guid.NewGuid()}.jpg");
             image.Save(outputFilePath);
             image.Dispose();
             ui.ShowFileSavedMessage(outputFilePath);
         });
-    }
 
     private void LinkProcessingBlocks(ISourceBlock<Bitmap> loadImageBlock, ITargetBlock<Bitmap> saveImageBlock, List<IImageFilter> filters)
     {
@@ -60,12 +68,7 @@ public class ImageProcessor
 
         currentSourceBlock.LinkTo(saveImageBlock, new DataflowLinkOptions { PropagateCompletion = true });
     }
-
-    private TransformBlock<Bitmap, Bitmap> CreateFilterBlock(IImageFilter filter)
-    {
-        return new TransformBlock<Bitmap, Bitmap>(img => filter.Apply(img));
-    }
-
+    
     private async Task SendFilePathsToBuffer(List<string> files, IUserInterface ui)
     {
         int totalFiles = files.Count;
